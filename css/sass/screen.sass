@@ -7,21 +7,132 @@ $dark-gray: #666
 $blue-text: #00A
 
 
+body
+	font-family: Arial, Helvetica, sans-serif
 	
 
 nav
 	display: none
 
+	> ul
+		display: none
+		position: absolute
+		width: 215px
+		top: 56px
+
+		-webkit-border-radius: 0
+		-moz-border-radius: 0
+		border-radius: 0
+
+		-webkit-border-top-right-radius: 9px
+		-webkit-border-bottom-right-radius: 9px
+		-moz-border-radius-topright: 9px
+		-moz-border-radius-bottomright: 9px
+		border-top-right-radius: 9px
+		border-bottom-right-radius: 9px
+
+		li
+			padding: 2px 5px
+
+	&.cur
+		display: block
+
+		> ul
+			left: 0
+
+	&.fixed
+
+		> ul
+			left: -186px
+			display: block
+
+			-webkit-border-radius: 0
+			-moz-border-radius: 0
+			border-radius: 0
+
+			-webkit-border-top-left-radius: 9px
+			-webkit-border-bottom-left-radius: 9px
+			-moz-border-radius-topleft: 9px
+			-moz-border-radius-bottomleft: 9px
+			border-top-left-radius: 9px
+			border-bottom-left-radius: 9px
+
+	&.sect-0 > ul
+		background: url(../images/sect-0-nav-bg.png) repeat-y
+	&.sect-1 > ul
+		background: url(../images/sect-1-nav-bg.png) repeat-y
+
+#side-tabs
+	position: absolute
+	right: -254px
+	top: 290px
+	width: 520px
+	height: 45px
+	z-index: 2
+
+	-moz-transform: rotate(90deg)
+	-o-transform: rotate(90deg)
+	-webkit-transform: rotate(90deg)
+	filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.25)
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.25)"
+
+	li
+		height: 45px
+		float: left
+
+		-webkit-border-top-left-radius: 9px
+		-webkit-border-top-right-radius: 9px
+		-moz-border-radius-topleft: 9px
+		-moz-border-radius-topright: 9px
+		border-top-left-radius: 9px
+		border-top-right-radius: 9px
+
+		font-weight: bold
+		font-size: 14px
+		line-height: 45px
+		text-align: center
+		cursor: pointer
+		
+		color: #fff
+
+
+		&.tab-0
+			background: #0076c3 url(../images/blue-tab.png) repeat-x
+			width: 188px
+
+		&.tab-1
+			background: #b43300 url(../images/orange-tab.png) repeat-x
+			width: 144px
+
+		&.tab-2
+			background: #e69605 url(../images/yellow-tab.png) repeat-x
+			width: 188px
+
+
 #book-wrap
 	margin: 0 auto
 
-#gray-matte
-	background: #666
+#book-matte
+	background: #a0a0a0
+	padding: 29px
+	box-shadow: 5px 5px 5px #777
+	position: relative
+	float: right
+
+#book
+	box-shadow: 5px 5px 5px #666
 
 div.page
-	width: 610px
-	height: 913px
+	width: 494px
+	height: 660px
 	background: #fff
+	border: #3e3e3e 3px solid
+
+	&.cover
+		width: 500px
+		height: 666px
+		border: 0
+		background: url(../images/cover-bg.jpg)
 
 	&.gray-bg
 		background: $dark-gray

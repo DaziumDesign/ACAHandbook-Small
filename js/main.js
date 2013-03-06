@@ -1,24 +1,35 @@
 var appConfig = {
-	pageSize: [900, 600],
+	dimensions: {},
+	modes: {}
+};
 
-	modes:{ //the first one will be default, ordered by lowest priority when conditions are met
-		full: {
-			fullNav: true
-		},
-		minNav: {
-			fullNav: false,
-			maxW: 1100
-		},
-		single: {
-			fullNav: false,
-			bookDouble: false,
-			maxW: 900
-		},
-		scroll: {
-			showBook: false,
-			fullNav: false,
-			maxH: 600
-		}
+
+
+appConfig.dimensions = {
+	navW: 216,
+	mattePadding: 29,
+	page: [500, 666],
+};
+
+//the first one will be default, ordered by lowest priority when conditions are met
+appConfig.modes = { 
+	full: {
+		fullNav: true
+	},
+	minNav: {
+		fullNav: false,
+		maxW: (appConfig.dimensions.page[0]*2) + appConfig.dimensions.navW + appConfig.dimensions.mattePadding
+	},
+	single: {
+		fullNav: false,
+		bookDouble: false,
+		maxW: (appConfig.dimensions.page[0]*2) + (appConfig.dimensions.mattePadding*2)
+	},
+	scroll: {
+		showBook: false,
+		fullNav: false,
+		maxH: appConfig.dimensions.page[1],
+		maxW: appConfig.dimensions.page[0] + (appConfig.dimensions.mattePadding*2)
 	}
 };
 
@@ -29,20 +40,21 @@ var appConfig = {
 			h: $win.height(),
 			w: $win.width()
 		},
-		resizeFuncs = [],
+		resizeFuncs = {},
 		onResize = function(){
 			winD = {
 				h: $win.height(),
 				w: $win.width()
 			};
 
-			$.each(resizeFuncs, function(i, el){
-				el.func.call(el.context);
+			$.each(resizeFuncs, function(id, funcInfo){
+				funcInfo.func.call(funcInfo.context);
 			});
 		},
 
 		app = {
 			$bookwrap: $('#book-wrap'),
+			$bookmatte: $('#book-matte'),
 			$book: $('#book'),
 			$navs: $('nav'),
 			$scroll: false,
@@ -50,6 +62,7 @@ var appConfig = {
 			modes: [],
 			curViewer: false,
 			curMode: false,
+			curSect: 0,
 
 			init: function(config){
 				var app = this;
@@ -64,11 +77,16 @@ var appConfig = {
 				// (since it gets modified by turn.js)
 				this.$scroll = this.$book.clone(false).attr('id', 'scroll');
 
-				resizeFuncs.push({
+				resizeFuncs.appSetMode = {
 					func: this.setMode,
 					context: this
-				});
+				};
 
+				// initialize static dimensions (height)
+				this.config.dimensions.matte = [0, this.config.dimensions.page[1] + (appConfig.dimensions.mattePadding * 2)];
+				this.config.dimensions.wrap = [0, this.config.dimensions.matte[1]];
+
+				// set her up
 				this.setMode();
 			},
 
@@ -89,20 +107,30 @@ var appConfig = {
 
 						// maybe initialize flipbook
 						if(!this.$book.turn('is')){
-							this.$book.turn({
-								autoCenter: true,
-								display: 'double'
-							});
+							this.$book.turn();
+
 						}
 
 						// size dat book
 						if(newMode.settings.bookDouble){
-							this.$book.turn('size', this.config.pageSize[0], this.config.pageSize[1]);
+							this.config.dimensions.bookW = this.config.dimensions.page[0] * 2;
 							this.$book.turn('display', 'double');
 						}else{
-							this.$book.turn('size', Math.floor(this.config.pageSize[0]/2), this.config.pageSize[1]);
+							this.config.dimensions.bookW = this.config.dimensions.page[0];
 							this.$book.turn('display', 'single');
 						}
+						this.config.dimensions.bookH = this.config.dimensions.page[1];
+
+						this.$book.turn('size', this.config.dimensions.bookW, this.config.dimensions.bookH);
+						this.$bookmatte.width(this.config.dimensions.bookW);
+						this.$bookwrap.width((newMode.settings.fullNav * this.config.dimensions.navW) + bookW + this.config.dimensions.mattePadding);
+
+						//nav stuff
+						if(newMode.settings.fullNav)
+							this.$navs.addClass('fixed');
+						else
+							this.$navs.removeClass('fixed');
+
 
 
 						
@@ -122,7 +150,7 @@ var appConfig = {
 							$body.addClass('book').removeClass('scroll');
 
 							// attach book
-							this.$book.appendTo(this.$bookwrap);
+							this.$book.appendTo(this.$bookmatte);
 						}
 
 						this.curViewer = 'book';
