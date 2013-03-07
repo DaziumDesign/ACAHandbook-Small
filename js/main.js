@@ -1,14 +1,18 @@
-var appConfig = {
-	dimensions: {},
-	modes: {}
-};
+var appConfig = {};
 
-
+appConfig.viewport = {
+	gap: [40, 40],
+	content: {
+		'width': 'device-width',
+		'initial-scale': '1',
+		'maximum-scale': '2'
+	}
+}
 
 appConfig.dimensions = {
 	navW: 216,
 	mattePadding: 29,
-	page: [500, 666],
+	page: [500, 666]
 };
 
 //the first one will be default, ordered by lowest priority when conditions are met
@@ -40,16 +44,50 @@ appConfig.modes = {
 			h: $win.height(),
 			w: $win.width()
 		},
-		resizeFuncs = {},
-		onResize = function(){
+
+		setWinD = function(){
 			winD = {
 				h: $win.height(),
 				w: $win.width()
 			};
+		}
 
-			$.each(resizeFuncs, function(id, funcInfo){
-				funcInfo.func.call(funcInfo.context);
-			});
+		resizeHandler = {
+			funcs: [],
+
+			onResize: function(){
+				setWinD();
+				$.each(this.funcs, function(i, funcInfo){
+					funcInfo.f.call(funcInfo.context);
+				});
+			},
+
+			addFunc: function(id, f, context, priority){
+				var newFunc = {
+					id: id,
+					f: f,
+					context: context,
+					priority: priority===undefined ? 10 : priority
+				};
+
+				arrSpot = 0;
+				while(this.funcs[arrSpot]!==undefined && this.funcs[arrSpot].priority <= priority)
+					arrSpot++;
+
+				this.funcs.splice(arrSpot, 0, newFunc);
+
+				console.log(this.funcs);
+			},
+
+			removeFunc: function(id){
+				var rHandler = this;
+				$.each(this.funcs, function(i, el){
+					if(el.id == id){
+						rHandler.funcs.splice(i, 1);
+						return false;
+					}
+				});
+			}
 		},
 
 		app = {
@@ -73,25 +111,31 @@ appConfig.modes = {
 					app.modes.push(new Mode(id, settings, app));
 				});
 
+				// bind resize funcs
+				$win.resize(function(){ resizeHandler.onResize.call(resizeHandler) });
+
 				// clone book contents into scroll for later
 				// (since it gets modified by turn.js)
 				this.$scroll = this.$book.clone(false).attr('id', 'scroll');
 
-				resizeFuncs.appSetMode = {
-					func: this.setMode,
-					context: this
-				};
+				// add setMode to resizeFuncs
+				resizeHandler.addFunc('appSetMode', this.setMode, this, 2);
 
-				// initialize static dimensions (height)
+				resizeHandler.addFunc('viewportScale', this.viewportScale, this, 1);
+
+				// initialize more dimensions
+				this.config.dimensions.book = [0, this.config.dimensions.page[1]];
 				this.config.dimensions.matte = [0, this.config.dimensions.page[1] + (appConfig.dimensions.mattePadding * 2)];
 				this.config.dimensions.wrap = [0, this.config.dimensions.matte[1]];
 
 				// set her up
-				this.setMode();
+				$win.resize();
+
 			},
 
 			setMode: function(){
-				var newMode = this.modes[0];
+				var newMode = this.modes[0],
+					dim = this.config.dimensions;
 
 				$.each(this.modes, function(i, mode){
 					if(mode.isShowable())
@@ -109,21 +153,30 @@ appConfig.modes = {
 						if(!this.$book.turn('is')){
 							this.$book.turn();
 
+							//add classes to each page
+							$('div.page').each(function(i, el){
+								$(el).addClass(i%2 ? 'left' : 'right');
+							});
 						}
 
 						// size dat book
 						if(newMode.settings.bookDouble){
-							this.config.dimensions.bookW = this.config.dimensions.page[0] * 2;
+							dim.book[0] = dim.page[0] * 2;
 							this.$book.turn('display', 'double');
+							$body.removeClass('single').addClass('double');
 						}else{
-							this.config.dimensions.bookW = this.config.dimensions.page[0];
+							dim.book[0] = dim.page[0];
 							this.$book.turn('display', 'single');
+							$body.removeClass('double').addClass('single');
 						}
-						this.config.dimensions.bookH = this.config.dimensions.page[1];
+						this.$book.turn('size', dim.book[0], dim.book[1]);
 
-						this.$book.turn('size', this.config.dimensions.bookW, this.config.dimensions.bookH);
-						this.$bookmatte.width(this.config.dimensions.bookW);
-						this.$bookwrap.width((newMode.settings.fullNav * this.config.dimensions.navW) + bookW + this.config.dimensions.mattePadding);
+						dim.matte[0] = dim.book[0];
+						dim.wrap[0] = (newMode.settings.fullNav * dim.navW) + dim.book[0] + dim.mattePadding;
+
+						this.$bookmatte.width(dim.matte[0]);
+						this.$bookwrap.width(dim.wrap[0]);
+
 
 						//nav stuff
 						if(newMode.settings.fullNav)
@@ -138,6 +191,10 @@ appConfig.modes = {
 							// hide scroller
 							this.$scroll.detach();
 
+							// resize binding
+							resizeHandler.addFunc('viewportScale', this.viewportScale, this, 5);
+							resizeHandler.addFunc('centerVertically', this.centerVertically, this, 10);
+
 							// key bindings
 							$win.on('keydown:book', function(e){
 								if (e.target && e.target.tagName.toLowerCase()!='input')
@@ -150,7 +207,10 @@ appConfig.modes = {
 							$body.addClass('book').removeClass('scroll');
 
 							// attach book
-							this.$book.appendTo(this.$bookmatte);
+							this.$bookwrap.appendTo($body);
+
+							// scale and center it
+							this.centerVertically.call(this);
 						}
 
 						this.curViewer = 'book';
@@ -159,7 +219,12 @@ appConfig.modes = {
 
 						if(this.curViewer != 'scroll'){
 							// hide book
-							this.$book.detach();
+							this.$bookwrap.detach();
+
+							// kill resize binding
+							resizeHandler.removeFunc('centerVertically');
+
+							// kill event listeners
 							$win.off(':book');
 
 							$body.addClass('scroll').removeClass('book');
@@ -174,8 +239,54 @@ appConfig.modes = {
 					this.curMode = newMode;
 				}
 
+			},
+
+			centerVertically: function(){
+				var adjuster;
+
+				if(this.config.viewport.content['width'] == 'device-width')
+					adjuster = this.config.viewport.content['initial-scale'];
+				else
+					adjuster = (winD.w/this.config.viewport.content['width']);
+
+				this.$bookwrap.css('margin-top', Math.floor(((winD.h/2) - this.config.dimensions.wrap[1]/2))/ adjuster );
+			},
+
+			viewportScale: function(){
+				var isPortrait = winD.h > winD.w,
+					newContent = '',
+					hDiff = winD.h - this.config.dimensions.page[1],
+					wDiff = winD.w - this.config.dimensions.page[0];
+
+
+				if(isPortrait){
+					this.config.viewport.content['width'] = this.config.dimensions.page[0] + (this.config.dimensions.mattePadding*2); //Math.floor((winD.w / this.config.dimensions.page[0]) * 10) / 10;
+				}else if(!isPortrait){
+					this.config.viewport.content['width'] = (this.config.dimensions.page[0]*2) + (this.config.dimensions.mattePadding*2);
+				}
+
+				if(this.config.viewport.content['width'] > winD.w){
+					this.config.viewport.content['initial-scale'] = Math.floor(winD.w / this.config.viewport.content['width'] * 10) / 10;
+					this.config.viewport.content['width'] = 'device-width';
+				}
+
+
+				// alert(this.config.viewport.content['initial-scale'] + ' ' + winD.w );
+
+				//update meta tag
+				$.each(this.config.viewport.content, function(i, el){
+					if(el!==false)
+						newContent += i + '=' + el + ', ';
+				});
+				if(newContent.length>0)
+					newContent = newContent.substring(0, newContent.length-2);
+
+				$('meta[name="viewport"]').attr('content', newContent);
+
+				setWinD();
 			}
 		},
+
 
 		Mode = function(id, settings, app){
 			this.app = app;
@@ -197,7 +308,6 @@ appConfig.modes = {
 				(this.settings.maxH!==false && this.settings.maxH > winD.h)
 	};
 
-	$win.resize(onResize);
 
 	app.init(appConfig);
 
