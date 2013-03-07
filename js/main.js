@@ -134,109 +134,103 @@ appConfig.modes = {
 			},
 
 			setMode: function(){
-				var newMode = this.modes[0],
-					dim = this.config.dimensions;
+				var	app = this,
+					newMode = app.modes[0],
+					dim = app.config.dimensions;
 
-				$.each(this.modes, function(i, mode){
+				$.each(app.modes, function(i, mode){
 					if(mode.isShowable())
 						newMode = mode;
 				});
 
-				console.log(this.curMode, newMode);
-
-				if(!this.curMode || this.curMode.id != newMode.id){
-					console.log(this.curMode, newMode);
+				if(!app.curMode || app.curMode.id != newMode.id){
+					console.log(app.curMode, newMode);
 
 					if(newMode.settings.showBook){
 
 						// maybe initialize flipbook
-						if(!this.$book.turn('is')){
-							this.$book.turn();
-
-							//add classes to each page
-							$('div.page').each(function(i, el){
-								$(el).addClass(i%2 ? 'left' : 'right');
-							});
+						if(!app.$book.turn('is')){
+							app.$book.turn();
 						}
 
 						// size dat book
 						if(newMode.settings.bookDouble){
 							dim.book[0] = dim.page[0] * 2;
-							this.$book.turn('display', 'double');
+							app.$book.turn('display', 'double');
 							$body.removeClass('single').addClass('double');
 						}else{
 							dim.book[0] = dim.page[0];
-							this.$book.turn('display', 'single');
+							app.$book.turn('display', 'single');
 							$body.removeClass('double').addClass('single');
 						}
-						this.$book.turn('size', dim.book[0], dim.book[1]);
+						app.$book.turn('size', dim.book[0], dim.book[1]);
 
 						dim.matte[0] = dim.book[0];
 						dim.wrap[0] = (newMode.settings.fullNav * dim.navW) + dim.book[0] + dim.mattePadding;
 
-						this.$bookmatte.width(dim.matte[0]);
-						this.$bookwrap.width(dim.wrap[0]);
+						app.$bookmatte.width(dim.matte[0]);
+						app.$bookwrap.width(dim.wrap[0]);
 
 
 						//nav stuff
 						if(newMode.settings.fullNav)
-							this.$navs.addClass('fixed');
+							app.$navs.addClass('fixed');
 						else
-							this.$navs.removeClass('fixed');
+							app.$navs.removeClass('fixed');
 
 
 
 						
-						if(this.curViewer != 'book'){
+						if(app.curViewer != 'book'){
 							// hide scroller
-							this.$scroll.detach();
+							app.$scroll.detach();
 
 							// resize binding
-							resizeHandler.addFunc('viewportScale', this.viewportScale, this, 5);
-							resizeHandler.addFunc('centerVertically', this.centerVertically, this, 10);
+							resizeHandler.addFunc('viewportScale', app.viewportScale, app, 5);
+							resizeHandler.addFunc('centerVertically', app.centerVertically, app, 10);
 
 							// key bindings
-							$win.on('keydown:book', function(e){
+							$win.on('keydown.book', function(e){
 								if (e.target && e.target.tagName.toLowerCase()!='input')
 									if (e.keyCode==37)
-										$book.turn('previous');
+										app.$book.turn('previous');
 									else if (e.keyCode==39)
-										$book.turn('next');
+										app.$book.turn('next');
 							});
 
 							$body.addClass('book').removeClass('scroll');
 
 							// attach book
-							this.$bookwrap.appendTo($body);
+							app.$bookwrap.appendTo($body);
 
 							// scale and center it
-							this.centerVertically.call(this);
+							app.centerVertically.call(app);
 						}
 
-						this.curViewer = 'book';
+						app.curViewer = 'book';
 
 					}else{
 
-						if(this.curViewer != 'scroll'){
+						if(app.curViewer != 'scroll'){
 							// hide book
-							this.$bookwrap.detach();
+							app.$bookwrap.detach();
 
 							// kill resize binding
 							resizeHandler.removeFunc('centerVertically');
 
 							// kill event listeners
-							$win.off(':book');
+							$win.off('keydown.book');
 
 							$body.addClass('scroll').removeClass('book');
 
 							// attach scroll
-							this.$scroll.appendTo($body);
+							app.$scroll.appendTo($body);
 						}
 
-						this.curViewer = 'scroll';
+						app.curViewer = 'scroll';
 					}
 
-					this.curMode = newMode;
+					app.curMode = newMode;
 				}
 
 			},

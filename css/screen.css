@@ -248,41 +248,150 @@ nav.sect-1 > ul li h2 {
   box-shadow: 5px 5px 5px #666666;
 }
 
-/* line 175, sass/screen.sass */
+/* line 180, sass/screen.sass */
+body.double div.page.even {
+  background: white url(../images/page-middle-left.png) top right repeat-y;
+}
+/* line 183, sass/screen.sass */
+body.double div.page.odd {
+  background: white url(../images/page-middle-right.png) top left repeat-y;
+}
+
+/* line 187, sass/screen.sass */
+.blue-button {
+  border: 2px solid #48b6e2;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  background: #008fce url(../images/blue-button-bg.png) center center repeat-x;
+  padding: 5px 0;
+  width: 245px;
+  display: block;
+  color: white;
+  font-size: 15px;
+  line-height: 16.4px;
+  text-align: center;
+  margin: 12px auto 0;
+}
+/* line 204, sass/screen.sass */
+.blue-button.big {
+  font-size: 17px;
+}
+/* line 207, sass/screen.sass */
+.blue-button.one-line {
+  line-height: 35px;
+  height: 35px;
+  padding: 0;
+}
+
+/* line 215, sass/screen.sass */
 div.page {
   width: 494px;
   height: 660px;
   background: white;
-  border: #3e3e3e 3px solid;
+  color: #444444;
+  position: relative;
 }
-/* line 181, sass/screen.sass */
+/* line 222, sass/screen.sass */
 div.page.cover {
   width: 500px;
   height: 666px;
   border: 0;
   background: url(../images/cover-bg.jpg) !important;
 }
-/* line 187, sass/screen.sass */
+/* line 228, sass/screen.sass */
 div.page.gray-bg {
-  background: #666666 !important;
+  background: #414042 !important;
+  color: white;
 }
-/* line 191, sass/screen.sass */
+/* line 232, sass/screen.sass */
+div.page.gray-bg h3 {
+  color: white;
+}
+/* line 236, sass/screen.sass */
 div.page.intro h2 {
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   text-align: center;
-  color: #0000aa;
+  color: #0093d0;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 13px;
+  margin: 34px 0 15px;
 }
-/* line 197, sass/screen.sass */
+/* line 244, sass/screen.sass */
 div.page.intro h3 {
+  font-weight: bold;
+  font-size: 23px;
+  color: white;
+  line-height: 26.4px;
   text-align: center;
+  margin-bottom: 40px;
+}
+/* line 252, sass/screen.sass */
+div.page.intro p {
+  color: white;
+  text-align: center;
+  margin: 0 auto 15px;
+  font-size: 15px;
+  line-height: 20px;
+  width: 300px;
+}
+/* line 261, sass/screen.sass */
+div.page h3 {
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 22.4px;
+  color: black;
+  margin: 32px 0 15px;
+  padding: 0 35px;
+}
+/* line 269, sass/screen.sass */
+div.page p, div.page li {
+  margin-bottom: 13px;
+  font-size: 13px;
+  line-height: 16.4px;
+  padding: 0 35px;
+}
+/* line 275, sass/screen.sass */
+div.page li {
+  padding: 0;
+}
+/* line 278, sass/screen.sass */
+div.page footer {
+  padding: 0 35px 50px;
+  font-size: 11px;
+  line-height: 12.4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-/* line 201, sass/screen.sass */
-body.double div.page.even {
-  background: white url(../images/page-middle-left.png) top right repeat-y;
+/* line 293, sass/screen.sass */
+div.page.pg-c {
+  background: url(../images/sect-0-feat-photo.jpg) no-repeat;
 }
-/* line 204, sass/screen.sass */
-body.double div.page.odd {
-  background: white url(../images/page-middle-right.png) top left repeat-y;
+/* line 297, sass/screen.sass */
+div.page.pg-d .blue-button {
+  margin-top: 200px;
+}
+/* line 300, sass/screen.sass */
+div.page.pg-e {
+  background: #3e3e3e url(../images/table.png) no-repeat !important;
+}
+/* line 303, sass/screen.sass */
+div.page.pg-e h3 {
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
+  text-align: left;
+  color: white;
+  font-size: 13px;
+  margin: 34px 0 15px;
+  padding: 0 35px;
+}
+/* line 312, sass/screen.sass */
+div.page.pg-f ol {
+  padding: 22px 32px 50px;
+  background: white;
+}
+/* line 316, sass/screen.sass */
+div.page.pg-f ol li {
+  color: #444444 !important;
 }
