@@ -95,12 +95,13 @@ appConfig.modes = {
 			$bookmatte: $('#book-matte'),
 			$book: $('#book'),
 			$navs: $('nav'),
+			$tabs: $('#side-tabs'),
 			$scroll: false,
 
 			modes: [],
 			curViewer: false,
 			curMode: false,
-			curSect: 0,
+			curSect: '',
 
 			init: function(config){
 				var app = this;
@@ -128,7 +129,54 @@ appConfig.modes = {
 				this.config.dimensions.wrap = [0, this.config.dimensions.matte[1]];
 
 				// set her up
+				this.setSect(0, true);
 				$win.resize();
+
+			},
+
+			getSect: function(event, newPage){
+				var classes,
+					curSect,
+					$newPage;
+
+				if(newPage !== undefined){
+					$newPage = $('div.p'+newPage);
+					classes = $newPage.attr('class').split(' ');
+
+					$.each(classes, function(i, el){
+						if(el.substring(0, 4) == 'sect'){
+							curSect = el.substring(5);
+							return false;
+						}
+					});
+				}else{
+					//calculate based on scroll
+					//TODO
+				}
+
+				console.log($newPage);
+				this.setSect(curSect, $newPage.hasClass('show-all-tabs'));
+
+			},
+
+			setSect: function(sect, showAllTabs){
+				//console.log(this.$navs).hasClass('.sect-' + sect));
+				if(showAllTabs)
+					this.$tabs.addClass('show-all');
+				else
+					this.$tabs.removeClass('show-all');
+
+				if(sect !== this.curSect){
+
+					// navs
+					this.$navs.removeClass('cur')
+						.filter('.sect-' + sect).addClass('cur');
+
+					// tabs
+					this.$tabs.removeClass('sect-0 sect-1 sect-2').addClass('sect-' + sect);
+
+					this.curSect = sect;
+				}
 
 			},
 
@@ -145,6 +193,7 @@ appConfig.modes = {
 				if(!app.curMode || app.curMode.id != newMode.id){
 					console.log(app.curMode, newMode);
 
+					// book or scroll?
 					if(newMode.settings.showBook){
 
 						// maybe initialize flipbook
@@ -179,6 +228,11 @@ appConfig.modes = {
 							resizeHandler.addFunc('viewportScale', app.viewportScale, app, 5);
 							resizeHandler.addFunc('centerVertically', app.centerVertically, app, 10);
 
+							// turn binding for cursect
+							app.$book.on('start', function(event, pageObject, corner){
+								app.getSect.call(app, event, pageObject.next)
+							});
+
 							// key bindings
 							$win.on('keydown.book', function(e){
 								if (e.target && e.target.tagName.toLowerCase()!='input')
@@ -210,6 +264,7 @@ appConfig.modes = {
 
 							// kill event listeners
 							$win.off('keydown.book');
+							app.$book.off('start');
 
 							$body.addClass('scroll').removeClass('book');
 

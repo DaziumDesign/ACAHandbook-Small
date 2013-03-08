@@ -161,7 +161,9 @@ nav
 
 	li
 		height: 45px
-		float: left
+		position: absolute
+		top: 0
+		display: none
 
 		-webkit-border-top-left-radius: 9px
 		-webkit-border-top-right-radius: 9px
@@ -182,14 +184,30 @@ nav
 		&.tab-0
 			background: #0076c3 url(../images/blue-tab.png) repeat-x
 			width: 188px
+			left: 0
 
 		&.tab-1
 			background: #b43300 url(../images/orange-tab.png) repeat-x
 			width: 144px
+			left: 189px
 
 		&.tab-2
 			background: #e69605 url(../images/yellow-tab.png) repeat-x
 			width: 188px
+			left: 334px
+
+	&.show-all li
+		display: block
+
+	&.sect-0 li.tab-0
+		display: block
+
+	&.sect-1 li.tab-1
+		display: block
+
+	&.sect-2 li.tab-2
+		display: block
+
 
 
 #book-wrap
