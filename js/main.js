@@ -118,9 +118,8 @@ appConfig.modes = {
 				// (since it gets modified by turn.js)
 				this.$scroll = this.$book.clone(false).attr('id', 'scroll');
 
-				// add setMode to resizeFuncs
+				// add to resizeFuncs
 				resizeHandler.addFunc('appSetMode', this.setMode, this, 2);
-
 				resizeHandler.addFunc('viewportScale', this.viewportScale, this, 1);
 
 				// initialize more dimensions
@@ -170,15 +169,6 @@ appConfig.modes = {
 
 						app.$bookmatte.width(dim.matte[0]);
 						app.$bookwrap.width(dim.wrap[0]);
-
-
-						//nav stuff
-						if(newMode.settings.fullNav)
-							app.$navs.addClass('fixed');
-						else
-							app.$navs.removeClass('fixed');
-
-
 
 						
 						if(app.curViewer != 'book'){
@@ -230,6 +220,34 @@ appConfig.modes = {
 						app.curViewer = 'scroll';
 					}
 
+
+					//nav stuff
+					if(newMode.settings.fullNav){
+
+						app.$navs.prependTo(app.$bookmatte).addClass('fixed')
+							.children('span').hide()
+							.next('ul').show();
+
+						// hide/show listener
+						this.$navs.off('click.hideableNav');
+
+					}else{
+						app.$navs.prependTo($body).removeClass('fixed')
+							.children('span').show()
+							.next('ul').hide();
+
+						// hide/show listener
+						this.$navs.on('click.hideableNav', 'span', function(e){
+							var $el = $(e.currentTarget);
+
+							$el.hide().next('ul').show();
+						}).on('click.hideableNav', 'ul', function(e){
+							var $el = $(e.currentTarget);
+
+							$el.hide().prev('span').show();
+						});
+					}
+
 					app.curMode = newMode;
 				}
 
@@ -243,7 +261,7 @@ appConfig.modes = {
 				else
 					adjuster = (winD.w/this.config.viewport.content['width']);
 
-				this.$bookwrap.css('margin-top', Math.floor(((winD.h/2) - this.config.dimensions.wrap[1]/2))/ adjuster );
+				this.$bookwrap.css('padding-top', Math.floor((((winD.h/2) - this.config.dimensions.wrap[1]/2))/ adjuster ));
 			},
 
 			viewportScale: function(){

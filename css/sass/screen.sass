@@ -12,21 +12,42 @@ body
 	background: #e5e5e5
 
 	&.scroll
-		nav
-			display: none !important
 
 		#side-tabs
 			display: none !important
 	
 
+
 nav
 	display: none
+	z-index: 10
+	position: relative
+
+	> span
+		position: absolute
+		top: 0
+		left: 0
+		display: block
+		width: 215px
+		height: 36px
+		line-height: 36px
+		text-align: center
+
+		-webkit-border-bottom-right-radius: 9px
+		-moz-border-radius-bottomright: 9px
+		border-bottom-right-radius: 9px
+
+		font-size: 16px
+		font-weight: bold
+
+		cursor: pointer
 
 	> ul
 		display: none
 		position: absolute
 		width: 215px
-		top: 56px
+		top: 50px
+		cursor: pointer
 
 		-webkit-border-radius: 0
 		-moz-border-radius: 0
@@ -77,9 +98,14 @@ nav
 			left: 0
 
 	&.fixed
+		position: initial
+
+		> span
+			display: none
 
 		> ul
 			left: -186px
+			top: 56px
 			display: block
 
 			-webkit-border-radius: 0
@@ -93,23 +119,30 @@ nav
 			border-top-left-radius: 9px
 			border-bottom-left-radius: 9px
 
-	&.sect-0 > ul
-		background: url(../images/sect-0-nav-bg.png) repeat-y
 
-		li
-			border-color: #0292cf
+	&.sect-0
+		> ul,
+		> span
+			background: url(../images/sect-0-nav-bg.png) repeat-y
+			color: #0292cf
 
-			h2
-				color: #0292cf
+			li
+				border-color: #0292cf
 
-	&.sect-1 > ul
-		background: url(../images/sect-1-nav-bg.png) repeat-y
+				h2
+					color: #0292cf
 
-		li
-			border-color: #c45e25
+	&.sect-1
+		> ul,
+		> span
+			background: url(../images/sect-1-nav-bg.png) repeat-y
+			color: #c45e25
 
-			h2
-				color: #c45e25
+			li
+				border-color: #c45e25
+
+				h2
+					color: #c45e25
 
 #side-tabs
 	position: absolute
@@ -161,6 +194,7 @@ nav
 
 #book-wrap
 	margin: 0 auto
+	z-index: 5
 
 #book-matte
 	background: #a0a0a0
