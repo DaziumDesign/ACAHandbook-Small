@@ -220,9 +220,12 @@ nav
 	box-shadow: 5px 5px 5px #777
 	position: relative
 	float: right
+	z-index: 1
 
 #book
 	box-shadow: 5px 5px 5px #666
+	position: relative
+	z-index: 1
 
 
 
@@ -242,24 +245,24 @@ body.double div.page
 	-moz-border-radius: 12px
 	border-radius: 12px
 	background: #008fce url(../images/blue-button-bg.png) center center repeat-x
-	padding: 5px 0
+	padding: 5px 0 !important
 	width: 245px
 	display: block
 
 	color: #fff
-	font-size: 15px
-	line-height: 16.4px
+	font-size: 15px !important
+	line-height: 16.4px !important
 	text-align: center
 
-	margin: 12px auto 0
+	margin: 12px auto 0 !important
 
 	&.big
-		font-size: 17px
+		font-size: 17px !important
 
 	&.one-line
-		line-height: 35px
-		height: 35px
-		padding: 0
+		line-height: 35px !important
+		height: 35px !important
+		padding: 0 !important
 
 
 
@@ -291,7 +294,8 @@ div.page
 			color: $blue-text
 			text-transform: uppercase
 			font-size: 13px
-			margin: 34px 0 15px
+			margin: 0 0 15px
+			padding-top: 34px
 
 		h3
 			font-weight: bold
@@ -301,13 +305,12 @@ div.page
 			text-align: center
 			margin-bottom: 40px
 
-		p //TODO: CONFIRM
+		p 
 			color: #fff
 			text-align: center
 			margin: 0 auto 15px
 			font-size: 15px
-			line-height: 20px
-			width: 300px
+			line-height: 22.4px
 
 
 	h3
@@ -315,8 +318,8 @@ div.page
 		font-size: 19px
 		line-height: 22.4px
 		color: #000
-		margin: 32px 0 15px
-		padding: 0 35px
+		margin: 0 0 15px
+		padding: 32px 35px 0
 
 	p, li
 		margin-bottom: 13px
@@ -324,8 +327,17 @@ div.page
 		line-height: 16.4px
 		padding: 0 35px
 
+		strong
+			font-weight: bold
+
+	ul
+		list-style: disc
+		padding: 0 35px
+		margin: -9px 0 13px
+
 	li
 		padding: 0
+		margin: 0 0 3px 14px
 
 	footer
 		padding: 0 35px 50px
@@ -343,30 +355,135 @@ div.page
 //////////////////////
 div.page
 	&.pg-c
-		background: url(../images/sect-0-feat-photo.jpg) no-repeat
+		background: url(../images/sect-0-feat-photo.jpg) no-repeat !important
 
 	&.pg-d
 		.blue-button
-			margin-top: 200px
+			margin-top: 200px !important
 
 	&.pg-e
 		background: #3e3e3e url(../images/table.png) no-repeat !important
 
 		h3
-			font-family: "Arial Black", Arial, Helvetica, sans-serif
 			text-align: left
 			color: #fff
-			font-size: 13px
-			margin: 34px 0 15px
-			padding: 0 35px
 
 	&.pg-f
 		ol
+			margin-top: 22px
 			padding: 22px 32px 50px
 			background: #fff
 
 			li
+				background: url(../images/number-bullets.png) no-repeat
+				font-size: 11px
+				line-height: 12px
 				color: #444 !important
+				padding-left: 28px
+				min-height: 17px
+				margin-bottom: 13px
+
+				&.one
+					background-position: 0 0
+
+				&.two
+					background-position: 0 -87px
+
+				&.three
+					background-position: 0 -122px
+
+				&.four
+					background-position: 0 -182px
+
+				&.five
+					background-position: 0 -228px
+
+				&.six
+					background-position: 0 -288px
+
+				&.seven
+					background-position: 0 -335px
+
+				&.eight
+					background-position: 0 -371px
+
+	&.pg-h.odd
+		background: #0093d0 url(../images/pg-h-bg.png) top right repeat-y !important
+
+		div.top-left
+			width: 272px
+			height: 152px
+			color: #fff !important
+			float: left
+			background: url(../images/pg-h-arrow-bottom.png) bottom center no-repeat
+
+			p
+				padding: 23px 31px 20px
+				margin-bottom: 0
+
+			strong
+				text-transform: uppercase
+				font-size: 19px
+				line-height: 24px
+				font-weight: bold
+				display: block
+
+			ul
+				list-style-position: inside
+				padding-left: 31px
+
+				li
+					padding-bottom: 3px
+					margin-bottom: 0
+
+		div.top-right
+			width: 228px
+			height: 152px
+			color: #0093d0 !important
+			float: right
+
+			p
+				padding: 23px 0 20px 17px
+				margin-bottom: 0
+
+			strong
+				text-transform: uppercase
+				font-size: 19px
+				line-height: 24px
+				font-weight: bold
+
+			.blue-button
+				width: 184px
+				font-size: 15px
+				line-height: 16.4px
+				margin: 0 auto
+
+
+		div.white-part
+			clear: both
+			width: 100%
+			padding: 21px 0
+			background: #fff
+
+			p
+				color: #000
+				font-size: 15px
+				font-weight: bold
+				line-height: 16.4px
+				padding: 0 31px 5px
+				margin-bottom: 0
+
+			ul
+				padding: 0 31px 5px
+				margin: 0 0 13px
+
+				li
+					color: #444
+					font-weight: normal
+					font-size: 13px
+					line-height: 13px
+					padding: 0 0 3px 0
+					margin: 0 0 0 14px
 
 
 

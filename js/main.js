@@ -129,7 +129,8 @@ appConfig.modes = {
 				this.config.dimensions.wrap = [0, this.config.dimensions.matte[1]];
 
 				// set her up
-				this.setSect(0, true);
+				this.setSect(0, true
+					);
 				$win.resize();
 
 			},
