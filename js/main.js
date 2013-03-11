@@ -12,7 +12,9 @@ appConfig.viewport = {
 appConfig.dimensions = {
 	navW: 216,
 	mattePadding: 29,
-	page: [500, 666]
+	page: [500, 666],
+	pageMargins: [32, 35],
+	pageMarginLeaniency: .7 // percentage that we will allow page contents to enter pages' bottom margin 
 };
 
 //the first one will be default, ordered by lowest priority when conditions are met
@@ -75,8 +77,6 @@ appConfig.modes = {
 					arrSpot++;
 
 				this.funcs.splice(arrSpot, 0, newFunc);
-
-				console.log(this.funcs);
 			},
 
 			removeFunc: function(id){
@@ -98,6 +98,7 @@ appConfig.modes = {
 			$tabs: $('#side-tabs'),
 			$scroll: false,
 
+			targetLookup: {},
 			modes: [],
 			curViewer: false,
 			curMode: false,
@@ -115,9 +116,33 @@ appConfig.modes = {
 				// bind resize funcs
 				$win.resize(function(){ resizeHandler.onResize.call(resizeHandler) });
 
+				$body.on('click', 'li[data-target], span[data-target], a[data-target]', function(e){
+					app.gotoPage.call(app, $(e.currentTarget).data('target'));
+				});
+
+				// auto-paginate divs that need it
+				this.autoPaginate();
+
 				// clone book contents into scroll for later
 				// (since it gets modified by turn.js)
 				this.$scroll = this.$book.clone(false).attr('id', 'scroll');
+
+				// build targetLookup directory
+				$('[data-target]').each(function(i, el){
+					var target = el.attributes['data-target'].value,
+						$el;
+
+					if(app.targetLookup[target] !== undefined)
+						return;
+
+					$el = $(target);
+					if(!$el.hasClass('page'))
+						$el = $el.parents('.page');
+
+					app.targetLookup[target] = $el.index() + 1;
+				});
+
+				console.log(app.targetLookup);
 
 				// add to resizeFuncs
 				resizeHandler.addFunc('appSetMode', this.setMode, this, 2);
@@ -129,10 +154,71 @@ appConfig.modes = {
 				this.config.dimensions.wrap = [0, this.config.dimensions.matte[1]];
 
 				// set her up
-				this.setSect(0, true
-					);
+				this.setSect(0, true);
 				$win.resize();
+			},
 
+			autoPaginate: function(){
+				var app = this;
+
+				app.$book.find('.page[data-auto-pagination]').each(function(i, el){
+					var $pgAuto = $(el),
+						$children = $pgAuto.children(),
+						classes,
+						pageNum = 0,
+						$newPageTemplate = $('<div />'),
+						$newPage,
+						breakHeight,
+						curHeight = 0,
+						numberFormat = $pgAuto.attr('data-number-format');
+
+					classes = $pgAuto.attr('class').split(' ');
+					$.each(classes, function(j, c){
+						if(c.search(/^pg-/) == -1)
+							return
+
+						pageNum = c.substring(3);
+						return false;
+					});
+
+					$newPageTemplate.attr('class', classes.join(' ')).removeClass('pg-'+pageNum);
+
+					breakHeight = app.config.dimensions.page[1] - (app.config.dimensions.pageMargins[1]);
+
+					$children.each(function(j, child){
+						var $child = $(child),
+							cMargin,
+							cHeight,
+							formattedPageNum;
+
+						cHeight = $child.outerHeight(true);
+						cMargin = cHeight - $child.outerHeight(false);
+
+						if(curHeight + cHeight - cMargin > breakHeight){
+							$newPage.appendTo($pgAuto);
+
+							pageNum++;
+							curHeight = 0;
+						}
+
+						if(curHeight===0){
+							if(numberFormat=='roman')
+								formattedPageNum = app.util.romanize(pageNum);
+							else
+								formattedPageNum = pageNum;
+							
+							$newPage = $newPageTemplate.clone().addClass('pg-' + formattedPageNum)
+											.append('<div style="height: ' + app.config.dimensions.pageMargins[1] + 'px"></div>');
+						}
+
+						curHeight += cHeight;
+						$child.appendTo($newPage);
+
+					});
+
+					$pgAuto.children().unwrap();
+
+				});
 			},
 
 			getSect: function(event, newPage){
@@ -294,19 +380,32 @@ appConfig.modes = {
 
 						// hide/show listener
 						this.$navs.on('click.hideableNav', 'span', function(e){
-							var $el = $(e.currentTarget);
 
+							var $el = $(e.currentTarget);
 							$el.hide().next('ul').show();
-						}).on('click.hideableNav', 'ul', function(e){
-							var $el = $(e.currentTarget);
 
+						}).on('click.hideableNav', 'ul', function(e){
+
+							var $el = $(e.currentTarget);
 							$el.hide().prev('span').show();
+
 						});
 					}
 
 					app.curMode = newMode;
 				}
 
+			},
+
+			// handles 'data-target' stuff.
+			gotoPage: function(req){
+				if(this.curViewer == 'book')
+					this.$book.turn('page', this.targetLookup[req]);
+				else{
+					$('body, html').animate({
+						scrollTop: $(req).offset().top
+					}, 500);
+				}
 			},
 
 			centerVertically: function(){
@@ -374,6 +473,23 @@ appConfig.modes = {
 	Mode.prototype.isShowable = function(){
 		return	(this.settings.maxW!==false && this.settings.maxW > winD.w) ||
 				(this.settings.maxH!==false && this.settings.maxH > winD.h)
+	};
+
+
+	app.util = {
+		romanize: function(num) {
+			if (!+num)
+				return false;
+			var digits = String(+num).split(''),
+				key = ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM',
+					   '','X','XX','XXX','XL','L','LX','LXX','LXXX','XC',
+					   '','I','II','III','IV','V','VI','VII','VIII','IX'],
+				roman = '',
+				i = 3;
+			while (i--)
+				roman = (key[+digits.pop() + (i * 10)] || '') + roman;
+			return Array(+digits.join('') + 1).join('M') + roman;
+		}
 	};
 
 

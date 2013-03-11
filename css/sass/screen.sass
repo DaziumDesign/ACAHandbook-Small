@@ -15,6 +15,9 @@ body
 
 		#side-tabs
 			display: none !important
+
+		.page
+			margin: 2px auto
 	
 
 
@@ -24,7 +27,7 @@ nav
 	position: relative
 
 	> span
-		position: absolute
+		position: fixed
 		top: 0
 		left: 0
 		display: block
@@ -44,7 +47,7 @@ nav
 
 	> ul
 		display: none
-		position: absolute
+		position: fixed
 		width: 215px
 		top: 50px
 		cursor: pointer
@@ -104,6 +107,7 @@ nav
 			display: none
 
 		> ul
+			position: absolute
 			left: -186px
 			top: 56px
 			display: block
@@ -274,6 +278,7 @@ div.page
 	color: #444
 	position: relative
 
+
 	&.cover
 		width: 500px
 		height: 666px
@@ -321,24 +326,6 @@ div.page
 		margin: 0 0 15px
 		padding: 32px 35px 0
 
-	p, li
-		margin-bottom: 13px
-		font-size: 13px
-		line-height: 16.4px
-		padding: 0 35px
-
-		strong
-			font-weight: bold
-
-	ul
-		list-style: disc
-		padding: 0 35px
-		margin: -9px 0 13px
-
-	li
-		padding: 0
-		margin: 0 0 3px 14px
-
 	footer
 		padding: 0 35px 50px
 		font-size: 11px
@@ -346,6 +333,64 @@ div.page
 		position: absolute
 		bottom: 0
 		left: 0
+
+	ul
+		list-style: disc
+		padding: 0 35px
+		margin: -9px 0 13px
+
+	strong
+		font-weight: bold
+
+	&.sect-0
+
+		p, li
+			margin-bottom: 13px
+			font-size: 13px
+			line-height: 16.4px
+			padding: 0 35px
+
+		li
+			padding: 0
+			margin: 0 0 3px 14px
+
+
+
+	&.sect-1,
+	&.sect-2
+
+		ul
+			margin: -16px 0 20px
+
+		p, li
+			margin-bottom: 20px
+			font-size: 15px
+			line-height: 19px
+			padding: 0 35px
+			clear: both
+			
+		li
+			padding: 0
+			margin: 0 0 3px 14px
+
+		.blue
+			color: #0093d0
+			font-weight: bold
+			display: block
+			margin-bottom: 20px
+			padding: 0 35px
+			line-height: 19px
+
+		div.box
+			background: #e5f4fa
+			float: right
+			width: 363px
+			padding: 20px 22px
+			margin-bottom: 20px
+			margin-right: 32px
+
+			p
+				padding: 0
 
 
 
@@ -484,8 +529,6 @@ div.page
 					line-height: 13px
 					padding: 0 0 3px 0
 					margin: 0 0 0 14px
-
-
 
 
 	
