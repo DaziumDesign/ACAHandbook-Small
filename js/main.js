@@ -14,7 +14,7 @@ appConfig.dimensions = {
 	mattePadding: 29,
 	page: [500, 666],
 	pageMargins: [32, 35],
-	pageMarginLeaniency: .7 // percentage that we will allow page contents to enter pages' bottom margin 
+	pageMarginLeaniency: 1.7 // percentage that we will allow page contents to enter Y margin 
 };
 
 //the first one will be default, ordered by lowest priority when conditions are met
@@ -183,7 +183,7 @@ appConfig.modes = {
 
 					$newPageTemplate.attr('class', classes.join(' ')).removeClass('pg-'+pageNum);
 
-					breakHeight = app.config.dimensions.page[1] - (app.config.dimensions.pageMargins[1]);
+					breakHeight = app.config.dimensions.page[1] - (app.config.dimensions.pageMargins[1] * app.config.dimensions.pageMarginLeaniency);
 
 					$children.each(function(j, child){
 						var $child = $(child),
@@ -194,7 +194,7 @@ appConfig.modes = {
 						cHeight = $child.outerHeight(true);
 						cMargin = cHeight - $child.outerHeight(false);
 
-						if(curHeight + cHeight - cMargin > breakHeight){
+						if(curHeight + cHeight - cMargin > breakHeight || $child.hasClass('page-break')){
 							$newPage.appendTo($pgAuto);
 
 							pageNum++;
@@ -206,7 +206,7 @@ appConfig.modes = {
 								formattedPageNum = app.util.romanize(pageNum);
 							else
 								formattedPageNum = pageNum;
-							
+
 							$newPage = $newPageTemplate.clone().addClass('pg-' + formattedPageNum)
 											.append('<div style="height: ' + app.config.dimensions.pageMargins[1] + 'px"></div>');
 						}

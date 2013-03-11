@@ -439,10 +439,18 @@ div.page.sect-0 li {
   margin: 0 0 3px 14px;
 }
 /* line 362, sass/screen.sass */
-div.page.sect-1 ul, div.page.sect-2 ul {
-  margin: -16px 0 20px;
+div.page.sect-1 h3, div.page.sect-2 h3 {
+  padding-top: 0;
 }
 /* line 365, sass/screen.sass */
+div.page.sect-1 ul, div.page.sect-2 ul {
+  margin: 0 0 20px;
+}
+/* line 367, sass/screen.sass */
+div.page.sect-1 ul.w-p, div.page.sect-2 ul.w-p {
+  margin-top: -16px;
+}
+/* line 370, sass/screen.sass */
 div.page.sect-1 p, div.page.sect-1 li, div.page.sect-2 p, div.page.sect-2 li {
   margin-bottom: 20px;
   font-size: 15px;
@@ -450,12 +458,12 @@ div.page.sect-1 p, div.page.sect-1 li, div.page.sect-2 p, div.page.sect-2 li {
   padding: 0 35px;
   clear: both;
 }
-/* line 372, sass/screen.sass */
+/* line 377, sass/screen.sass */
 div.page.sect-1 li, div.page.sect-2 li {
   padding: 0;
   margin: 0 0 3px 14px;
 }
-/* line 376, sass/screen.sass */
+/* line 381, sass/screen.sass */
 div.page.sect-1 .blue, div.page.sect-2 .blue {
   color: #0093d0;
   font-weight: bold;
@@ -464,7 +472,7 @@ div.page.sect-1 .blue, div.page.sect-2 .blue {
   padding: 0 35px;
   line-height: 19px;
 }
-/* line 384, sass/screen.sass */
+/* line 389, sass/screen.sass */
 div.page.sect-1 div.box, div.page.sect-2 div.box {
   background: #e5f4fa;
   float: right;
@@ -473,35 +481,35 @@ div.page.sect-1 div.box, div.page.sect-2 div.box {
   margin-bottom: 20px;
   margin-right: 32px;
 }
-/* line 392, sass/screen.sass */
+/* line 397, sass/screen.sass */
 div.page.sect-1 div.box p, div.page.sect-2 div.box p {
   padding: 0;
 }
 
-/* line 402, sass/screen.sass */
+/* line 407, sass/screen.sass */
 div.page.pg-c {
   background: url(../images/sect-0-feat-photo.jpg) no-repeat !important;
 }
-/* line 406, sass/screen.sass */
+/* line 411, sass/screen.sass */
 div.page.pg-d .blue-button {
   margin-top: 200px !important;
 }
-/* line 409, sass/screen.sass */
+/* line 414, sass/screen.sass */
 div.page.pg-e {
   background: #3e3e3e url(../images/table.png) no-repeat !important;
 }
-/* line 412, sass/screen.sass */
+/* line 417, sass/screen.sass */
 div.page.pg-e h3 {
   text-align: left;
   color: white;
 }
-/* line 417, sass/screen.sass */
+/* line 422, sass/screen.sass */
 div.page.pg-f ol {
   margin-top: 22px;
   padding: 22px 32px 50px;
   background: white;
 }
-/* line 422, sass/screen.sass */
+/* line 427, sass/screen.sass */
 div.page.pg-f ol li {
   background: url(../images/number-bullets.png) no-repeat;
   font-size: 11px;
@@ -511,43 +519,43 @@ div.page.pg-f ol li {
   min-height: 17px;
   margin-bottom: 13px;
 }
-/* line 431, sass/screen.sass */
+/* line 436, sass/screen.sass */
 div.page.pg-f ol li.one {
   background-position: 0 0;
 }
-/* line 434, sass/screen.sass */
+/* line 439, sass/screen.sass */
 div.page.pg-f ol li.two {
   background-position: 0 -87px;
 }
-/* line 437, sass/screen.sass */
+/* line 442, sass/screen.sass */
 div.page.pg-f ol li.three {
   background-position: 0 -122px;
 }
-/* line 440, sass/screen.sass */
+/* line 445, sass/screen.sass */
 div.page.pg-f ol li.four {
   background-position: 0 -182px;
 }
-/* line 443, sass/screen.sass */
+/* line 448, sass/screen.sass */
 div.page.pg-f ol li.five {
   background-position: 0 -228px;
 }
-/* line 446, sass/screen.sass */
+/* line 451, sass/screen.sass */
 div.page.pg-f ol li.six {
   background-position: 0 -288px;
 }
-/* line 449, sass/screen.sass */
+/* line 454, sass/screen.sass */
 div.page.pg-f ol li.seven {
   background-position: 0 -335px;
 }
-/* line 452, sass/screen.sass */
+/* line 457, sass/screen.sass */
 div.page.pg-f ol li.eight {
   background-position: 0 -371px;
 }
-/* line 455, sass/screen.sass */
+/* line 460, sass/screen.sass */
 div.page.pg-h.odd {
   background: #0093d0 url(../images/pg-h-bg.png) top right repeat-y !important;
 }
-/* line 458, sass/screen.sass */
+/* line 463, sass/screen.sass */
 div.page.pg-h.odd div.top-left {
   width: 272px;
   height: 152px;
@@ -555,12 +563,12 @@ div.page.pg-h.odd div.top-left {
   float: left;
   background: url(../images/pg-h-arrow-bottom.png) bottom center no-repeat;
 }
-/* line 465, sass/screen.sass */
+/* line 470, sass/screen.sass */
 div.page.pg-h.odd div.top-left p {
   padding: 23px 31px 20px;
   margin-bottom: 0;
 }
-/* line 469, sass/screen.sass */
+/* line 474, sass/screen.sass */
 div.page.pg-h.odd div.top-left strong {
   text-transform: uppercase;
   font-size: 19px;
@@ -568,50 +576,50 @@ div.page.pg-h.odd div.top-left strong {
   font-weight: bold;
   display: block;
 }
-/* line 476, sass/screen.sass */
+/* line 481, sass/screen.sass */
 div.page.pg-h.odd div.top-left ul {
   list-style-position: inside;
   padding-left: 31px;
 }
-/* line 480, sass/screen.sass */
+/* line 485, sass/screen.sass */
 div.page.pg-h.odd div.top-left ul li {
   padding-bottom: 3px;
   margin-bottom: 0;
 }
-/* line 484, sass/screen.sass */
+/* line 489, sass/screen.sass */
 div.page.pg-h.odd div.top-right {
   width: 228px;
   height: 152px;
   color: #0093d0 !important;
   float: right;
 }
-/* line 490, sass/screen.sass */
+/* line 495, sass/screen.sass */
 div.page.pg-h.odd div.top-right p {
   padding: 23px 0 20px 17px;
   margin-bottom: 0;
 }
-/* line 494, sass/screen.sass */
+/* line 499, sass/screen.sass */
 div.page.pg-h.odd div.top-right strong {
   text-transform: uppercase;
   font-size: 19px;
   line-height: 24px;
   font-weight: bold;
 }
-/* line 500, sass/screen.sass */
+/* line 505, sass/screen.sass */
 div.page.pg-h.odd div.top-right .blue-button {
   width: 184px;
   font-size: 15px;
   line-height: 16.4px;
   margin: 0 auto;
 }
-/* line 507, sass/screen.sass */
+/* line 512, sass/screen.sass */
 div.page.pg-h.odd div.white-part {
   clear: both;
   width: 100%;
   padding: 21px 0;
   background: white;
 }
-/* line 513, sass/screen.sass */
+/* line 518, sass/screen.sass */
 div.page.pg-h.odd div.white-part p {
   color: black;
   font-size: 15px;
@@ -620,12 +628,12 @@ div.page.pg-h.odd div.white-part p {
   padding: 0 31px 5px;
   margin-bottom: 0;
 }
-/* line 521, sass/screen.sass */
+/* line 526, sass/screen.sass */
 div.page.pg-h.odd div.white-part ul {
   padding: 0 31px 5px;
   margin: 0 0 13px;
 }
-/* line 525, sass/screen.sass */
+/* line 530, sass/screen.sass */
 div.page.pg-h.odd div.white-part ul li {
   color: #444444;
   font-weight: normal;
