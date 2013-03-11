@@ -371,8 +371,13 @@ div.page.gray-bg {
 div.page.gray-bg h3 {
   color: white;
 }
-/* line 296, sass/screen.sass */
-div.page.intro h2 {
+/* line 295, sass/screen.sass */
+div.page.cover img {
+  margin: 0 auto;
+  display: block;
+}
+/* line 301, sass/screen.sass */
+div.page.intro h2, div.page.cover h2 {
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
   text-align: center;
   color: #0093d0;
@@ -381,8 +386,8 @@ div.page.intro h2 {
   margin: 0 0 15px;
   padding-top: 34px;
 }
-/* line 305, sass/screen.sass */
-div.page.intro h3 {
+/* line 310, sass/screen.sass */
+div.page.intro h3, div.page.cover h3 {
   font-weight: bold;
   font-size: 23px;
   color: white;
@@ -390,15 +395,15 @@ div.page.intro h3 {
   text-align: center;
   margin-bottom: 40px;
 }
-/* line 313, sass/screen.sass */
-div.page.intro p {
+/* line 318, sass/screen.sass */
+div.page.intro p, div.page.cover p {
   color: white;
   text-align: center;
   margin: 0 auto 15px;
   font-size: 15px;
   line-height: 22.4px;
 }
-/* line 321, sass/screen.sass */
+/* line 326, sass/screen.sass */
 div.page h3 {
   font-weight: bold;
   font-size: 19px;
@@ -407,7 +412,7 @@ div.page h3 {
   margin: 0 0 15px;
   padding: 32px 35px 0;
 }
-/* line 329, sass/screen.sass */
+/* line 334, sass/screen.sass */
 div.page footer {
   padding: 0 35px 50px;
   font-size: 11px;
@@ -416,41 +421,41 @@ div.page footer {
   bottom: 0;
   left: 0;
 }
-/* line 337, sass/screen.sass */
+/* line 342, sass/screen.sass */
 div.page ul {
   list-style: disc;
   padding: 0 35px;
   margin: -9px 0 13px;
 }
-/* line 342, sass/screen.sass */
+/* line 347, sass/screen.sass */
 div.page strong {
   font-weight: bold;
 }
-/* line 347, sass/screen.sass */
+/* line 352, sass/screen.sass */
 div.page.sect-0 p, div.page.sect-0 li {
   margin-bottom: 13px;
   font-size: 13px;
   line-height: 16.4px;
   padding: 0 35px;
 }
-/* line 353, sass/screen.sass */
+/* line 358, sass/screen.sass */
 div.page.sect-0 li {
   padding: 0;
   margin: 0 0 3px 14px;
 }
-/* line 362, sass/screen.sass */
+/* line 367, sass/screen.sass */
 div.page.sect-1 h3, div.page.sect-2 h3 {
   padding-top: 0;
 }
-/* line 365, sass/screen.sass */
+/* line 370, sass/screen.sass */
 div.page.sect-1 ul, div.page.sect-2 ul {
   margin: 0 0 20px;
 }
-/* line 367, sass/screen.sass */
+/* line 372, sass/screen.sass */
 div.page.sect-1 ul.w-p, div.page.sect-2 ul.w-p {
   margin-top: -16px;
 }
-/* line 370, sass/screen.sass */
+/* line 375, sass/screen.sass */
 div.page.sect-1 p, div.page.sect-1 li, div.page.sect-2 p, div.page.sect-2 li {
   margin-bottom: 20px;
   font-size: 15px;
@@ -458,12 +463,12 @@ div.page.sect-1 p, div.page.sect-1 li, div.page.sect-2 p, div.page.sect-2 li {
   padding: 0 35px;
   clear: both;
 }
-/* line 377, sass/screen.sass */
+/* line 382, sass/screen.sass */
 div.page.sect-1 li, div.page.sect-2 li {
   padding: 0;
   margin: 0 0 3px 14px;
 }
-/* line 381, sass/screen.sass */
+/* line 386, sass/screen.sass */
 div.page.sect-1 .blue, div.page.sect-2 .blue {
   color: #0093d0;
   font-weight: bold;
@@ -472,7 +477,7 @@ div.page.sect-1 .blue, div.page.sect-2 .blue {
   padding: 0 35px;
   line-height: 19px;
 }
-/* line 389, sass/screen.sass */
+/* line 394, sass/screen.sass */
 div.page.sect-1 div.box, div.page.sect-2 div.box {
   background: #e5f4fa;
   float: right;
@@ -481,35 +486,35 @@ div.page.sect-1 div.box, div.page.sect-2 div.box {
   margin-bottom: 20px;
   margin-right: 32px;
 }
-/* line 397, sass/screen.sass */
+/* line 402, sass/screen.sass */
 div.page.sect-1 div.box p, div.page.sect-2 div.box p {
   padding: 0;
 }
 
-/* line 407, sass/screen.sass */
+/* line 412, sass/screen.sass */
 div.page.pg-c {
   background: url(../images/sect-0-feat-photo.jpg) no-repeat !important;
 }
-/* line 411, sass/screen.sass */
+/* line 416, sass/screen.sass */
 div.page.pg-d .blue-button {
   margin-top: 200px !important;
 }
-/* line 414, sass/screen.sass */
+/* line 419, sass/screen.sass */
 div.page.pg-e {
   background: #3e3e3e url(../images/table.png) no-repeat !important;
 }
-/* line 417, sass/screen.sass */
+/* line 422, sass/screen.sass */
 div.page.pg-e h3 {
   text-align: left;
   color: white;
 }
-/* line 422, sass/screen.sass */
+/* line 427, sass/screen.sass */
 div.page.pg-f ol {
   margin-top: 22px;
   padding: 22px 32px 50px;
   background: white;
 }
-/* line 427, sass/screen.sass */
+/* line 432, sass/screen.sass */
 div.page.pg-f ol li {
   background: url(../images/number-bullets.png) no-repeat;
   font-size: 11px;
@@ -519,43 +524,43 @@ div.page.pg-f ol li {
   min-height: 17px;
   margin-bottom: 13px;
 }
-/* line 436, sass/screen.sass */
+/* line 441, sass/screen.sass */
 div.page.pg-f ol li.one {
   background-position: 0 0;
 }
-/* line 439, sass/screen.sass */
+/* line 444, sass/screen.sass */
 div.page.pg-f ol li.two {
   background-position: 0 -87px;
 }
-/* line 442, sass/screen.sass */
+/* line 447, sass/screen.sass */
 div.page.pg-f ol li.three {
   background-position: 0 -122px;
 }
-/* line 445, sass/screen.sass */
+/* line 450, sass/screen.sass */
 div.page.pg-f ol li.four {
   background-position: 0 -182px;
 }
-/* line 448, sass/screen.sass */
+/* line 453, sass/screen.sass */
 div.page.pg-f ol li.five {
   background-position: 0 -228px;
 }
-/* line 451, sass/screen.sass */
+/* line 456, sass/screen.sass */
 div.page.pg-f ol li.six {
   background-position: 0 -288px;
 }
-/* line 454, sass/screen.sass */
+/* line 459, sass/screen.sass */
 div.page.pg-f ol li.seven {
   background-position: 0 -335px;
 }
-/* line 457, sass/screen.sass */
+/* line 462, sass/screen.sass */
 div.page.pg-f ol li.eight {
   background-position: 0 -371px;
 }
-/* line 460, sass/screen.sass */
+/* line 465, sass/screen.sass */
 div.page.pg-h.odd {
   background: #0093d0 url(../images/pg-h-bg.png) top right repeat-y !important;
 }
-/* line 463, sass/screen.sass */
+/* line 468, sass/screen.sass */
 div.page.pg-h.odd div.top-left {
   width: 272px;
   height: 152px;
@@ -563,12 +568,12 @@ div.page.pg-h.odd div.top-left {
   float: left;
   background: url(../images/pg-h-arrow-bottom.png) bottom center no-repeat;
 }
-/* line 470, sass/screen.sass */
+/* line 475, sass/screen.sass */
 div.page.pg-h.odd div.top-left p {
   padding: 23px 31px 20px;
   margin-bottom: 0;
 }
-/* line 474, sass/screen.sass */
+/* line 479, sass/screen.sass */
 div.page.pg-h.odd div.top-left strong {
   text-transform: uppercase;
   font-size: 19px;
@@ -576,50 +581,50 @@ div.page.pg-h.odd div.top-left strong {
   font-weight: bold;
   display: block;
 }
-/* line 481, sass/screen.sass */
+/* line 486, sass/screen.sass */
 div.page.pg-h.odd div.top-left ul {
   list-style-position: inside;
   padding-left: 31px;
 }
-/* line 485, sass/screen.sass */
+/* line 490, sass/screen.sass */
 div.page.pg-h.odd div.top-left ul li {
   padding-bottom: 3px;
   margin-bottom: 0;
 }
-/* line 489, sass/screen.sass */
+/* line 494, sass/screen.sass */
 div.page.pg-h.odd div.top-right {
   width: 228px;
   height: 152px;
   color: #0093d0 !important;
   float: right;
 }
-/* line 495, sass/screen.sass */
+/* line 500, sass/screen.sass */
 div.page.pg-h.odd div.top-right p {
   padding: 23px 0 20px 17px;
   margin-bottom: 0;
 }
-/* line 499, sass/screen.sass */
+/* line 504, sass/screen.sass */
 div.page.pg-h.odd div.top-right strong {
   text-transform: uppercase;
   font-size: 19px;
   line-height: 24px;
   font-weight: bold;
 }
-/* line 505, sass/screen.sass */
+/* line 510, sass/screen.sass */
 div.page.pg-h.odd div.top-right .blue-button {
   width: 184px;
   font-size: 15px;
   line-height: 16.4px;
   margin: 0 auto;
 }
-/* line 512, sass/screen.sass */
+/* line 517, sass/screen.sass */
 div.page.pg-h.odd div.white-part {
   clear: both;
   width: 100%;
   padding: 21px 0;
   background: white;
 }
-/* line 518, sass/screen.sass */
+/* line 523, sass/screen.sass */
 div.page.pg-h.odd div.white-part p {
   color: black;
   font-size: 15px;
@@ -628,12 +633,12 @@ div.page.pg-h.odd div.white-part p {
   padding: 0 31px 5px;
   margin-bottom: 0;
 }
-/* line 526, sass/screen.sass */
+/* line 531, sass/screen.sass */
 div.page.pg-h.odd div.white-part ul {
   padding: 0 31px 5px;
   margin: 0 0 13px;
 }
-/* line 530, sass/screen.sass */
+/* line 535, sass/screen.sass */
 div.page.pg-h.odd div.white-part ul li {
   color: #444444;
   font-weight: normal;
@@ -641,4 +646,89 @@ div.page.pg-h.odd div.white-part ul li {
   line-height: 13px;
   padding: 0 0 3px 0;
   margin: 0 0 0 14px;
+}
+/* line 547, sass/screen.sass */
+div.page.pg-l div.bubble, div.page.pg-k div.bubble {
+  -webkit-border-top-left-radius: 11px;
+  -webkit-border-bottom-left-radius: 11px;
+  -moz-border-radius-topleft: 11px;
+  -moz-border-radius-bottomleft: 11px;
+  border-top-left-radius: 11px;
+  border-bottom-left-radius: 11px;
+  overflow: hidden;
+  margin: 0 auto 12px;
+  width: 400px;
+  color: black;
+}
+/* line 561, sass/screen.sass */
+div.page.pg-l div.bubble h4, div.page.pg-k div.bubble h4 {
+  width: 43px;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+/* line 568, sass/screen.sass */
+div.page.pg-l div.bubble h5, div.page.pg-k div.bubble h5 {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 16px 15px 5px 58px;
+}
+/* line 573, sass/screen.sass */
+div.page.pg-l div.bubble ul, div.page.pg-k div.bubble ul {
+  padding: 0 15px 0 43px;
+  margin: 0;
+}
+/* line 577, sass/screen.sass */
+div.page.pg-l div.bubble li, div.page.pg-k div.bubble li {
+  font-size: 11px;
+  line-height: 12px;
+  padding-bottom: 2px;
+  margin-left: 29px;
+}
+/* line 583, sass/screen.sass */
+div.page.pg-l div.bubble.blue, div.page.pg-k div.bubble.blue {
+  height: 348px;
+  background: #6cbfe6;
+}
+/* line 587, sass/screen.sass */
+div.page.pg-l div.bubble.blue h4, div.page.pg-k div.bubble.blue h4 {
+  background: #0093d0;
+}
+/* line 590, sass/screen.sass */
+div.page.pg-l div.bubble.green, div.page.pg-k div.bubble.green {
+  background: #adcc95;
+  height: 142px;
+}
+/* line 594, sass/screen.sass */
+div.page.pg-l div.bubble.green h4, div.page.pg-k div.bubble.green h4 {
+  background: #62a740;
+}
+/* line 597, sass/screen.sass */
+div.page.pg-l div.bubble.light-green, div.page.pg-k div.bubble.light-green {
+  margin-top: 38px;
+  background: #d0dea6;
+  height: 130px;
+}
+/* line 602, sass/screen.sass */
+div.page.pg-l div.bubble.light-green h4, div.page.pg-k div.bubble.light-green h4 {
+  background: #a6c254;
+}
+/* line 605, sass/screen.sass */
+div.page.pg-l div.bubble.orange, div.page.pg-k div.bubble.orange {
+  background: #e0a57e;
+  height: 332px;
+}
+/* line 609, sass/screen.sass */
+div.page.pg-l div.bubble.orange h4, div.page.pg-k div.bubble.orange h4 {
+  background: #c45e25;
+}
+/* line 612, sass/screen.sass */
+div.page.pg-l div.bubble.yellow, div.page.pg-k div.bubble.yellow {
+  background: #f6d398;
+  height: 115px;
+}
+/* line 616, sass/screen.sass */
+div.page.pg-l div.bubble.yellow h4, div.page.pg-k div.bubble.yellow h4 {
+  background: #ebac3a;
 }

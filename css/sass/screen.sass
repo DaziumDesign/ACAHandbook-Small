@@ -292,7 +292,12 @@ div.page
 		h3
 			color: #fff
 
-	&.intro
+	&.cover img
+		margin: 0 auto
+		display: block
+
+	&.intro,
+	&.cover
 		h2
 			font-family: "Arial Black", Arial, Helvetica, sans-serif
 			text-align: center
@@ -534,6 +539,83 @@ div.page
 					line-height: 13px
 					padding: 0 0 3px 0
 					margin: 0 0 0 14px
+
+	//Timelines
+	&.pg-l,
+	&.pg-k
+
+		div.bubble
+			-webkit-border-top-left-radius: 11px
+			-webkit-border-bottom-left-radius: 11px
+			-moz-border-radius-topleft: 11px
+			-moz-border-radius-bottomleft: 11px
+			border-top-left-radius: 11px
+			border-bottom-left-radius: 11px
+
+			overflow: hidden
+			margin: 0 auto 12px
+			width: 400px
+
+			color: #000
+
+			h4
+				width: 43px
+				height: 100%
+				float: left
+				overflow: hidden
+				text-indent: -9999px
+
+			h5
+				font-weight: bold
+				font-size: 15px
+				padding: 16px 15px 5px 58px 
+
+			ul
+				padding: 0 15px 0 43px
+				margin: 0
+
+			li
+				font-size: 11px
+				line-height: 12px
+				padding-bottom: 2px
+				margin-left: 29px
+
+			&.blue
+				height: 348px
+				background: #6cbfe6
+
+				h4
+					background: #0093d0
+
+			&.green
+				background: #adcc95
+				height: 142px
+
+				h4
+					background: #62a740
+
+			&.light-green
+				margin-top: 38px
+				background: #d0dea6
+				height: 130px
+
+				h4
+					background: #a6c254
+
+			&.orange
+				background: #e0a57e
+				height: 332px
+
+				h4
+					background: #c45e25
+
+			&.yellow
+				background: #f6d398
+				height: 115px
+
+				h4
+					background: #ebac3a
+
 
 
 	
