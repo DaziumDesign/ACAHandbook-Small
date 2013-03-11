@@ -52,7 +52,7 @@ appConfig.modes = {
 				h: $win.height(),
 				w: $win.width()
 			};
-		}
+		},
 
 		resizeHandler = {
 			funcs: [],
@@ -60,8 +60,10 @@ appConfig.modes = {
 			onResize: function(){
 				setWinD();
 				$.each(this.funcs, function(i, funcInfo){
+					console.log(funcInfo);
 					funcInfo.f.call(funcInfo.context);
 				});
+
 			},
 
 			addFunc: function(id, f, context, priority){
@@ -77,6 +79,7 @@ appConfig.modes = {
 					arrSpot++;
 
 				this.funcs.splice(arrSpot, 0, newFunc);
+				console.log(this.funcs);
 			},
 
 			removeFunc: function(id){
@@ -91,6 +94,7 @@ appConfig.modes = {
 		},
 
 		app = {
+			$app: $('<div />').attr('id', 'app-wrap').appendTo($body),
 			$bookwrap: $('#book-wrap'),
 			$bookmatte: $('#book-matte'),
 			$book: $('#book'),
@@ -116,7 +120,7 @@ appConfig.modes = {
 				// bind resize funcs
 				$win.resize(function(){ resizeHandler.onResize.call(resizeHandler) });
 
-				$body.on('click', 'li[data-target], span[data-target], a[data-target]', function(e){
+				app.$app.on('click', 'li[data-target], span[data-target], a[data-target]', function(e){
 					app.gotoPage.call(app, $(e.currentTarget).data('target'));
 				});
 
@@ -142,11 +146,10 @@ appConfig.modes = {
 					app.targetLookup[target] = $el.index() + 1;
 				});
 
-				console.log(app.targetLookup);
-
 				// add to resizeFuncs
-				resizeHandler.addFunc('appSetMode', this.setMode, this, 2);
-				resizeHandler.addFunc('viewportScale', this.viewportScale, this, 1);
+				resizeHandler.addFunc('appWrap', this.appWrapSize, this, 1);
+				resizeHandler.addFunc('viewportScale', this.viewportScale, this, 2);
+				resizeHandler.addFunc('appSetMode', this.setMode, this, 3);
 
 				// initialize more dimensions
 				this.config.dimensions.book = [0, this.config.dimensions.page[1]];
@@ -155,7 +158,17 @@ appConfig.modes = {
 
 				// set her up
 				this.setSect(0, true);
+				$.each(resizeHandler.funcs, function(i, el){console.log(el.id)});
 				$win.resize();
+			},
+
+			appWrapSize: function(){
+				console.log('asdfasdf');
+				this.$app.css({
+					width: winD.w,
+					height: winD.h
+				});
+
 			},
 
 			autoPaginate: function(){
@@ -278,7 +291,7 @@ appConfig.modes = {
 				});
 
 				if(!app.curMode || app.curMode.id != newMode.id){
-					console.log(app.curMode, newMode);
+					//console.log(app.curMode, newMode);
 
 					// book or scroll?
 					if(newMode.settings.showBook){
@@ -292,11 +305,11 @@ appConfig.modes = {
 						if(newMode.settings.bookDouble){
 							dim.book[0] = dim.page[0] * 2;
 							app.$book.turn('display', 'double');
-							$body.removeClass('single').addClass('double');
+							app.$app.removeClass('single').addClass('double');
 						}else{
 							dim.book[0] = dim.page[0];
 							app.$book.turn('display', 'single');
-							$body.removeClass('double').addClass('single');
+							app.$app.removeClass('double').addClass('single');
 						}
 						app.$book.turn('size', dim.book[0], dim.book[1]);
 
@@ -329,10 +342,10 @@ appConfig.modes = {
 										app.$book.turn('next');
 							});
 
-							$body.addClass('book').removeClass('scroll');
+							app.$app.addClass('book').removeClass('scroll');
 
 							// attach book
-							app.$bookwrap.appendTo($body);
+							app.$bookwrap.appendTo(app.$app);
 
 							// scale and center it
 							app.centerVertically.call(app);
@@ -353,10 +366,10 @@ appConfig.modes = {
 							$win.off('keydown.book');
 							app.$book.off('start');
 
-							$body.addClass('scroll').removeClass('book');
+							app.$app.addClass('scroll').removeClass('book');
 
 							// attach scroll
-							app.$scroll.appendTo($body);
+							app.$scroll.appendTo(app.$app);
 						}
 
 						app.curViewer = 'scroll';
@@ -374,7 +387,7 @@ appConfig.modes = {
 						this.$navs.off('click.hideableNav');
 
 					}else{
-						app.$navs.prependTo($body).removeClass('fixed')
+						app.$navs.prependTo(app.$app).removeClass('fixed')
 							.children('span').show()
 							.next('ul').hide();
 
