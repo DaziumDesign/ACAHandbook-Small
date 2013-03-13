@@ -29,6 +29,12 @@ body
 			margin: 2px auto
 	
 
+#whiteout
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 99999
+	background: #e5e5e5
 
 nav
 	display: none
@@ -159,55 +165,47 @@ nav
 
 #side-tabs
 	position: absolute
-	right: -254px
-	top: 290px
-	width: 520px
-	height: 45px
+	right: -16px
+	top: 42px
+	height: 520px
+	width: 45px
 	z-index: 2
 
-	-moz-transform: rotate(90deg)
-	-o-transform: rotate(90deg)
-	-webkit-transform: rotate(90deg)
-	-webkit-font-smoothing: antialiased
-	filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.25)
-	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.25)"
-
 	li
-		height: 45px
+		width: 45px
 		position: absolute
-		top: 0
+		left: 0
 		display: none
-
-		-webkit-border-top-left-radius: 9px
-		-webkit-border-top-right-radius: 9px
-		-moz-border-radius-topleft: 9px
-		-moz-border-radius-topright: 9px
-		border-top-left-radius: 9px
-		border-top-right-radius: 9px
-
-		font-weight: bold
-		font-size: 14px
-		line-height: 45px
-		text-align: center
+		text-indent: -9999px
+		overflow: hidden
 		cursor: pointer
-		
-		color: #fff
+
+		background: url(../images/tabs.png) no-repeat
 
 
 		&.tab-0
-			background: #0076c3 url(../images/blue-tab.png) repeat-x
-			width: 188px
-			left: 0
+			background-position: 0 0
+			height: 188px
+			top: 0
+
+			&:hover
+				background-position: -46px 0
 
 		&.tab-1
-			background: #b43300 url(../images/orange-tab.png) repeat-x
-			width: 144px
-			left: 189px
+			background-position: 0 -188px
+			height: 114px
+			top: 188px
+
+			&:hover
+				background-position: -46px -188px
 
 		&.tab-2
-			background: #e69605 url(../images/yellow-tab.png) repeat-x
-			width: 188px
-			left: 334px
+			background-position: 0 -302px
+			height: 188px
+			top: 302px
+
+			&:hover
+				background-position: -46px -302px
 
 	&.show-all li
 		display: block
@@ -226,6 +224,7 @@ nav
 #book-wrap
 	margin: 0 auto
 	z-index: 5
+	display: none
 
 #book-matte
 	background: #a0a0a0
@@ -594,14 +593,14 @@ div.page
 				background: #6cbfe6
 
 				h4
-					background: #0093d0
+					background: #0093d0 url(../images/2010.png) 14px 17px no-repeat
 
 			&.green
 				background: #adcc95
 				height: 142px
 
 				h4
-					background: #62a740
+					background: #62a740 url(../images/11-12.png) 14px 17px no-repeat
 
 			&.light-green
 				margin-top: 38px
@@ -609,21 +608,21 @@ div.page
 				height: 130px
 
 				h4
-					background: #a6c254
+					background: #a6c254 url(../images/13.png) 14px 17px no-repeat
 
 			&.orange
 				background: #e0a57e
-				height: 332px
+				height: 362px
 
 				h4
-					background: #c45e25
+					background: #c45e25 url(../images/14.png) 14px 17px no-repeat
 
 			&.yellow
 				background: #f6d398
-				height: 115px
+				height: 97px
 
 				h4
-					background: #ebac3a
+					background: #ebac3a url(../images/15-18.png) 14px 8px no-repeat
 
 
 

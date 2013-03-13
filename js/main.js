@@ -1,5 +1,9 @@
 var appConfig = {};
 
+appConfig.turnJsSettings = {
+	acceleration: false
+};
+
 appConfig.viewport = {
 	gap: [40, 40],
 	content: {
@@ -7,7 +11,7 @@ appConfig.viewport = {
 		'initial-scale': '1',
 		'maximum-scale': '2'
 	}
-}
+};
 
 appConfig.dimensions = {
 	navW: 216,
@@ -39,7 +43,7 @@ appConfig.modes = {
 	}
 };
 
-(function($, window, appConfig, undefined){
+acaBookApp = (function($, window, appConfig, undefined){
 	var $win = $(window),
 		$body = $('body'),
 		winD = {
@@ -94,6 +98,7 @@ appConfig.modes = {
 		},
 
 		app = {
+			$whiteout: $('#whiteout'),
 			$app: $('<div />').attr('id', 'app-wrap').appendTo($body),
 			$bookwrap: $('#book-wrap'),
 			$bookmatte: $('#book-matte'),
@@ -111,7 +116,16 @@ appConfig.modes = {
 			init: function(config){
 				var app = this;
 
-				this.config = config;
+				app.isiOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+
+				//setup whiteout
+				app.$whiteout.css({
+					width: winD.w,
+					height: winD.h
+				});
+				app.$bookwrap.show();
+
+				app.config = config;
 
 				$.each(config.modes, function(id, settings){
 					app.modes.push(new Mode(id, settings, app));
@@ -125,11 +139,11 @@ appConfig.modes = {
 				});
 
 				// auto-paginate divs that need it
-				this.autoPaginate();
+				app.autoPaginate();
 
 				// clone book contents into scroll for later
 				// (since it gets modified by turn.js)
-				this.$scroll = this.$book.clone(false).attr('id', 'scroll');
+				app.$scroll = app.$book.clone(false).attr('id', 'scroll');
 
 				// build targetLookup directory
 				$('[data-target]').each(function(i, el){
@@ -145,21 +159,29 @@ appConfig.modes = {
 
 					app.targetLookup[target] = $el.index() + 1;
 				});
+			},
+
+			go: function(){
+				var app = this;
 
 				// add to resizeFuncs
-				resizeHandler.addFunc('appWrap', this.appWrapSize, this, 1);
-				resizeHandler.addFunc('viewportScale', this.viewportScale, this, 2);
-				resizeHandler.addFunc('appSetMode', this.setMode, this, 3);
+				resizeHandler.addFunc('appWrap', app.appWrapSize, app, 1);
+				resizeHandler.addFunc('viewportScale', app.viewportScale, app, 2);
+				resizeHandler.addFunc('appSetMode', app.setMode, app, 3);
 
 				// initialize more dimensions
-				this.config.dimensions.book = [0, this.config.dimensions.page[1]];
-				this.config.dimensions.matte = [0, this.config.dimensions.page[1] + (appConfig.dimensions.mattePadding * 2)];
-				this.config.dimensions.wrap = [0, this.config.dimensions.matte[1]];
+				app.config.dimensions.book = [0, app.config.dimensions.page[1]];
+				app.config.dimensions.matte = [0, app.config.dimensions.page[1] + (appConfig.dimensions.mattePadding * 2)];
+				app.config.dimensions.wrap = [0, app.config.dimensions.matte[1]];
 
 				// set her up
-				this.setSect(0, true);
+				app.setSect(0, true);
 				$.each(resizeHandler.funcs, function(i, el){console.log(el.id)});
 				$win.resize();
+
+				app.$whiteout.fadeOut(500, function(){
+					app.$whiteout.remove();
+				});
 			},
 
 			appWrapSize: function(){
@@ -298,7 +320,7 @@ appConfig.modes = {
 
 						// maybe initialize flipbook
 						if(!app.$book.turn('is')){
-							app.$book.turn();
+							app.$book.turn(app.config.turnJsSettings);
 						}
 
 						// size dat book
@@ -438,6 +460,9 @@ appConfig.modes = {
 					hDiff = winD.h - this.config.dimensions.page[1],
 					wDiff = winD.w - this.config.dimensions.page[0];
 
+				if(!this.isiOS)
+					return;
+
 
 				if(isPortrait){
 					this.config.viewport.content['width'] = this.config.dimensions.page[0] + (this.config.dimensions.mattePadding*2); //Math.floor((winD.w / this.config.dimensions.page[0]) * 10) / 10;
@@ -507,6 +532,8 @@ appConfig.modes = {
 
 
 	app.init(appConfig);
+
+	return app;
 
 
 

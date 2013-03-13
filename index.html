@@ -16,6 +16,7 @@
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
+	<div id="whiteout"></div>
 		<!--[if lt IE 7]>
 			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 			<![endif]-->
@@ -32,8 +33,8 @@
 						<span>Table of Contents</span>
 						<ul>
 							<li class="title"><h2>Essential Information</h2></li>
-							<li data-target="">How to Use this Guide</li>
-							<li data-target="">Essential Information for Blue KC Brokers Large Groups</li>
+							<li data-target=".pg-a">How to Use this Guide</li>
+							<li data-target=".pg-b">Essential Information for Blue KC Brokers Large Groups</li>
 							<li data-target="">Key issues in 2013 and 2014 and How Blue KC Can Help You Comply</li>
 							<li data-target="">Looking Ahead: Large-group Employer Requirements Not Yet in Effect</li>
 							<li data-target="">Determining Your Size Category Under The ACA
@@ -430,8 +431,6 @@
 							<p>This section is a big-picture overview of those changes, with specific details about how the new healthcare arena impacts large employers.</p>
 
 							<span class="blue-button one-line big">Ask Blue KC</span>
-
-							<small class="page-num">Page 1</small>
 						</div>
 
 						<div class="page sect-1 pg-auto pg-2" data-auto-pagination="true" >
@@ -787,7 +786,7 @@
 
 
 						<!-- KEY TERMS AND DEFINITIONS -->
-						<div class="page sect-2 pg-1" data-auto-pagination="true" data-number-format="roman">
+						<div class="page sect-2 pg-1 show-all-tabs" data-auto-pagination="true" data-number-format="roman">
 
 							<h3>Key Terms and Definitions</h3>
 
@@ -845,10 +844,20 @@
 
 
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-			<script src="js/vendor/turn.js"></script>
 			<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+			<script src="js/vendor/jgestures.min.js"></script>
 			<script src="js/plugins.js"></script>
 			<script src="js/main.js"></script>
+			<script>
+				Modernizr.load({
+				     test : Modernizr.csstransforms,
+				     yep: ['js/vendor/turn.js'],
+				     nope : ['js/vendor/turn.html4.min.js'],
+				     complete: function(){
+				     	acaBookApp.go();
+				     }
+				});
+			</script>
 
 			<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 			<script>
