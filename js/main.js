@@ -57,7 +57,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 			onResize: function(){
 				setWinD();
 				$.each(this.funcs, function(i, funcInfo){
-					if(typeof(funcInfo == 'undefined'))
+					if(typeof(funcInfo) == 'undefined')
 						return;
 					funcInfo.f.call(funcInfo.context);
 				});
@@ -260,7 +260,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				});
 
 				if(!app.curMode || app.curMode.id != newMode.id){
-					//console.log(app.curMode, newMode);
 
 					// book or scroll?
 					if(newMode.settings.showBook){
@@ -313,6 +312,17 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 							// scale and center it
 							app.centerVertically.call(app);
+
+							//hash stuff
+
+							app.$book.on('turned', function(event, page, view){
+								hash.add({page: page});
+							});
+
+							if(hash.get('page') !== undefined){
+								app.$book.turn('page', hash.get('page'));
+							}
+							
 						}
 
 						app.curViewer = 'book';
@@ -328,7 +338,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 							// kill event listeners
 							$win.off('keydown.book');
-							app.$book.off('start');
+							app.$book.off('end')
+
+							// TODO hash stuff for scrolling
 
 							app.$app.addClass('scroll').removeClass('book');
 
