@@ -1,7 +1,7 @@
 var appConfig = {};
 
 appConfig.turnJsSettings = {
-	acceleration: false
+	acceleration: true
 };
 
 appConfig.viewport = {
@@ -14,7 +14,6 @@ appConfig.viewport = {
 };
 
 appConfig.dimensions = {
-	navW: 216,
 	mattePadding: 29,
 	page: [500, 666],
 	pageMargins: [32, 35],
@@ -24,20 +23,14 @@ appConfig.dimensions = {
 //the first one will be default, ordered by lowest priority when conditions are met
 appConfig.modes = { 
 	full: {
-		fullNav: true
-	},
-	minNav: {
-		fullNav: false,
-		maxW: (appConfig.dimensions.page[0]*2) + appConfig.dimensions.navW + appConfig.dimensions.mattePadding
+		maxW: (appConfig.dimensions.page[0]*2) +appConfig.dimensions.mattePadding
 	},
 	single: {
-		fullNav: false,
 		bookDouble: false,
 		maxW: (appConfig.dimensions.page[0]*2) + (appConfig.dimensions.mattePadding*2)
 	},
 	scroll: {
 		showBook: false,
-		fullNav: false,
 		maxH: appConfig.dimensions.page[1],
 		maxW: appConfig.dimensions.page[0] + (appConfig.dimensions.mattePadding*2)
 	}
@@ -64,7 +57,8 @@ acaBookApp = (function($, window, appConfig, undefined){
 			onResize: function(){
 				setWinD();
 				$.each(this.funcs, function(i, funcInfo){
-					console.log(funcInfo);
+					if(typeof(funcInfo == 'undefined'))
+						return;
 					funcInfo.f.call(funcInfo.context);
 				});
 
@@ -111,7 +105,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 			modes: [],
 			curViewer: false,
 			curMode: false,
-			curSect: '',
 
 			init: function(config){
 				var app = this;
@@ -175,7 +168,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				app.config.dimensions.wrap = [0, app.config.dimensions.matte[1]];
 
 				// set her up
-				app.setSect(0, true);
 				$.each(resizeHandler.funcs, function(i, el){console.log(el.id)});
 				$win.resize();
 
@@ -185,7 +177,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 			},
 
 			appWrapSize: function(){
-				console.log('asdfasdf');
 				this.$app.css({
 					width: winD.w,
 					height: winD.h
@@ -217,6 +208,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 					});
 
 					$newPageTemplate.attr('class', classes.join(' ')).removeClass('pg-'+pageNum);
+					console.log($newPageTemplate.attr('class'));
 
 					breakHeight = app.config.dimensions.page[1] - (app.config.dimensions.pageMargins[1] * app.config.dimensions.pageMarginLeaniency);
 
@@ -256,51 +248,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				});
 			},
 
-			getSect: function(event, newPage){
-				var classes,
-					curSect,
-					$newPage;
-
-				if(newPage !== undefined){
-					$newPage = $('div.p'+newPage);
-					classes = $newPage.attr('class').split(' ');
-
-					$.each(classes, function(i, el){
-						if(el.substring(0, 4) == 'sect'){
-							curSect = el.substring(5);
-							return false;
-						}
-					});
-				}else{
-					//calculate based on scroll
-					//TODO
-				}
-
-				console.log($newPage);
-				this.setSect(curSect, $newPage.hasClass('show-all-tabs'));
-
-			},
-
-			setSect: function(sect, showAllTabs){
-				//console.log(this.$navs).hasClass('.sect-' + sect));
-				if(showAllTabs)
-					this.$tabs.addClass('show-all');
-				else
-					this.$tabs.removeClass('show-all');
-
-				if(sect !== this.curSect){
-
-					// navs
-					this.$navs.removeClass('cur')
-						.filter('.sect-' + sect).addClass('cur');
-
-					// tabs
-					this.$tabs.removeClass('sect-0 sect-1 sect-2').addClass('sect-' + sect);
-
-					this.curSect = sect;
-				}
-
-			},
 
 			setMode: function(){
 				var	app = this,
@@ -336,7 +283,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 						app.$book.turn('size', dim.book[0], dim.book[1]);
 
 						dim.matte[0] = dim.book[0];
-						dim.wrap[0] = (newMode.settings.fullNav * dim.navW) + dim.book[0] + dim.mattePadding;
+						dim.wrap[0] = dim.book[0] + dim.mattePadding;
 
 						app.$bookmatte.width(dim.matte[0]);
 						app.$bookwrap.width(dim.wrap[0]);
@@ -349,11 +296,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 							// resize binding
 							resizeHandler.addFunc('viewportScale', app.viewportScale, app, 5);
 							resizeHandler.addFunc('centerVertically', app.centerVertically, app, 10);
-
-							// turn binding for cursect
-							app.$book.on('start', function(event, pageObject, corner){
-								app.getSect.call(app, event, pageObject.next)
-							});
 
 							// key bindings
 							$win.on('keydown.book', function(e){
@@ -397,35 +339,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 						app.curViewer = 'scroll';
 					}
 
-
-					//nav stuff
-					if(newMode.settings.fullNav){
-
-						app.$navs.prependTo(app.$bookmatte).addClass('fixed')
-							.children('span').hide()
-							.next('ul').show();
-
-						// hide/show listener
-						this.$navs.off('click.hideableNav');
-
-					}else{
-						app.$navs.prependTo(app.$app).removeClass('fixed')
-							.children('span').show()
-							.next('ul').hide();
-
-						// hide/show listener
-						this.$navs.on('click.hideableNav', 'span', function(e){
-
-							var $el = $(e.currentTarget);
-							$el.hide().next('ul').show();
-
-						}).on('click.hideableNav', 'ul', function(e){
-
-							var $el = $(e.currentTarget);
-							$el.hide().prev('span').show();
-
-						});
-					}
 
 					app.curMode = newMode;
 				}
@@ -500,7 +413,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 			this.settings = {
 				showBook: true,
 				bookDouble: true,
-				fullNav: false,
 				maxW: false,
 				maxH: false
 			};
