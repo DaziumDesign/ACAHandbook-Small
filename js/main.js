@@ -97,7 +97,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 			$bookwrap: $('#book-wrap'),
 			$bookmatte: $('#book-matte'),
 			$book: $('#book'),
-			$navs: $('nav'),
+			$toc: $('#toc'),
+			$tocWrap: $('#toc .wrap'),
+			$tocToggle: $('#toc-toggle'),
 			$tabs: $('#side-tabs'),
 			$scroll: false,
 
@@ -111,12 +113,26 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 				app.isiOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
 
+
 				//setup whiteout
 				app.$whiteout.css({
 					width: winD.w,
 					height: winD.h
 				});
 				app.$bookwrap.show();
+
+
+				// TOC bindings
+				app.$toc.prependTo(app.$app);
+				app.$tocToggle.prependTo(app.$app).show();
+
+				app.$tocToggle.on('click', function(){
+					app.tocToggle.call(app);
+				});
+
+				app.$toc.find('.close, li').on('click', function(){
+					app.tocToggle.call(app);
+				});
 
 				app.config = config;
 
@@ -152,15 +168,13 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 					app.targetLookup[target] = $el.index() + 1;
 				});
-			},
 
-			go: function(){
-				var app = this;
 
 				// add to resizeFuncs
 				resizeHandler.addFunc('appWrap', app.appWrapSize, app, 1);
 				resizeHandler.addFunc('viewportScale', app.viewportScale, app, 2);
 				resizeHandler.addFunc('appSetMode', app.setMode, app, 3);
+				resizeHandler.addFunc('tocSize', app.tocSize, app, 4);
 
 				// initialize more dimensions
 				app.config.dimensions.book = [0, app.config.dimensions.page[1]];
@@ -169,6 +183,23 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 				// set her up
 				$.each(resizeHandler.funcs, function(i, el){console.log(el.id)});
+
+
+
+			},
+
+			tocToggle: function(){
+				app.$tocToggle.toggle();
+				app.$toc.toggle();
+			},
+
+			tocSize: function(){
+				this.$toc.height(winD.h);
+				this.$tocWrap.height(winD.h);
+			},
+
+			go: function(){
+				var app = this;
 				$win.resize();
 
 				app.$whiteout.fadeOut(500, function(){
