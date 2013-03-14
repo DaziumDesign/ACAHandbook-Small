@@ -19,8 +19,14 @@ body
 	&.book
 		overflow: hidden
 
+	&.iOS
+		overflow: auto !important
+		position: relative
+
 	&.scroll
-		overflow: auto
+		overflow: scroll
+		-webkit-overflow-scrolling: touch
+		position: relative
 
 		#side-tabs
 			display: none !important
@@ -45,6 +51,7 @@ body
 	height: 36px
 	line-height: 36px
 	text-align: center
+	background: #ddd
 
 	-webkit-border-bottom-right-radius: 9px
 	-moz-border-radius-bottomright: 9px
@@ -83,6 +90,7 @@ body
 		width: 100%
 		overflow: scroll
 		z-index: 1
+		background: #fff
 
 		span
 			padding: 2px 3px
@@ -133,7 +141,6 @@ body
 		width: 45px
 		position: absolute
 		left: 0
-		display: none
 		text-indent: -9999px
 		overflow: hidden
 		cursor: pointer
@@ -243,7 +250,7 @@ body
 
 
 div.page
-	width: 494px
+	width: 500px
 	height: 660px
 	background: #fff
 	color: #444
@@ -433,7 +440,7 @@ div.page
 				&.eight
 					background-position: 0 -371px
 
-	&.pg-h.odd
+	&.pg-h
 		background: #0093d0 url(../images/pg-h-bg.png) top right repeat-y !important
 
 		div.top-left
@@ -566,7 +573,6 @@ div.page
 					background: #62a740 url(../images/11-12.png) 14px 17px no-repeat
 
 			&.light-green
-				margin-top: 38px
 				background: #d0dea6
 				height: 160px
 

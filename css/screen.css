@@ -55,8 +55,13 @@ body {
   left: 0; }
   #app-wrap.book {
     overflow: hidden; }
+  #app-wrap.iOS {
+    overflow: auto !important;
+    position: relative; }
   #app-wrap.scroll {
-    overflow: auto; }
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: relative; }
     #app-wrap.scroll #side-tabs {
       display: none !important; }
     #app-wrap.scroll .page {
@@ -78,6 +83,7 @@ body {
   height: 36px;
   line-height: 36px;
   text-align: center;
+  background: #dddddd;
   -webkit-border-bottom-right-radius: 9px;
   -moz-border-radius-bottomright: 9px;
   border-bottom-right-radius: 9px;
@@ -110,7 +116,8 @@ body {
     left: 0;
     width: 100%;
     overflow: scroll;
-    z-index: 1; }
+    z-index: 1;
+    background: white; }
     #toc .wrap span {
       padding: 2px 3px;
       display: block; }
@@ -152,7 +159,6 @@ body {
     width: 45px;
     position: absolute;
     left: 0;
-    display: none;
     text-indent: -9999px;
     overflow: hidden;
     cursor: pointer;
@@ -233,7 +239,7 @@ body {
     background-image: none; }
 
 div.page {
-  width: 494px;
+  width: 500px;
   height: 660px;
   background: white;
   color: #444444;
@@ -369,63 +375,63 @@ div.page.pg-f ol {
       background-position: 0 -335px; }
     div.page.pg-f ol li.eight {
       background-position: 0 -371px; }
-div.page.pg-h.odd {
+div.page.pg-h {
   background: #0093d0 url(../images/pg-h-bg.png) top right repeat-y !important; }
-  div.page.pg-h.odd div.top-left {
+  div.page.pg-h div.top-left {
     width: 272px;
     height: 152px;
     color: white !important;
     float: left;
     background: url(../images/pg-h-arrow-bottom.png) bottom center no-repeat; }
-    div.page.pg-h.odd div.top-left p {
+    div.page.pg-h div.top-left p {
       padding: 23px 31px 20px;
       margin-bottom: 0; }
-    div.page.pg-h.odd div.top-left strong {
+    div.page.pg-h div.top-left strong {
       text-transform: uppercase;
       font-size: 19px;
       line-height: 24px;
       font-weight: bold;
       display: block; }
-    div.page.pg-h.odd div.top-left ul {
+    div.page.pg-h div.top-left ul {
       list-style-position: inside;
       padding-left: 31px; }
-      div.page.pg-h.odd div.top-left ul li {
+      div.page.pg-h div.top-left ul li {
         padding-bottom: 3px;
         margin-bottom: 0; }
-  div.page.pg-h.odd div.top-right {
+  div.page.pg-h div.top-right {
     width: 228px;
     height: 152px;
     color: #0093d0 !important;
     float: right; }
-    div.page.pg-h.odd div.top-right p {
+    div.page.pg-h div.top-right p {
       padding: 23px 0 20px 17px;
       margin-bottom: 0; }
-    div.page.pg-h.odd div.top-right strong {
+    div.page.pg-h div.top-right strong {
       text-transform: uppercase;
       font-size: 19px;
       line-height: 24px;
       font-weight: bold; }
-    div.page.pg-h.odd div.top-right .blue-button {
+    div.page.pg-h div.top-right .blue-button {
       width: 184px;
       font-size: 15px;
       line-height: 16.4px;
       margin: 0 auto; }
-  div.page.pg-h.odd div.white-part {
+  div.page.pg-h div.white-part {
     clear: both;
     width: 100%;
     padding: 21px 0;
     background: white; }
-    div.page.pg-h.odd div.white-part p {
+    div.page.pg-h div.white-part p {
       color: black;
       font-size: 15px;
       font-weight: bold;
       line-height: 16.4px;
       padding: 0 31px 5px;
       margin-bottom: 0; }
-    div.page.pg-h.odd div.white-part ul {
+    div.page.pg-h div.white-part ul {
       padding: 0 31px 5px;
       margin: 0 0 13px; }
-      div.page.pg-h.odd div.white-part ul li {
+      div.page.pg-h div.white-part ul li {
         color: #444444;
         font-weight: normal;
         font-size: 13px;
@@ -472,7 +478,6 @@ div.page.pg-l div.bubble, div.page.pg-k div.bubble {
     div.page.pg-l div.bubble.green h4, div.page.pg-k div.bubble.green h4 {
       background: #62a740 url(../images/11-12.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.light-green, div.page.pg-k div.bubble.light-green {
-    margin-top: 38px;
     background: #d0dea6;
     height: 160px; }
     div.page.pg-l div.bubble.light-green h4, div.page.pg-k div.bubble.light-green h4 {
