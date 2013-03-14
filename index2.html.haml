@@ -1,0 +1,1101 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8] <html class="no-js lt-ie9">
+/ [if gt IE 8]><!
+%html.no-js
+	/ <![endif]
+	%head
+		%meta{:charset => "utf-8"}/
+		%meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+		%title ACA Handbook | Blue KC
+		%meta{:content => "", :name => "description"}/
+		%meta{:content => "", :name => "viewport"}/
+		/ Place favicon.ico and apple-touch-icon.png in the root directory
+		%link{:href => "css/screen.css", :rel => "stylesheet"}/
+		%script{:src => "js/vendor/modernizr-2.6.2.min.js"}
+	%body
+		/[if lt IE 7]
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		#whiteout
+		#toc-toggle
+			Table of Contents
+		%nav#toc
+			%span.close close
+			.wrap
+				%ul
+					%li.title
+						%h2 Essential Information
+					%li{"data-target" => ".pg-a"}
+						%span How to Use this Guide
+					%li{"data-target" => ".pg-b"}
+						%span Essential Information for Blue KC Brokers Large Groups
+					%li{"data-target" => "pg-i"}
+						%span Key issues in 2013 and 2014 and How Blue KC Can Help You Comply
+					%li{"data-target" => ""}
+						%span Looking Ahead: Large-group Employer Requirements Not Yet in Effect
+					%li{"data-target" => ""}
+						%span Determining Your Size Category Under The ACA
+						%ul
+							%li{"data-target" => ""}
+								%span Are you a large employer?
+							%li{"data-target" => ""}
+								%span How to Determine Your Size
+							%li{"data-target" => ""}
+								%span Grandfathered Plans
+					%li{"data-target" => ""}
+						%span Timeline of Affordable Care Act Provisions
+					%li{"data-target" => ""}
+						%span Overview of the Affordable Care Act
+						%ul
+							%li{"data-target" => ""}
+								%span How Health Insurance Coverage is Changing
+							%li{"data-target" => ""}
+								%span Key Issues for Large Employers Throughout the Implementation of Health Care Reform
+							%li{"data-target" => ""}
+								%span Patient Protections Under the Affordable Care Act
+							%li{"data-target" => ""}
+								%span Taxes, Fees and Penalties for Large Employers
+							%li{"data-target" => ""}
+								%span Notifications and Reporting Required for Large Employers
+					%li.title
+						%h2 ACA Overview
+					%li{"data-target" => ""}
+						%span How Health Insurance Is Changing
+						%ul
+							%li{"data-target" => ""}
+								%span Minimum essential coverage
+							%li{"data-target" => ""}
+								%span Health insurance exchanges
+							%li{"data-target" => ""}
+								%span Guaranteed issue
+							%li{"data-target" => ""}
+								%span Required to provide a health plan to their employees
+					%li{"data-target" => ""}
+						%span Key Issues for Large Employers
+						%ul
+							%li{"data-target" => ""}
+								%span Essential health benefits and cannot set lifetime or annual limits on them.
+							%li{"data-target" => ""}
+								%span No longer allowed to set lifetime dollar limits
+							%li{"data-target" => ""}
+								%span Cost-sharing eliminated from wellness and women’ preventive care
+							%li{"data-target" => ""}
+								%span Automatically enrolling new and existing employees in their plans
+							%li{"data-target" => ""}
+								%span Waiting periods are limited to less than 90 days
+					%li{"data-target" => ""}
+						%span Patient Protections
+						%ul
+							%li{"data-target" => ""}
+								%span Right to affordable coverage
+							%li{"data-target" => ""}
+								%span Required summary of benefits and coverage
+							%li{"data-target" => ""}
+								%span Plan members have a right to appeal
+							%li{"data-target" => ""}
+								%span Cannot limit payment for out-of-network emergency services.
+							%li{"data-target" => ""}
+								%span Cannot retroactively cancel coverage due to application mistake
+							%li{"data-target" => ""}
+								%span Plans cannot exclude spouses or dependents coverage based on pre-existing conditions
+							%li{"data-target" => ""}
+								%span A cap will be imposed on out-of-pocket expenses
+					%li{"data-target" => ""}
+						%span Taxes, Fees and Penalties
+						%ul
+							%li{"data-target" => ""}
+								%span Health insurance excise tax
+							%li{"data-target" => ""}
+								%span Comparative effectiveness fee
+							%li{"data-target" => ""}
+								%span Employer-sponsored coverage reporting and notification
+							%li{"data-target" => ""}
+								%span Temporary reinsurance program
+							%li{"data-target" => ""}
+								%span Employer mandate (play or pay) penalties
+							%li{"data-target" => ""}
+								%span Rebates for consumers if a plan doesn’t meet the medical loss ratio
+					%li{"data-target" => ""}
+						%span Notifications and Reporting Required
+						%ul
+							%li{"data-target" => ""}
+								%span Summary of Benefits and Coverage
+							%li{"data-target" => ""}
+								%span Temporary Reinsurance Program
+							%li{"data-target" => ""}
+								%span Notification to eligible employees of ER-sponsored Coverage
+							%li{"data-target" => ""}
+								%span Health insurance marketplace/exchange notification
+							%li{"data-target" => ""}
+								%span Verification of EESP
+							%li{"data-target" => ""}
+								%span Automatic Enrollment
+					%li.omega.title{"data-target" => ""}
+						%h2 Key Terms and Definitions
+		#book-wrap
+			#book-matte
+				%ul#side-tabs
+					%li.tab-0{"data-target" => ".title-0"} Essential Information
+					%li.tab-1{"data-target" => ".title-1"} ACA Overview
+					%li.tab-2{"data-target" => ".pg-I"} Key Terms &amp; Definitions
+				#book
+					/ NOTE: do not use any IDs inside of here; this content gets cloned.
+					/ ESSENTIAL INFO
+					.page.sect-0.hard.cover.show-all-tabs.title-0
+						%h2 The Affordable Care Act
+						%h3
+							Essential Information for
+							%br<>
+							Blue KC Brokers and Large Groups
+						%img{:alt => "", :src => "images/overview-img.jpg"}/
+					.page.sect-0.hard.gray-bg.intro.pg-a
+						%h2 How To Use This Guide
+						%h3
+							Starting Points for
+							%br<>
+							Sections of This Guide
+						%ul
+							%li.blue-button<
+								Questions about whether you
+								%br<>
+								are a large employer.
+							%li.blue-button<
+								Quick overview of changes
+								%br<>
+								coming up in the next year.
+							%li.blue-button<
+								Big-picture overview of the
+								%br<>
+								Affordable Care Act
+							%li.blue-button<
+								Timeline of key dates,
+								%br<>
+								past and future.
+							%li.blue-button<
+								How Blue KC helps you comply
+								%br<>
+								with the Affordable Care Act.
+							%li.blue-button<
+								Questions about specific terms
+								%br<>
+								and definitions.
+					.page.sect-0.pg-b
+						:markdown
+							### Essential Information for Blue KC Large Group Plans and Brokers
+							
+							Many provisions of the Affordable Care Act (ACA) have already been implemented and have changed the healthcare marketplace.
+							
+							Over the next several years, additional important changes will take effect. Blue KC is monitoring those changes on a daily basis and is available to help you navigate the complex healthcare reform waters.
+							
+							We’ve developed this easy-to-use guide to allow you to understand the overall changes in the healthcare landscape, as well as the items that need your attention right now. This document will be constantly updated so that you have a timely resource for taking action to main in compliance with the legislation and with regulations that are still being written.
+							
+							As the leading health insurance provider in the Kansas City region for more than 75 years, Blue Cross and Blue Shield of Kansas City (Blue KC) will continue to work in partnership with large employers and brokers.
+							
+							We hope you will find this document to be a useful resource and perhaps bookmark it to back often for updates and explanations. As always, your Blue KC marketing representatives is available to answer any questions about compliance with the Affordable Care Act.
+							
+						%footer The information provided is a summary of some ACA provisions, as of March 1, 2013. It is not intended to be comprehensive, and does not constitute legal advice. Consult your legal counsel or tax accountant concerning how the ACA may impact your organization, and to confirm effective dates.
+					.page.sect-0.pg-c
+						/ full-page image bg'd
+					.page.sect-0.gray-bg.intro.pg-d
+						%h2 Key 2013 &amp; 2014 Provisions
+						%h3 How Blue KC Can Help You Comply
+						%p
+							Blue KC is closely monitoring the
+							%br<>
+							implementation of the Affordable Care Act and is
+							%br<>
+							available to help you understand key provisions
+							%br<>
+							and how to comply with the law.
+						%p
+							Your Blue KC marketing representative is
+							%br<>
+							available to answer questions, however, we
+							%br<>
+							recommend that you ask your tax advisor for
+							%br<>
+							more detailed assistance.
+						%span.blue-button.one-line.big Ask Blue KC
+					.page.sect-0.pg-e
+						%h3 LOOKING AHEAD - Large Group Employer Requirements Not Yet In Effect
+						/ table
+					.page.sect-0.gray-bg.pg-f
+						%h3 Plan Year Beginnings
+						%p In most cases, the provision becomes effective when your plan year begins. For example, if the provision becomes effective on January 1, 2014, it most often becomes effective when your plan year begins the next time after January 1, 2014.
+						%ol
+							%li.one Overall individual lifetime dollar maximums and lifetime dollar limits on human organ transplants have been removed from our plans. Annual dollar maximum on durable medical equipment and annual dollar maximum on routine preventive care limits have been removed from our plans. Since Kansas and Missouri have essential health benefit benchmark plans, we continue to analyze current dollar limits and will remove any limits that exist for essential health benefits.
+							%li.two Continue to monitor this document for updates on provisions where regulations are still being developed.
+							%li.three We will change the waiting period provisions of policies, if necessary, at time of renewal. Additional waiting period options will be available and the employer can work with their marketing representatives to facilitate a change if the default option is not desired.
+							%li.four Blue KC will incorporate the removal of pre-existing condition exclusion periods at time of renewal. This change will be communicated to the marketing representatives who will facilitate the change.
+							%li.five Blue KC will incorporate the out-of-pocket maximum limit and integration ofall cost-sharing accumulation will take place at the time of renewal. You will be informed of the out-of-pocket maximum and your marketing representative will facilitate this change.
+							%li.six Blue KC will pay the fee that is pro-rated for 2013 effective and renewal dates that roll in 2014. The excise tax fee will appear on all rate sheets for renewals and quotes.
+							%li.seven Blue KC pays the fee for fully-insured groups; self-funded groups including Cost Plus are required to pay the fee directly to the IRS.
+							%li.eight Blue KC pays the fee for fully-insured groups.
+					.page.sect-0.pg-g
+						%h3 Determining Your Size
+						%p The starting point for businesses to understand the Affordable Care Act is figuring out their size. The new law includes two sets of rules: one for large businesses and another for small businesses. This guide includes advice for businesses that fall into the large employer category. An additional guide for small businesses will be issued separately.
+						%h3 Are you a large employer?
+						%p Here’s a quick way to tell if you fall into the large employer category. If you do, you can follow the links in the following chart to get more information about the requirements, penalties, taxes, fees and notifications that apply to large employers.
+					.page.sect-0.pg-h
+						.top-left
+							%p
+								%strong Large Employer
+								51 or more full-time employees
+							%ul
+								%li How to calculate your size
+								%li If your plan is grandfathered
+						.top-right
+							%p
+								%strong Small Employer
+								From 2-50 full-time employees
+							%span.blue-button
+								Small Employers Guide
+								%br<>
+								COMING SOON!
+						.white-part
+							%p
+								Provisions that Apply to large employers
+							%ul
+								%li Out-of-pocket minimums
+								%li Annual and lifetime dollar limits
+								%li Pre-existing condition rules
+								%li Affordability and minimum value requirements
+								%li Preventive care guidelines
+							%p
+								Penalties if You do not Participate or do not Meet Affordability or Minimum Value Requirements
+							%ul
+								%li Play or pay penalties
+							%p
+								Taxes and Fees that Apply
+							%ul
+								%li Health insurance excise tax
+								%li Comparative effective fee to pay for patient center outcomes research institute
+								%li Reinsurance fee
+								%li Employer mandate (play or pay) penalties
+								%li Rebates
+							%p
+								Notifications and Reporting
+							%ul
+								%li Summary of benefits and coverage (SBC)
+								%li Employer-sponsored coverage reporting
+								%li Notification of employee-sponsored coverage
+								%li Exchange notification
+								%li Automatic enrollment
+					.page.sect-0.pg-i
+						%h3 How To Determine Your Size
+						%p First things first. If you have 50 or more full-time employees, you fit into the large business category and are subject to the provisions, penalties, taxes and fee, and notifications for large employers.
+						%p A large employer is one that has at least 50 full-time employees or a combination of part-time employees that are equivalent to 50 based upon the hours of service for all employees.
+						%p
+							%strong Full-time Employee:
+							Under the ACA, a full-time employee is one that worked on average at least 30 hours a week. Another way of defining full-time employee under the ACA is an employee that averages 130 hours of service in a calendar month.
+						%p
+							%strong Full-time Equivalent Employee (FTE):
+							To figure out how many full-time equivalent employees a company has, add the hours worked by all part-time employees and divide that number by 120. For example: a company has 36 part-time workers that work an average of 100 hours a week, which translates to an additional 30 FTWs for that company. (36 part-time workers x 100 hours &divide; 120 = 30 FTEs). If your company has special circumstances, you should consult your tax advisor.
+					.page.sect-0.pg-j
+						%h3 Grandfathered Plans
+						%p When the ACA was passed, the government promised Americans they could keep their current healthcare plan if they were happy with it. Thus the ACA “grandfathered” plans that were in effect on March 23, 2010 (the day the law went into effect) to allow them to keep the plans and benefits they already had. This provision mostly affects people in large group plans.
+						%p Grandfathered plans do not have to comply with all of the provisions of the ACA, but they must provide certain benefits to their members if they were not already in place.
+						%p The patients’ rights that must be included in any grandfathered plan include:
+						%ul
+							%li No lifetime limits on coverage and no annual dollar amount restrictions
+							%li No recission of coverage if people accidentally made a mistake on an applications
+							%li Extension of parents’ coverage to include young adults under the age of 26
+						%p However, those existing plans cannot make certain changes including:
+						%ul
+							%li Eliminating or reducing benefits
+							%li Increasing cost-sharing
+							%li Reducing the employer contribution toward the premium
+						%p If a plan makes one of those changes, it must also comply with other provisions of the ACA
+					.page.sect-0.gray-bg.pg-k
+						%h3 Timeline - Affordable Care Act Provisions
+						.bubble.blue
+							%h4 2010
+							%h5 Financial
+							%ul
+								%li Lifetime and annual dollar limits removed from all plans
+								%li Prohibition on cost-sharing for preventive care
+								%li Changes to flexible spending accounts
+								%li Plans had to be in effect to be grandfathered (March 23)
+								%li Rebates for plans not meeting medical loss ratio
+							%h5 Coverage
+							%ul
+								%li Individuals responsible for obtaining coverage
+								%li Summary of benefits and coverage required
+								%li Plans cannot limit out-of-network emergency services
+								%li Plans cannot rescind coverage because of mistakes
+							%h5 Member
+							%ul
+								%li Individuals have right to choose provider
+								%li Patient right to appeal added
+								%li Pre-existing conditions can not be used to deny coverage to those under 26
+						.bubble.green
+							%h4 2011/2012
+							%h5 Financial
+							%ul
+								%li Comparative Effectiveness Fee to support Patient Centers Outcomes Research Institute
+							%h5 Member
+							%ul
+								%li Prohibition on cost-sharing for women’s preventive care
+					.page.sect-0.gray-bg.pg-l
+						.bubble.light-green
+							%h4 2013
+							%h5 Financial
+							%ul
+								%li Cap on contributions to flexible spending accounts
+							%h5 Coverage
+							%ul
+								%li State exchanges should be in place October 1
+								%li Employer-sponsored coverage reporting (on 2012 tax reports)
+						.bubble.orange
+							%h4 2014
+							%h5 Financial
+							%ul
+								%li Employers required to provide plan (play or pay) or pay penalties
+								%li Cap imposed on out-of-pocket expenses
+								%li Health insurance excise tax begins
+								%li Reinsurance fee begins
+							%h5 Coverage
+							%ul
+								%li Individuals responsible for obtaining minimum essential coverage
+								%li Automatic enrollment to begin
+								%li Waiting period limit goes into effect
+								%li Pre-existing conditions can not be used to deny coverage to anyone
+								%li Temporary Reinsurance Program begins (ends in 2016)
+								%li Automatic enrollment expected to start
+							%h5 Member
+							%ul
+								%li Essential health benefits become active
+								%li New rules for nondiscrimination in wellness programs
+								%li Non-discrimination in wellness incentive programs
+						.bubble.yellow
+							%h4 2015-2018
+							%h5 Coverage
+							%ul
+								%li
+									Notification to eligible employees of ER-sponsored coverage
+					/ ACA OVERVIEW
+					.page.sect-1.show-all-tabs
+					.page.sect-1.hard.cover.title-1
+						%h2 The Affordable Care Act
+						%h3
+							Overview for KC Brokers
+							%br<>
+							and Large Groups
+						%img{:alt => "", :src => "images/ess-info-img.jpg"}/
+					.page.sect-1.hard.gray-bg.intro.pg-1
+						%h2 Overview Of The ACA
+						%h3 What the ACA means to Large Employers
+						%p The Affordable Care Act is changing the world of health insurance both for large employers and for the healthcare marketplace in general.
+						%p This section is a big-picture overview of those changes, with specific details about how the new healthcare arena impacts large employers.
+						%span.blue-button.one-line.big Ask Blue KC
+					.page.sect-1.pg-auto.pg-2{"data-auto-pagination" => "true"}
+						%h3 How Health Insurance Coverage is Changing
+						%p The Affordable Care Act established what it calls a shared responsibility for federal and state governments, insurers, employers, and individuals to improve the availability, quality and affordability of health insurance coverage. Beginning in 2014, each individual in the United States has a shared responsibility as well to get basic health insurance, or minimum essential coverage.
+						%strong.blue Each individual is now responsible for getting basic healthcare coverage (minimum essential coverage).
+						%p The ACA requires each individual in the United States to obtain basic health coverage (minimal essential coverage) as part of the individual’s shared responsibility for healthcare. An individual may obtain that coverage from a variety of sources. In some cases, an individual can apply for an exemption or make a shared responsibility payment to the IRS when filing federal taxes.
+						%p
+							%strong Basic health coverage required for each individual:
+						%p It is the responsibility of employees and all Americans to obtain some sort of health coverage.They can get the type of coverage that best meets their needs, including:
+						%ul
+							%li Coverage under a federal program such as Medicare, Medicaid, CHIP, and certain types of veterans’ coverage
+							%li Coverage under an eligible employer-sponsored plan, including COBRA and retirement coverage
+							%li Coverage purchased in the individual marketplace
+							%li Coverage under a grandfathered health plan
+							%li Other coverage recognized by HHS as meeting minimum essential coverage requirements
+						%p
+							%strong Minimum Essential Coverage:
+							The type of coverage an individual needs to have to meet the individual responsibility requirement under the Affordable Care Act. This includes individual market policies, job-based coverage, Medicare, Medicaid, CHIP,TRICARE and certain other coverage.
+						%p
+							%strong Exemptions:
+							Some individuals are exempt from the individual minimum coverage requirements. These include: certain religious sects; nonresidents of the United States; people in jail; those who cannot afford coverage; members of Indian tribes; taxpayers below the income tax filing threshold; and people with short coverage gaps of up to three months.
+						%p
+							%strong Shared Responsibility Payment:
+							Individuals who fail to get coverage or qualify for an exemption are required to file a shared responsibility payment when they file their individual income tax return.
+						%p
+							%strong Dependents:
+							A taxpayer also has responsibility for his or her dependents in some cases. The ACA uses the IRS definition of a dependent. If the dependent could be claimed under IRS rules, whether or not the dependent was actually claimed, the taxpayer has responsibility for providing minimum essential coverage. Married couples who file jointly are jointly responsible for any shared responsibility payment.
+						%p
+							%strong Penalties:
+							Penalties apply to individuals who do not provide minimal essential coverage for themselves or their dependents.
+						.box
+							%p
+								%strong STARTING DATE: 2014
+							%p
+								%strong What You Should Do:
+								If you offer qualified coverage, it is the responsibility of your employees to make sure they obtain minimum essential coverage.
+						.box
+							%p
+								%strong What’s Ahead:
+								Proposed rules for individual minimum coverage have been issued by both theTreasury Department and the Internal Revenue Service.They are seeking comments on these proposals until May of 2013. Check back with us for updates about the final rules.
+						%p.blue Health insurance exchanges are being developed in each state to offer individuals and small employers affordable care.
+						%p The ACA also provides for state-based health insurance exchanges, or online marketplaces, where individuals and small businesses can shop for coverage. Each state has the option of operating its own exchange or partnering with the federal government to run an exchange. If a state doesn’t choose to do either, it will become part of a federally-facilitated exchange.The exchanges are in the process of becoming operational by October 1, 2013. Missouri and Kansas did not signal their intention to set up an exchange or partner with the federal government, so both states have defaulted to become part of the federal exchange.
+						%p
+							%strong Online Consumer Marketplace:
+							By October 1 of 2013, each state is required to have an exchange set up to sell coverage to individuals and small employers.The exchanges are meant to allow consumers to compare prices on standardized policies.
+						%p
+							%strong Kansas And Missouri:
+							Both states have decided not to offer their own healthcare exchange, so their exchanges will be operated by the federal government.
+						%p
+							%strong Penalties For Large Employers:
+							The ACA provides for penalties against employers if a certain number of their employees choose to buy insurance from the state exchange rather than using the employer-sponsored plan.
+						%p
+							%strong Exchange Notification Requirements:
+							Employers will be required to inform eligible employees of the health insurance exchange offered in the state and the availability of the premium tax credit.The notification must include an exchange service description, subsidy availability in the event an affordable, minimum-value plan is not offered, and premium/ tax implications of purchasing on the exchange. However, the requirement will not go into effect until regulations are issued.
+						%p
+							%strong> Actuarial Value (AV):
+							The act designates creates four tiers of health plans available for purchase through the Exchanges. Each tier is defined by its actuarial value, or percent paid by a health plan of the percentage of the total allowed costs of benefits.They include the following levels:
+						%ul
+							%li Bronze health plan is a health plan that has an AV of 60 percent
+							%li Silver health plan has an AV of 70 percent
+							%li Gold health plan has an AV of 80 percent
+							%li Platinum health plan has as an AV of 90 percent. The value may vary by plus or minus 2 percent.
+						.box
+							%p
+								%strong STARTING DATE: OCTOBER 1, 2013
+							%p
+								%strong What Should You Do:
+								Prepare for the notification requirements by monitoring this document for updates.
+							%p
+								%strong> What’s Ahead:
+								The exchanges are supposed to be working by October 1, 2013.
+							%p
+								%strong How Blue KC Can Help:
+								We will keep you up to date on the exchange notification and help you comply with its provisions.
+						%p.blue No one can be denied coverage (guaranteed issue).
+						%p Health insurance companies will be required to offer and renew coverage to individuals regardless of their health status, pre-existing conditions, or services they have used.
+						.box
+							%p
+								%strong STARTING DATE: 2014
+							%p
+								%strong What Should You Do:
+								???
+							%p
+								%strong What’s Ahead:
+								This provision takes effect in plan years starting after January 1, 2014.
+							%p
+								%strong How Blue KC Can Help:
+								???
+						%p.blue In most cases, employers are now required to provide a health plan to their employees (play or pay).
+						%p The biggest change for large employers is the new requirement, or mandate, that most businesses offer health benefits to their workers. In the law itself, this provision is referred to as employer shared responsibility. You might hear this provision referred to as “play or pay,” meaning that employers that choose not to participate will have to pay a fine.
+						%p Basically, businesses with more than 50 full-time equivalents employees (FTEs) will have to provide qualified health insurance coverage to their full-time employees and their dependents. Businesses that do not offer plans will pay a penalty.
+						%p HOW TO DETERMINE YOUR COMPANY’S SIZE (icon link)
+						%p
+							%strong If you provide coverage, what’s required?
+						%p
+							%strong Qualified coverage:
+							The act defines qualified coverage as a plan that pays at least 60 percent of an employee’s healthcare expenses.That means coverage must have an actuarial value of at least 60 percent, with the employee paying at most 40 percent through deductibles and copayments.
+						%p
+							%strong Affordable coverage:
+							Coverage must also offer minimum value under the definition of the Affordable Care Act. That means a worker does not have to pay more than 9.5 percent of his or her income for the insurance.
+						%p
+							%strong Minimum value:
+							The federal government will provide a minimum value calculator where employers can enter plan information and find out whether their plan provides minimum value, which is a test of affordable coverage.
+						%p
+							%strong Actuarial value (Av):
+							This calculation measures how much a plan covers versus how much an individual might have to pay out-of-pocket.The actuarial value is based on a hypothetical population, not on the actual usage of individuals enrolled in the plan. Employers can use contributions to health reimbursement arrangements or health savings accounts to increase the actuarial value of a plan.
+						%p
+							%strong Minimum essential coverage:
+							The federal government proposed regulations for minimum essential coverage on February 1, 2013. For large and small groups, this coverage includes fully-insured and self-insured plans offered by employers including government plans, any other coverage offered on the market, or health plans grandfathered under the ACA.
+						%p
+							%strong Penalties if the plan is not comprehensive or affordable:
+						%p
+							%strong Failure to offer minimum coverage:
+							Beginning in 2014, an employer that doesn’t provide at least 95 percent of full-time employees with health coverage can be assessed $2000 a year for each employee that declines the company plan and instead chooses to get coverage through a state exchange.This penalty is triggered when an employee receives a premium tax credit for purchasing coverage from an exchange.The penalty applies to employers with more than 30 full-time employees.
+						%p
+							%strong Coverage is offered but does not provide minimum value:
+							Employers that do provide at least 95 percent of the full-time employees (and after 2014, their dependents) with coverage, but that coverage is not that is not affordable or that fails to provide minimum value can be fined $3000 for each employee that takes a tax credit or $2000 for each full-time employee beyond the first 30 full-time employees.
+						%p
+							%strong Dependents:
+							A dependent under the employer mandate includes a son or daughter (whether by blood or adoption), a stepson or stepdaughter, or an eligible foster child. Dependents will included include children under age 27 in 2014. Spouses are not considered dependents.
+						%p
+							%strong Full-time employee (FTE):
+							A full-time employee is someone who is employed an average of at least 30 hours a week or for 130 hours a month.There are no penalties for not providing coverage to part-time workers.
+						%p
+							%strong HOW TO DETERMINE YOUR COMPANY’S SIZE (icon link)
+						%p
+							%strong If you don’t provide coverage, what are the penalties?
+						%p
+							%strong Penalty for not providing coverage:
+							If businesses do not choose to provide coverage, they may have to pay a penalty. The penalties kick in when more than 30 full-time employees instead purchase coverage through one of the new state health insurance exchanges.The penalties for 2014 are estimated at $2000.The amount of the assessment will be adjusted in future years.
+						.box
+							%p
+								%strong STARTING DATE
+							%p 2014 after January of the date your plan starts
+							%p
+								%strong What should you do:
+								The mandate does not take effect until 2014, but companies might want to use the IRS information now to determine if they are subject to the provisions and to assess the penalties if they don’t opt in. Ensure that you have policies and procedures in place to track the number of full-time and part-time employees and their hours of service.
+							%p
+								%strong What’s Ahead:
+								The IRS published a proposed rule in January of 2013 spelling out the details of the regulation and has set a hearing date for April 23, 2013. This provision remains controversial and critics are pushing for a change in the proposed language. We are waiting for the federal government to issue a minimum value calculator. Keep an eye on this site for updates.
+							%p
+								%strong How Blue Kc Can Help:
+								If you have questions about how this impacts your business, call your broker or your Blue KC marketing representative for assistance.
+						%h3.page-break Key Issues For Large Employers Throughout The Implementation Of Healthcare Reform
+						%p.blue The Affordable Care Act defines certain benefits as essential health benefits and prohibits large group plans from setting lifetime or annual limits on them.
+						%p The Affordable Care Act defines certain insurance benefits as essential health benefits. Most individual and small group plans are required to cover all of these categories starting in 2014. Large groups plans do not have to cover essential health benefits, but they must remove annual and lifetime limits. Grandfathered plans must remove lifetime limits but not annual limits.
+						%p
+							%strong Categories of essential health benefits:
+							The ACA defines 10 general categories of essential health benefits: ambulatory patient services; emergency services; hospitalization; laboratory services; maternity and newborn care; mental health and substance abuse services including behavioral health treatment; prescription drugs; rehabilitative and habilitative services and devices; preventive and wellness services and chronic disease management; and pediatric services, including oral and vision care.
+						%p
+							%strong habilitative services:
+							While rehabilitative services help people recover skills they have lost, habilitative services help people acquire new skills they have never had, such as speech therapy for an autistic child or helping a mentally ill person improve social skills.
+						.box
+							%p
+								%strong STARTING DATE
+							%p Essential health benefit requirements become effective for each plan on the first day of the plan year after January 1, 2014.
+							%p
+								%strong What You Should Do:
+								Blue KC has already removed dollar limits based upon our interpretation of the essential health benefits.
+							%p
+								%strong What’s Ahead:
+								Blue KC will continue to monitor and make changes.
+							%p
+								%strong How Blue Kc Can Help:
+								Overall individual lifetime dollar maximums and lifetime dollar limits on human organ transplants have been removed from our plans. Annual dollar maximum on durable medical equipment and annual dollar maximum on routine preventive care limits have been removed from our plans. Since Kansas and Missouri have essential health benefit benchmark plans, we continue to analyze current dollar limits and will remove any limits that exist for essential health benefits
+						%p.blue Cost-sharing must be eliminated from most wellness and women’s preventive care plans.
+						%p The Affordable Care Act requires that plans make certain preventive care or wellness services available without co- insurance, co-pays or deductibles if the services are provided in-network.This prohibition does not apply to grandfathered plans.
+						%p
+							%strong Cost-sharing must be eliminated:
+							Non-grandfathered plans must now provide coverage for preventive care without any cost sharing. Cost-sharing is defined as copayments, coinsurance and deductibles.This provision applies only to services provided by healthcare professionals who are in the plan’s network.
+						%p
+							%strong Preventive services defined:
+							The act defines preventive services as yearly preventive care visits for adults and all standard immunizations. In certain age groups, additional preventive care services include: colorectal cancer screening; cholesterol and lipid disorders; screening for certain sexually transmitted diseases including HIV; high blood pressure, diabetes and depression screening; screen or counseling from a primary care provider for diet and nutrition, obesity, tobacco use, substance abuse and tobacco use.
+						%p
+							%strong Grandfathered plans:
+							Grandfathered plans are not required to remove coinsurance, copays or deductibles from preventive care services.
+						%p
+							%strong Women’s preventive services:
+							An additional group of women’s preventive services are required to be covered without cost-sharing for services provided in-network.These include: mammography screening for adult women; genetic screening and evaluation for the breast cancer gene; Pap smears; screening for sexually-transmitted diseases; certain screenings for pregnant women; osteoporosis screening for women over age 60; counseling for women at high risk for breast cancer; breast-feeding supplies and counseling; domestic violence screening and counseling; FDA-approved contraception; human papillomavirus screening for women over age 30; and well-women visits.
+						%p
+							%strong Non-discrimination in wellness incentive programs:
+							The act also prohibits discrimination in health-contingent wellness programs that generally require individuals to meet a specific standard related to their health to obtain a reward.
+						%p
+							%strong STARTING DATE
+						%p The preventive care rules took effect in 2010.The prohibition on cost-sharing for women’s preventive plans took effect on renewal after August 1, 2012. Non- discrimination in wellness plans takes effect for plans effective on or after January 1, 2014.
+						%p
+							%strong What You Should Do:
+							Blue KC will help guide you in modifying your plan if necessary.
+						%p
+							%strong What’s Ahead:
+							Changes in non-discrimination take effect in 2014. How Blue KC Can Help: Blue KC will help guide you on your wellness incentive plans to ensure they are nondiscriminatory.
+						%p Flexible spending accounts can no longer be used for over-the-counter medications without a prescription and pre-tax contributions are capped.
+						%p Since 2011, plans have been prohibited from allowing employees to use flexible spending accounts, health reimbursement agreements, retiree reimbursement and funded health reimbursement accounts, or Archer Medical Savings Accounts to pay for over-the-counter medications without a prescription. Employee contributions to health flexible spending accounts (FSAs) will be capped at $2,500 a year per plan year.The limit will be adjusted for the cost of living every year.
+						%p
+							%strong Flexible spending account (FSA):
+							A flexible spending account is one of several types of accounts that can allow employees to reduce taxes.They generally allow employees to set aside a portion of their earnings to pay for qualified healthcare expenses. Money deducted from a FSA is not subject to payroll taxes.
+						%p
+							%strong Similar accounts covered by this provision:
+						%ul
+							%li Health Reimbursement Agreement (HRA)
+							%li Health Savings Account (HSA)
+							%li Retiree Reimbursement Account (RRA)
+							%li Funded Health Reimbursement Accounts (FHRA)
+							%li Archer Medical Savings Accounts
+						%p
+							%strong Cap on employer contributions:
+							Beginning in 2013, employers can no longer contribute more than $2500 as a salary reduction for an FSA.
+						%p
+							%strong Cap on individual contributions:
+							While individuals were allowed to save $5000 in an FSA before 2013, the contribution of pre-tax savings is now capped at $2500.
+						%p
+							%strong Reimbursement:
+							Employees that want to be reimbursed for these charges need to submit copies of their prescriptions and receipts.
+						.box
+							%p
+								%strong STARTING DATE
+							%p The provisions on over-the-counter medications has been in place since 2011, and the cap of contributions became effective in 2013.
+						%p
+							%strong What You Should Do:
+							These provisions have been in place since 2011 and the beginning of 2013. Make sure employees understand they need to submit both a copy of their prescription and receipt to be reimbursed.
+						%p.blue Grandfathered plans do not have to meet all requirements of the ACA, but do have to make some changes.
+						%p When the ACA was passed, the government promised Americans they could keep their current healthcare plan if they choose to do so. Thus the act “grandfathered” plans that were in effect on March 23, 2010 (when the law went into effect) to keep operating as they had before.This provision mostly affects people in large group plans. Grandfathered plans do not have to comply with all of the provisions of the ACA, but they must provide certain benefits to their members if they were not already in place.
+						.box
+							%p
+								%strong MORE ABOUT GRANDFATHERED PLANS (icon link)
+							%p
+								%strong STARTING DATE: MARCH 2010
+							%p
+								%strong What You Should Do:
+								Make sure changes to employer plans do not trigger the requirement to comply with other ACA provisions that do not generally apply for grandfathered plans.
+						%p.blue In the future, employers will be given instructions for automatically enrolling new and existing employees in their plans.
+						%p Employers with more than 200 employees must automatically enroll new and existing full-time employees in health insurance coverage, but employees may opt out. Beginning in 2014, waiting periods longer than 90 days are not permitted for new employees. Employees must be given adequate notice in case they want to opt out.
+						%p
+							%strong Full-time employee:
+							While full-time employees are not defined under this provision, the employer mandate section of the law defines full-time as an employee who works an average of 30 hours a week.
+						%p
+							%strong MORE ABOUT DETERMINING FULL-TIME STATUS
+							(icon link)
+						.box
+							%p
+								%strong STARTING DATE
+							%p Employees do not have to comply with this provision until the Department of Labor issues regulations, anticipated in 2014.The changes to waiting periods will begin after January 1, 2014 when new plan years begin.
+							%p
+								%strong What You Should Do:
+								Watch this document for updates on the regulations.
+							%p
+								%strong What’s Ahead:
+								Regulations are expected in 2014.
+							%p
+								%strong How Blue KC Can Help:
+								Once the regulations have been issued, Blue KC can help you incorporate them into your plan. We will change the waiting period provisions of policies, if necessary, at time of renewal. Additional waiting period options will be available and the employer can work with their marketing representatives to facilitate a change if the default option is not desired.
+						%p.blue Waiting periods for employee enrollment are limited to less than 90 days.
+						%p Neither grandfathered nor non-grandfathered plans can impose a waiting period of more than 90 days for employees to enroll in coverage.
+						.box
+							%p
+								%strong STARING DATE
+							%p The changes to waiting periods will begin after January 1, 2014 when new plan years begin.
+							%p
+								%strong What You Should Do:
+								Blue KC will assist you with this provision.
+							%p
+								%strong What’s Ahead:
+								New regulations on automatic enrollment are expected in 2014.
+							%p
+								%strong How Blue KC Can Help:
+								We will change the waiting period provisions of policies, if necessary, at time of renewal. Additional waiting period options will be available and the employer can work with their marketing representatives to facilitate a change if the default option is not desired.
+						%h3 Patient Protections Under the Affordable Care Act
+						%p.blue A patient has a right to affordable coverage as defined by the ACA.
+						%p Coverage must also offer minimum value under the definition of the Affordable Care Act. That means a worker does not have to pay more than 9.5 percent of his or her income for the insurance.
+						%p Each person enrolled in a large group plan should have a summary of benefits and coverage.
+						%p
+							%strong Summary of Benefits and Coverage (SBC):
+							Health insurance issuers and group health plans are required to provide those enrolled with an easy-to-understand summary about a health plan’s benefits and coverage.They must give enrollees a short, plain-language summary of benefits and coverage document, which follows a standard format so that consumers can compare their options. Consumers should also receive a uniform glossary of terms commonly used in the plan.
+						%p
+							%strong> What’s included:
+							The summary of benefits and coverage should include deductibles, covered services and cost-sharing for common medical issues.
+						%p
+							%strong STARTING DATE: SEPTEMBER 23, 2012
+						%p
+							%strong What You Should Do:
+							SBCs have been in effect since 2012.
+						%p Plan members have a right to appeal when a plan denies payment.
+						%p The Affordable Care Act ensures each enrollee the right to appeal health insurance plan decisions to deny payment for a service or treatment. New rules that apply to health plans created after March 23, 2010 provide for an internal appeal.
+						%p
+							%strong Requirements for notification:
+							If a plan denies a claim, it must notify the member of the reason the claim was denied, their right to file a an internal appeal, their right to an external review if their internal appeal fails, and how to get help from a consumer assistance program if one exist in the state.
+						%p
+							%strong Internal appeal:
+							A plan member requesting an internal appeal must receive a decision within 72 if the appeal is the denial of a claim for urgent care.The plan has 30 days to respond to a non-urgent appeal, and 60 days to respond to a denial of service that has already been provided.
+						%p
+							%strong External Appeal:
+							If the plan still denies payment after considering an appeal, the consumer is entitled to appeal to an independent review organization.
+						%p
+							%strong Consumer assistance program (CAP):
+							The ACA offered grants to states to start or strengthen consumer assistance programs. Consumer Assistance Programs are currently in operation in both Kansas and Missouri.The state CAP may help consumers file appeals.
+						%p
+							%strong Grandfathered plans:
+							Grandfathered plans created before March 23, 2010 do not have to offer appeals or review rights.
+						.box
+							%p
+								%strong STARTING DATE: MARCH 23, 2010
+							%p
+								%strong What You Should Do:
+								Appeals processes should already be in place for most plans.
+						%p.blue Members may choose any primary care doctor or pediatrician from their health provider’s network.
+						%p Any individual enrolled in a plan must be able to choose a primary care physician including pediatricians for children.
+						%p Additional rules prohibit health plans from requiring a referral from a primary care provider before members can seek coverage for obstetrical or gynecological (OB/GYN) care from a participating OB/GYN specialist.These rules do not apply to grandfathered plans.
+						.box
+							%p
+								%strong STARTING DATE: MARCH 23, 2010
+							%p
+								%strong What You Should Do:
+								These provisions have been in place since 2010.
+							%p
+								%strong How Blue KC Can Help:
+								Those enrolled in Blue
+							%p KC’s Blue-Care network may select any primary care physician currently accepting patients and members do not need approval to see other specialists including OB/ GYNs within the network.
+							%p
+								%strong Grandfathered Plans:
+								This provision may not apply to grandfathered plans.
+						%p.blue Plans cannot limit payment for out-of-network emergency services.
+						%p The ACA requires member copayment and coinsurance to be the same whether emergency care is provided by an in- network or out of network provider.This change was not required for grandfathered plans.
+						.box
+							%p
+								%strong STARTING DATE: MARCH 23, 2010
+							%p
+								%strong What You Should Do:
+								These provisions have been in place since 2010.
+							%p
+								%strong Grandfathered Plans:
+								Change not required.
+						%p.blue Plans cannot retroactively cancel coverage because an enrollee made a mistake on his or her application.
+						%p In the past, insurance companies would sometimes retroactively cancel, or rescind, coverage if an applicant put false or inaccurate information on an application.The Affordable Care Act prohibits plans from rescinding coverage if the false or inaccurate information was caused by an honest mistake.This provision applies to all plans. An insurance company must also give members 30-days notice that it plans to rescind coverage.
+						.box
+							%p
+								%strong STARTING DATE: MARCH 23, 2010
+							%p
+								%strong What You Should Do:
+								These provisions have been in place since 2010.
+							%p
+								%strong Grandfathered Plans:
+								Must comply with this provision.
+						%p.blue By 2014, plans cannot exclude employees, spouses or dependents from coverage based on pre-existing conditions.
+						%p Large group plans cannot exclude employees, spouses or dependents under age of 19 based on pre-existing conditions. Beginning in 2014, the same provision applies to enrollees and dependents of any age. Grandfathered plans must comply with this regulation.
+						.box
+							%p
+								%strong STARTING DATE
+							%p 2010 for dependents under 19; 2014 for all ages.
+							%p
+								%strong What You Should Do:
+								Work with your marketing representative to make this change for 2104.
+							%p
+								%strong What’s Ahead:
+								The ban on excluding pre-existing conditions begins in 2014 for all plans.
+							%p
+								%strong How Blue KC Can Help:
+								Blue KC will incorporate the removal of pre-existing condition exclusion periods at time of renewal.This change will be communicated to the marketing representatives who will facilitate the change.
+						%p.blue A cap will be imposed on out-of-pocket expenses for individual group members.
+						%p Employer-sponsored health plans may not have out-of-pocket maximums that exceed approximately $6,400 (although the exact value has not been finalized yet) and all member cost- sharing must be counted against the maximum.The details of this provision are still being worked out.
+						%p
+							%strong Out-of-pocket expenses:
+							Costs the member must pay in a year before his or her health insurance or plan begins to pay 100% of the allowed amount.This limit cannot includes the premium, balance-billed charges or healthcare your health insurance or plan doesn’t cover.
+						.box
+							%p
+								%strong STARTING DATE
+							%p Plans years starting January 1, 2014 and after
+							%p
+								%strong What You Should Do:
+								Blue KC will help you make this change at renewal.
+							%p
+								%strong What’s Ahead:
+								Out-of-pocket maximums go into effect for 2014 plan years.
+							%p
+								%strong How Blue KC Can Help:
+								Blue KC will incorporate the out-of-pocket maximum limit and integration of all cost-sharing accumulation will take place at the time of renewal.You will be informed of the out-of-pocket maximum and your marketing representative will facilitate this change.
+						%h3 Taxes, fees and Penalties for large employers
+						%p.blue Health insurance Excise Tax
+						%p Beginning in 2014, the Department of Health and Human Services will charge health insurance carriers an excise tax for all plans regardless of how they are funded.This tax will help to fund the Affordable Care Act’s implementation. It is estimated that the tax will be less than 2.4 percent.
+						%p
+							%strong Cadillac tax:
+							A 40 percent excise tax will be applied to high- cost “Cadillac” plans.This tax is imposed on health insurers on the aggregate values of employer-sponsored coverage for an employee that exceeds threshold amounts of $10,200 for self-only coverage and $27,500 for family coverage.This tax will begin in 2019 and be applied to the 2018 tax year.
+						.box
+							%strong STARTING DATE: SEPTEMBER 20, 2014
+							%strong What You Should Do:
+							Blue KC will handle this.
+							%strong What’s Coming Up:
+							Rates will be adjusted each year.
+							%strong How Can Blue KC Help:
+							Blue KC will pay the fee that is pro-rated for 2013 and 2014.The excise tax fee will appear on all rate sheets for renewals and quotes.
+						%p.blue Comparative Effectiveness Fee to Support Patient Centered outcomes Research institute
+						%p Since 2012, a cost effectiveness fee has been added to all group insurance coverage.This fee supports the Patient Center Outcomes Research Institute.The fee rose from $1 multiplied by the average number of individuals covered to $2 in 2013.
+						.box
+							%p
+								%strong STARTING DATE: 2012
+							%p
+								%strong What You Should Do:
+								Blue KC pays the fee for fully- insured groups; self-funded groups, including Cost Plus, are required to pay the fee annually.
+							%p
+								%strong How Can Blue Kc Help:
+								Blue KC pays the fee for fully- insured groups; self-funded groups, including Cost Plus, are required to pay the fee directly to the IRS.
+						%p Employer-sponsored Coverage Reporting and notification
+						%p Employers must report to the federal government on the coverage they provide to full-time employees.They must also notify their employees of what they reported to the federal government.
+						%p
+							%strong Employer-sponsored Coverage reporting:
+							The reporting must include certification of minimum value and a disclaimer (for what?)?The report must include: whether minimum essential coverage is offered to full-time employees; monthly premiums for the lowest-cost option in each category; employer share of total allowed cost of the plan; the number of full-time employees for each month; the month each full-time employee was covered.
+						%p Notification to eligible employees of employer-sponsored coverage:The employer must provide all full-time employees with a report that shows: the name and address if their plan; contact information for the plan; all information reported for the employee and dependents as part of employee-sponsored coverage reporting.
+						.box
+							%p
+								%strong STARTING DATE: 2014
+							%p
+								%strong What You Should Do:
+								Blue KC will assist you with this.
+							%p
+								%strong What’s Ahead:
+								This provision begins in plans years starting after January 1, 2014.
+							%p
+								%strong How Can Blue KC Help:
+								Blue KC will assist employers with certification of minimum value including a disclaimer.
+						%p.blue Temporary Reinsurance Program
+						%p TheTemporary Reinsurance Program is funded by payments from all health insurance insurers in the individual and group markets, including self-insured plans. It makes reinsurance payments to health insurance insurers that cover high-risk members in the individual market (excluding grandfathered plans). It will be maintained from 2014 through 2016, the first three years of exchange operation.
+						.box
+							%p
+								%strong STARTING DATE: 2014 THROUGH 2016
+							%p
+								%strong What You Should Do:
+								Blue KC will pay the fee for fully-insured groups
+							%p
+								%strong What’s Coming Up:
+								This fee will not be charged after 2016.
+							%p
+								%strong How Can Blue KC Help:
+								Blue KC will pay the fee for fully-insured groups.
+						%p.blue Employer mandate (play or pay) penalties
+						%p An employer with an average of 50 full-time equivalent employees whose plan does not provide minimum coverage or minimum value can be subject to penalties under the Affordable Care Act.
+						%p
+							%strong Failure to offer minimum coverage:
+							Beginning in 2014, an employer that doesn’t provide at least 95 percent of full-time employees with health coverage can be assessed $2000 a year for each employee that declines the company plan and instead chooses to get coverage through a state exchange.This penalty is triggered when an employee receives a premium tax credit for purchasing coverage from an exchange.The penalty applies to employers with more than 30 full-time employees.
+						%p
+							%strong Coverage is offered but does not provide minimum value:
+							Employers that do provide at least 95 percent of their full-time employees (and after 2014, their dependents) with coverage with coverage that is not affordable or that fails to provide minimum value can be fined $3000 for each employee that takes a tax credit or $2000 for each full-time employee beyond the first 30 full-time employees.
+						.box
+							%p
+								%strong STARTING DATE: JANUARY 1, 2014
+							%p
+								%strong What You Should Do:
+								Check with your tax advisor to make sure you comply with the requirements.
+							%p
+								%strong What’s Coming Up:
+								Penalties will begin in 2014.
+							%p
+								%strong How Can Blue KC Help:
+								Blue KC may be able to help guide you in avoiding penalties.
+						%p.blue Rebates for consumers if a plan doesn’t meet the medical loss ratio
+						%p Since 2011, insurance companies have been required to spend a specified percentage of premium dollars on medical care and quality improvement activities, meeting a medical loss ratio (MLR) standard. Insurance companies that are not meeting the MLR standard were required to provide rebates to their consumers beginning in 2012.
+						.box
+							%p
+								%strong STARTING DATE: 2011
+							%p
+								%strong What You Should Do:
+								This provision has been in place since 2011.
+						%h3 Notifications and Reporting Required for Large Employers
+						%p.blue Summary of Benefits and Coverage (SBC)
+						%p Health insurance issuers and group health plans are required to provide those enrolled with an easy-to-understand summary about a health plan’s benefits and coverage. They must give enrollees a short, plain-language summary of benefits and coverage document, which follows a standard format so that consumers can compare their options. Consumers should also receive a uniform glossary of terms commonly used in the plan.
+						%p
+							%strong What’s included:
+							The summary of benefits and coverage should include deductibles, covered services and cost-sharing for common medical issues.
+						.box
+							%p
+								%strong STARTING DATE: SEPTEMBER 23, 2012
+							%p
+								%strong What You Should Do:
+								SBCs have been in effect since 2012.
+						%p.blue Temporary Reinsurance Program
+						%p The Temporary Reinsurance Program is funded by payments from all health insurance insurers in the individual and group markets, including self-insured plans. It makes reinsurance payments to health insurance insurers that cover high-risk members in the individual market (excluding grandfathered plans). It will be maintained from 2014 through 2016, the first three years of exchange operation.
+						%p
+							%strong Reporting requirements:
+							The employer must include the following information in the report: if minimum essential coverage is offered to full-time employees; waiting periods; monthly premium for lowest cost option in each category; ER share of total allowed of plans; the number of full-time employees for each month; and the name, address social security number of each eligible employee; the months each eligible employee was covered.
+						.box
+							%p
+								%strong STARTING DATE
+							%p Tax year 2012 when returns are filed in 2013
+							%p
+								%strong What You Should Do:
+								Prepare to make a report if your business filed more than 250 W-2s in 2011 and continue to monitor this document for updates.
+							%p
+								%strong What’s Coming Up:
+								The size of businesses required to make this report may change in the future.
+							%p
+								%strong How Can Blue KC Help:
+								Blue KC will assist employers with certification on minimal value, including a disclaimer.
+						%p.blue Notification to eligible employees of ER-sponsored Coverage
+						%p The plan must provide each eligible employee with: emergency room name; emergency room contact information; information reported for the eligible employee and dependents as part of the ER-sponsored coverage reporting requirements.
+						.box
+							%p
+								%strong STARTING DATE
+							%p Must be in place by January 31, 2015
+							%p
+								%strong What You Should Do:
+								Monitor this document for more information
+							%p
+								%strong> What’s Coming Up:
+								This provision goes into effect in 2014.
+							%p
+								%strong How Can Blue KC Help:
+								We will keep you updated on this requirement.
+						%p.blue Health insurance marketplace/Exchange notification
+						%p Employers will be required to inform eligible employees of the health insurance exchange offered in the state and the availability of the premium tax credit.The notification must include an exchange service description, subsidy availability in the event an affordable, minimum-value plan is not offered, and premium/tax implications of purchasing on the exchange. However, the requirement will not go into effect until regulations are issued.
+						.box
+							%p
+								%strong STARTING DATE: DELAYED
+							%p
+								%strong What You Should Do:
+								Monitor this document for moreinformation
+							%p
+								%strong What’s Coming Up:
+								Exchange notification will be required at some point in the future.
+							%p
+								%strong How Can Blue KC Help:
+								We will keep you updated on this requirement.
+						%p.blue Verification to Employees of Employer-Sponsored Coverage
+						%p Need a few sentences about what this is
+						%p Employers must submit employer-sponsored information for applicants in 2014/2015 with automated verification beginning in 2016.
+						.box
+							%p
+								%strong STARTING DATE
+							%p
+								%strong What You Should Do:
+							%p
+								%strong What’s Coming Up:
+							%p
+								%strong How Can Blue KC Help:
+						%p.blue Automatic Enrollment
+						%p Employers with more than 200 employees must automatically enroll new and existing full-time employees in health insurance coverage, but employees may opt out. Beginning in 2014, waiting periods longer than 90 days are not permitted for new employees. Employees must be given adequate notice in case they want to opt out.
+						%p
+							%strong Full-time employee:
+							While full-time employees are not defined under this provision, the employer mandate section of the law defines full-time as an employee who works an average of 30 hours a week.
+						%p
+							%strong MORE ABOUT DETERMINING FULL-TIME STATUS (icon link)
+						.box
+							%p
+								%strong STARTING DATE
+							%p Employees do not have to comply with this provision until the Department of Labor issues regulations, anticipated in 2014.The changes to waiting periods will begin after January 1, 2014 when new plan years begin.
+							%p
+								%strong What You Should Do:
+								Watch this document for updates on the regulations.
+							%p
+								%strong> What’s Ahead
+								\: Regulations are expected in 2014.
+							%p
+								%strong> How Blue KC Can Help
+								\: Once the regulations have been issued, Blue KC can help you incorporate them into your plan. We will change the waiting period provisions of policies, if necessary, at time of renewal. Additional waiting period options will be available and the employer can work with their marketing representatives to facilitate a change if the default option is not desired.
+					/ KEY TERMS AND DEFINITIONS
+					.page.sect-2.pg-1.show-all-tabs{"data-auto-pagination" => "true", "data-number-format" => "roman"}
+						%h3 Key Terms and Definitions
+						%p
+							%strong Actuarial Value (AV):
+							This calculation measures how much a plan covers versus how much an individual might have to pay out-of-pocket.The actuarial value is based on a hypothetical population, not on the actual usage of individuals enrolled in the plan. Employers can use contributions to health reimbursement arrangements or health savings accounts to increase the actuarial value of a plan.
+						%p
+							%strong Affordable Care Act (ACA):
+							The Patient Protection and Affordable Care Act commonly called Obamacare or the healthcare reform law, was signed into law on March 23, 2010. Its goals are to decrease the number of uninsured Americans and reduce the overall cost of healthcare. It provides mandates, subsidies and tax credits to employers and individuals, with additional reforms aimed at improving healthcare outcomes and streaming healthcare services.
+						%p
+							%strong Affordable Coverage:
+							Coverage must also offer minimum value under the definition of the Affordable Care Act. That means workers do not have to pay more than 9.5 percent of their income for their insurance.
+						%p
+							%strong Annual Dollar Limits:
+							Group health plans can no longer set lifetime dollar limits or annual dollar limits on any individual’s coverage for essential health benefits, a group of services defined under the ACA. Most small group and individual plans will have to cover all of these services, while large group and grandfathered plans do not have to provide them. However, any plan that offers any of the essential benefit services cannot impose annual or lifetime limits on them.
+						%p
+							%strong Archer Medical Savings Accounts:
+							a type of flexible spending account.
+						%p
+							%strong Automatic Enrollment:
+							Employers with more than 200 employees must automatically enroll new and existing full- time employees in health insurance coverage, but employees may opt out. Beginning in 2014, waiting periods longer than 90 days are not permitted for new employees. Employees must be given adequate notice in case they want to opt out.
+						%p
+							%strong Cadillac Tax:
+							see High Cost Excise Tax
+						%p
+							%strong Comparative Effectiveness Fee:
+							Since 2012, a cost effectiveness fee has been added to all group insurance coverage.This fee supports the Patient Center Outcomes Research Institute.The fee rose from $1 multiplied by the average number of individuals covered to $2 in 2013.
+						%p
+							%strong Consumer Assistance Program (CAP):
+							The ACA offered grants to states to start or strengthen consumer assistance programs. Consumer Assistance Programs are currently in operation in both Kansas and Missouri.The state CAP may help consumers file appeals.
+						%p
+							%strong Cost-sharing:
+							Cost-sharing is defined as copayments, coinsurance and deductibles.This provision applies only to services provided by healthcare professionals who are in the plan’s network.
+						%p
+							%strong Dependents:
+							A dependent under the employer mandate includes a son or daughter (whether by blood or adoption), a stepson or stepdaughter, or an eligible foster child. Dependents include children under age 26 after 2014. Spouses are not considered dependents.
+						%p
+							%strong Employer Mandate:
+							Under the ACA, most employers are required to offer health benefits to their employees or pay a penalty. This is also referred to as “play or pay.”
+						%p
+							%strong Employer-sponsored Coverage Reporting:
+							The reporting must include certification of minimum value and a disclaimer (for what?)?The report must include: whether minimum essential coverage is offered to full-time employees; monthly premiums for the lowest-cost option in each category; employer share of total allowed cost of the plan; the number of full-time employees for each month; the month each full-time employee was covered.
+						%p
+							%strong Essential Health Benefits (EHB):
+							The Affordable Care Act defines certain insurance benefits as essential health benefits. EHBs must include items and services within at least the following 10 categories: ambulatory patient services; emergency services; hospitalization; maternity and newborn care; mental health and substance use disorder services, including behavioral health treatment; prescription drugs; rehabilitative and habilitative services and devices; laboratory services; preventive and wellness services and chronic disease management; and pediatric services, including oral and vision care. Most individual and small group plans are required to cover all of these categories starting in 2014. Large group plans do not have to cover essential health benefits, but they must remove annual and lifetime limits. Grandfathered plans must remove lifetime limits but not annual limits.
+						%p
+							%strong Exchange Notification Requirement:
+							Employers will be required to inform eligible employees of the health insurance exchange offered in the state and the availability of the premium tax credit.The notification must include an exchange service description, subsidy availability in the event an affordable, minimum-value plan is not offered, and premium/ tax implications of purchasing on the exchange.
+						%p
+							%strong Exchanges:
+							See health insurance exchanges.
+						%p
+							%strong Excise Tax:
+							Beginning in 2014, the Department of Health and Human Services will charge health insurance carriers an excise tax for all plans regardless of how they are funded.This tax will help to fund the Affordable Care Act’s implementation. It is estimated that the tax will be less than 2.4 percent.
+						%p
+							%strong External Appeal:
+							If the plan still denies payment after considering an appeal, the consumer is entitled to appeal to an independent review organization.
+						%p
+							%strong Flexible Spending Account (FSA):
+							A flexible spending account is one of several types of accounts that can allow employees to reduce taxes.They generally allow employees to set aside a portion of their earnings to pay for qualified healthcare expenses. Money deducted from a FSA is not subject to payroll taxes.
+						%p
+							%strong Full-time Employee:
+							Under the ACA, a full-time employee is one that worked on average at least 30 hours a week, which translates to 130 hours of service in a calendar month.
+						%p
+							%strong Full-time Equivalent Employee (FTE):
+							To figure out how many full-time equivalent employees a company has, add the hours worked by all part-time employees and divide that number by 120. For example: a company has 36 part-time workers that work an average of 100 hours a week, so that company must add an additional 30 workers to its full-time count. (36 part-time workers x 100 hours ÷120 = 30 FTEs). If your company has special circumstance you should consult your tax advisor. funded health reimbursement Accounts (fhrA): A type of flexible spending account.
+						%p
+							%strong Grandfathered Plans:
+							Plans that were already in effect on March 23, 2010 do not have to comply with all of the provisions of the ACA, but they must provide certain benefits to their members if they were not already in place.
+						%p
+							%strong Guaranteed Issue:
+							Health insurance companies will be required to offer and renew coverage to individuals regardless of their health status, pre-existing conditions, or services they have used.
+						%p
+							%strong Habilitative Services:
+							While rehabilitative services help people recover skills they have lost, habilitative services help people acquire new skills they have never had, such as speech therapy for an autistic child or helping a mentally ill person improve social skills.
+						%p
+							%strong Health Insurance Exchanges:
+							The ACA provides for state- based health insurance exchanges, or online marketplaces, where individuals and small businesses can shop for coverage. Each state has the option of operating its own exchange or partnering with the federal government to run an exchange. If a state doesn’t choose to do either, it will become part of a federally-facilitated exchange.
+						%p
+							%strong Health Reimbursement Agreement (HRA):
+							A type of flexible spending account.
+						%p
+							%strong Health Savings Account (HSA):
+							a type of flexible spending account.
+						%p
+							%strong High Cost Excise Tax:
+							A 40 percent excise tax will be applied to high-cost “Cadillac” plans. This tax is imposed on health insurers on the aggregate values of employer-sponsored coverage for an employee that exceeds threshold amounts of $10,200 for self-only coverage and $27,500 for family coverage. This tax will begin in 2019 and be applied to the 2018 tax year. This is also refered to as the “Cadillac tax.”
+						%p
+							%strong Internal Appeal:
+							A plan member requesting an internal appeal must receive a decision within 72 if the appeal is a denial of claim for urgent care.The plan has 30 days to respond to a non-urgent appeal, and 60 days to respond to a denial of service that has already been provided.
+						%p
+							%strong Large Employer:
+							A large employer is one that has at least 50 full-time employees or a combination of part-time employees that are equivalent to 50 based upon the hours of service for all employees.
+						%p
+							%strong Lifetime Dollar Limits:
+							Group health plans can no longer set lifetime dollar limits or annual dollar limits on any individual’s coverage for essential health benefits, a group of services defined under the ACA. Most small group and individual plans will have to cover all of these services, while large group and grandfathered plans do not have to provide them. However, any plan that offers any of the essential benefit services cannot impose annual or lifetime limits on them.
+						%p
+							%strong Minimum Essential Coverage:
+							The federal government proposed regulations for minimum essential coverage on February 1, 2013. For large and small groups, this coverage includes fully insured and self-insured plans offered by employers including government plans, any other coverage offered on the market, or health plans grandfathered under the ACA.
+						%p
+							%strong Minimum Essential Coverage:
+							The type of coverage an individual needs to have to meet the individual responsibility requirement under the Affordable Care Act. This includes individual market policies, job-based coverage, Medicare, Medicaid, CHIP,TRICARE, and certain other coverage.
+						%p
+							%strong Minimum Value:
+							The federal government will provide a minimum value calculator where employers can enter plan information and find out whether their plan provides minimum value, which is a test of affordable coverage.
+						%p
+							%strong Non-discrimination In Wellness Incentive Programs:
+							The act prohibits discrimination in health-contingent wellness programs that generally require individuals to meet a specific standard related to their health to obtain a reward.
+						%p
+							%strong Notification To Eligible Employees Of Employer- Sponsored Coverage:
+							The employer must provide all full- time employees with a report that shows: the name and address if their plan; contact information for the plan; all information reported for the employee and dependents as part of employee-sponsored coverage reporting.
+						%p
+							%strong Out-of-pocket Expenses:
+							Costs the member must pay in a year before his or her health insurance or plan begins to pay 100 percent of the allowed amount.This limit cannot includes the premium, balance-billed charges, or healthcare a plan doesn’t cover.
+						%p
+							%strong Play Or Pay:
+							See Employer Mandate
+						%p
+							%strong Qualified Coverage:
+							The act defines qualified coverage as a plan that pays at least 60
+						%p
+							%strong Recission:
+							In the past, insurance companies would sometimes retroactively cancel, or rescind, coverage if an applicant put false or inaccurate information on an application.The Affordable Care Act prohibits plans from rescinding coverage if the false or inaccurate information was caused by an honest mistake.This provision applies to all plans. An insurance company must also give members 30-day notice it plans to rescind coverage.
+						%p
+							%strong Retiree Reimbursement Account (RRA):
+							A type of flexible spending account.
+						%p
+							%strong Shared Responsibility Payment:
+							Individuals who fail to get coverage or qualify for an exemption are required to file a shared responsibility payment when they file their individual income tax return.
+						%p
+							%strong Summary Of Benefits And Coverage (SBC):
+							Health insurance issuers and group health plans are required to provide those enrolled with an easy-to-understand summary about a health plan’s benefits and coverage.They must give enrollees a short, plain-language summary of benefits and coverage document, which follows a standard format so that consumers can compare their options. Consumers should also receive a uniform glossary of terms commonly used in the plan.
+						%p
+							%strong Temporary Reinsurance Fee:
+							The Temporary Reinsurance Program is funded by payments from all health insurance insurers in the individual and group markets, including self- insured plans. It makes reinsurance payments to health insurance insurers that cover high-risk members in the individual market (excluding grandfathered plans). It will be maintained from 2014 through 2016, the first three years of exchange operation.
+						%p
+							%strong Waiting Period:
+							Both grandfathered and non-grandfathered plans cannot impose a waiting period of more than 90 days for employees to enroll in coverage.
+		%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+		:javascript
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')
+		%script{:src => "js/vendor/jgestures.min.js"}
+		%script{:src => "js/plugins.js"}
+		%script{:src => "js/main.js"}
+		%script{:src => "js/vendor/hash.min.js"}
+		:javascript
+			Modernizr.load({
+					test : Modernizr.csstransforms,
+					yep: ['js/vendor/turn.js'],
+					nope : ['js/vendor/turn.html4.min.js'],
+					complete: function(){
+						acaBookApp.go();
+					}
+			});
+		/ Google Analytics: change UA-XXXXX-X to be your site's ID.
+		:javascript
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+				g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+				s.parentNode.insertBefore(g,s)}(document,'script'));
