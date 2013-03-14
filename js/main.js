@@ -23,11 +23,13 @@ appConfig.dimensions = {
 //the first one will be default, ordered by lowest priority when conditions are met
 appConfig.modes = { 
 	full: {
-		maxW: (appConfig.dimensions.page[0]*2) +appConfig.dimensions.mattePadding
+		maxW: (appConfig.dimensions.page[0]*2) +appConfig.dimensions.mattePadding,
+		noIPhone: true
 	},
 	single: {
 		bookDouble: false,
-		maxW: (appConfig.dimensions.page[0]*2) + (appConfig.dimensions.mattePadding*2)
+		maxW: (appConfig.dimensions.page[0]*2) + (appConfig.dimensions.mattePadding*2),
+		noIPhone: true
 	},
 	scroll: {
 		showBook: false,
@@ -77,7 +79,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 					arrSpot++;
 
 				this.funcs.splice(arrSpot, 0, newFunc);
-				console.log(this.funcs);
 			},
 
 			removeFunc: function(id){
@@ -107,11 +108,16 @@ acaBookApp = (function($, window, appConfig, undefined){
 			modes: [],
 			curViewer: false,
 			curMode: false,
+			scrollCurPage: 1,
 
 			init: function(config){
 				var app = this;
 
-				app.isiOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+				app.isPad = ( navigator.userAgent.match(/(iPad)/g) ? true : false );
+				app.isPhone = ( navigator.userAgent.match(/(iPhone|iPod)/g) ? true : false );
+
+				if(app.isPad)
+					app.$app.addClass('iOS');
 
 
 				//setup whiteout
@@ -130,7 +136,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 					app.tocToggle.call(app);
 				});
 
-				app.$toc.find('.close, li').on('click', function(){
+				app.$toc.find('span.close, li').on('click', function(){
 					app.tocToggle.call(app);
 				});
 
@@ -153,6 +159,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 				// clone book contents into scroll for later
 				// (since it gets modified by turn.js)
 				app.$scroll = app.$book.clone(false).attr('id', 'scroll');
+				app.$scroll.children().each(function(i, el){
+					$(el).addClass('p'+(i+1));
+				});
 
 				// build targetLookup directory
 				$('[data-target]').each(function(i, el){
@@ -180,11 +189,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				app.config.dimensions.book = [0, app.config.dimensions.page[1]];
 				app.config.dimensions.matte = [0, app.config.dimensions.page[1] + (appConfig.dimensions.mattePadding * 2)];
 				app.config.dimensions.wrap = [0, app.config.dimensions.matte[1]];
-
-				// set her up
-				$.each(resizeHandler.funcs, function(i, el){console.log(el.id)});
-
-
 
 			},
 
@@ -231,7 +235,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 					classes = $pgAuto.attr('class').split(' ');
 					$.each(classes, function(j, c){
-						if(c.search(/^pg-/) == -1)
+						if(c.search(/^pg-[0-9]/) == -1)
 							return
 
 						pageNum = c.substring(3);
@@ -239,7 +243,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 					});
 
 					$newPageTemplate.attr('class', classes.join(' ')).removeClass('pg-'+pageNum);
-					console.log($newPageTemplate.attr('class'));
 
 					breakHeight = app.config.dimensions.page[1] - (app.config.dimensions.pageMargins[1] * app.config.dimensions.pageMarginLeaniency);
 
@@ -338,6 +341,10 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 							app.$app.addClass('book').removeClass('scroll');
 
+
+							// kill book event listeners
+							$win.off('scroll.book');
+
 							// attach book
 							app.$bookwrap.appendTo(app.$app);
 
@@ -345,14 +352,13 @@ acaBookApp = (function($, window, appConfig, undefined){
 							app.centerVertically.call(app);
 
 							//hash stuff
-
 							app.$book.on('turned', function(event, page, view){
 								hash.add({page: page});
 							});
 
-							if(hash.get('page') !== undefined){
+							if(hash.get('page') !== undefined)
 								app.$book.turn('page', hash.get('page'));
-							}
+							
 							
 						}
 
@@ -365,18 +371,57 @@ acaBookApp = (function($, window, appConfig, undefined){
 							app.$bookwrap.detach();
 
 							// kill resize binding
+							resizeHandler.removeFunc('viewportScale');
 							resizeHandler.removeFunc('centerVertically');
 
-							// kill event listeners
+							// kill book event listeners
 							$win.off('keydown.book');
 							app.$book.off('end')
-
-							// TODO hash stuff for scrolling
 
 							app.$app.addClass('scroll').removeClass('book');
 
 							// attach scroll
 							app.$scroll.appendTo(app.$app);
+
+							// hash stuff
+							var curWaiting = false,
+								dest = 0;
+
+							if(hash.get('page') !== undefined){
+								dest = $('.p'+hash.get('page')).position().top;
+								app.scrollCurPage = hash.get('page');
+							}
+
+
+							app.$app.animate({
+								scrollTop: dest
+							}, 500, function(){
+								app.$app.on('scroll.book', function(event){
+									if(!curWaiting){
+										curWaiting = true;
+										setTimeout(function(){
+											var curTestTop = $('.p'+ app.scrollCurPage).position().top
+
+											while( curTestTop + app.config.dimensions.page[1] < 0){
+												app.scrollCurPage++;
+												curTestTop = $('.p'+ app.scrollCurPage).position().top;
+											}
+
+											while( curTestTop > 0){
+												app.scrollCurPage--;
+												curTestTop = $('.p'+ app.scrollCurPage).position().top;
+											}
+
+											hash.add({page: app.scrollCurPage});
+
+											curWaiting = false;
+										}, 250);
+									}
+								});
+							});
+
+							
+
 						}
 
 						app.curViewer = 'scroll';
@@ -390,11 +435,14 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 			// handles 'data-target' stuff.
 			gotoPage: function(req){
-				if(this.curViewer == 'book')
-					this.$book.turn('page', this.targetLookup[req]);
-				else{
-					$('body, html').animate({
-						scrollTop: $(req).offset().top
+				var app = this;
+
+				if(app.curViewer == 'book'){
+					app.$book.turn('page', app.targetLookup[req]);
+				}else{
+					//alert($('.p'+app.targetLookup[req]).position().top);
+					app.$app.animate({
+						scrollTop: '+=' + $('.p'+app.targetLookup[req]).position().top
 					}, 500);
 				}
 			},
@@ -416,9 +464,8 @@ acaBookApp = (function($, window, appConfig, undefined){
 					hDiff = winD.h - this.config.dimensions.page[1],
 					wDiff = winD.w - this.config.dimensions.page[0];
 
-				if(!this.isiOS)
+				if(!this.isPad)
 					return;
-
 
 				if(isPortrait){
 					this.config.viewport.content['width'] = this.config.dimensions.page[0] + (this.config.dimensions.mattePadding*2); //Math.floor((winD.w / this.config.dimensions.page[0]) * 10) / 10;
@@ -456,6 +503,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 			this.settings = {
 				showBook: true,
 				bookDouble: true,
+				noIPhone: false,
 				maxW: false,
 				maxH: false
 			};
@@ -464,8 +512,11 @@ acaBookApp = (function($, window, appConfig, undefined){
 		};
 
 	Mode.prototype.isShowable = function(){
-		return	(this.settings.maxW!==false && this.settings.maxW > winD.w) ||
-				(this.settings.maxH!==false && this.settings.maxH > winD.h)
+		return	!(this.settings.noIPhone && this.app.isPhone)
+				&& (
+					(this.settings.maxW!==false && this.settings.maxW > winD.w) ||
+					(this.settings.maxH!==false && this.settings.maxH > winD.h)
+				)
 	};
 
 
