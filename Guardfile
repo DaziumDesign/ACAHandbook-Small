@@ -1,10 +1,10 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-# guard :haml do
-#   watch('email.haml')
-# end
-# 
+guard :haml do
+  watch('index2.html.haml')
+end
+
 
 guard 'sass', :input => 'css/sass', :output => 'css', :compass => {
   :images_dir => 'images',
@@ -17,6 +17,6 @@ guard 'sass', :input => 'css/sass', :output => 'css', :compass => {
 
 guard 'livereload' do
   watch('css/screen.css')
-  watch('index.html')
+  watch('index2.html')
 end
 
