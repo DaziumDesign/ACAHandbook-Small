@@ -133,7 +133,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 					app.tocToggle.call(app);
 				});
 
-				app.$toc.find('span, li').on('click', function(e){
+				app.$toc.find('span').on('click', function(e){
 					app.tocToggle.call(app);
 				});
 
