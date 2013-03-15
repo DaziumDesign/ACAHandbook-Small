@@ -137,7 +137,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				});
 
 				app.$toc.find('span.close, li').on('click', function(e){
-					e.stopPropagation();
 					app.tocToggle.call(app);
 				});
 
@@ -151,7 +150,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 				$win.resize(function(){ resizeHandler.onResize.call(resizeHandler) });
 
 				app.$app.on('click', 'li[data-target], span[data-target], a[data-target]', function(e){
-					app.gotoPage.call(app, $(e.currentTarget).data('target'));
+					app.gotoPageByTarget.call(app, $(e.currentTarget).data('target'));
 				});
 
 				// auto-paginate divs that need it
@@ -178,6 +177,15 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 					app.targetLookup[target] = $el.index() + 1;
 				});
+
+				// hasher
+				hasher.changed.add(function(newHash, oldHash){
+					var p = newHash.substring(newHash.indexOf('=') + 1);
+
+					app.gotoPage(p, true);
+
+				});
+				hasher.init();
 
 
 				// add to resizeFuncs
@@ -285,11 +293,18 @@ acaBookApp = (function($, window, appConfig, undefined){
 				});
 			},
 
+			setHashSilently: function(hash){
+				hasher.changed.active = false; //disable changed signal
+				hasher.setHash(hash); //set hash without dispatching changed signal
+				hasher.changed.active = true; //re-enable signal
+			},
 
 			setMode: function(){
 				var	app = this,
 					newMode = app.modes[0],
-					dim = app.config.dimensions;
+					dim = app.config.dimensions
+					hashVal = window.location.hash,
+					p = hashVal.substring(hashVal.indexOf('=')+1);
 
 				$.each(app.modes, function(i, mode){
 					if(mode.isShowable())
@@ -357,12 +372,13 @@ acaBookApp = (function($, window, appConfig, undefined){
 							app.appWrapSize.call(app);
 
 							//hash stuff
-							app.$book.on('turned', function(event, page, view){
-								hash.add({page: page});
+							app.$book.on('turned.hash', function(event, page, view){
+								app.setHashSilently('page=' + page);
 							});
 
-							if(hash.get('page') !== undefined)
-								app.$book.turn('page', hash.get('page'));
+
+							if(p.length > 0)
+								app.$book.turn('page', p);
 							
 							
 						}
@@ -393,9 +409,10 @@ acaBookApp = (function($, window, appConfig, undefined){
 							var curWaiting = false,
 								dest = 0;
 
-							if(hash.get('page') !== undefined){
-								dest = $('.p'+hash.get('page')).position().top;
-								app.scrollCurPage = hash.get('page');
+							
+							if(p.length > 0){
+								dest = $('.p'+p).position().top;
+								app.scrollCurPage = parseInt(p);
 							}
 
 
@@ -418,7 +435,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 												curTestTop = $('.p'+ app.scrollCurPage).position().top;
 											}
 
-											hash.add({page: app.scrollCurPage});
+											app.setHashSilently('page=' + app.scrollCurPage);
 
 											curWaiting = false;
 										}, 250);
@@ -446,15 +463,31 @@ acaBookApp = (function($, window, appConfig, undefined){
 			},
 
 			// handles 'data-target' stuff.
-			gotoPage: function(req){
+			gotoPageByTarget: function(req){
+				var app = this;
+
+				app.gotoPage(app.targetLookup[req]);
+			},
+
+			gotoPage: function(p, noHashChange){
 				var app = this;
 
 				if(app.curViewer == 'book'){
-					app.$book.turn('page', app.targetLookup[req]);
+					if(noHashChange){
+						app.$book.off('turned.hash');
+						app.$book.on('turned.hash-temp', function(){
+
+							app.$book.on('turned.hash', function(event, page, view){
+								app.setHashSilently('page=' + page);
+								console.log('new');
+							});
+							app.$book.off('turned.hash-temp');
+						})
+					}
+					app.$book.turn('page', p);
 				}else{
-					console.log($('.p'+app.targetLookup[req]).position().top);
 					$('html, body').animate({
-						scrollTop: $('.p'+app.targetLookup[req]).position().top
+						scrollTop: $('.p'+p).position().top
 					}, 500);
 				}
 			},
