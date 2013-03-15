@@ -24,9 +24,9 @@ body
 		position: relative
 
 	&.scroll
-		overflow: scroll
-		-webkit-overflow-scrolling: touch
 		position: relative
+		top: auto
+		left: auto
 
 		#side-tabs
 			display: none !important
@@ -83,6 +83,7 @@ body
 		font-size: 10px
 		text-transform: uppercase
 		z-index: 2
+		display: block
 
 	.wrap 
 		position: absolute
@@ -90,6 +91,7 @@ body
 		left: 0
 		width: 100%
 		overflow: scroll
+		-webkit-overflow-scrolling: touch
 		z-index: 1
 		background: #fff
 

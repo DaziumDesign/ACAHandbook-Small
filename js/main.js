@@ -92,7 +92,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 			}
 		},
 
-		app = {
+		acaApp = {
 			$whiteout: $('#whiteout'),
 			$app: $('<div />').attr('id', 'app-wrap').appendTo($body),
 			$bookwrap: $('#book-wrap'),
@@ -119,7 +119,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				if(app.isPad)
 					app.$app.addClass('iOS');
 
-
 				//setup whiteout
 				app.$whiteout.css({
 					width: winD.w,
@@ -132,11 +131,13 @@ acaBookApp = (function($, window, appConfig, undefined){
 				app.$toc.prependTo(app.$app);
 				app.$tocToggle.prependTo(app.$app).show();
 
-				app.$tocToggle.on('click', function(){
+				app.$tocToggle.on('click', function(e){
+					e.stopPropagation();
 					app.tocToggle.call(app);
 				});
 
-				app.$toc.find('span.close, li').on('click', function(){
+				app.$toc.find('span.close, li').on('click', function(e){
+					e.stopPropagation();
 					app.tocToggle.call(app);
 				});
 
@@ -180,7 +181,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 
 				// add to resizeFuncs
-				resizeHandler.addFunc('appWrap', app.appWrapSize, app, 1);
 				resizeHandler.addFunc('viewportScale', app.viewportScale, app, 2);
 				resizeHandler.addFunc('appSetMode', app.setMode, app, 3);
 				resizeHandler.addFunc('tocSize', app.tocSize, app, 4);
@@ -193,8 +193,8 @@ acaBookApp = (function($, window, appConfig, undefined){
 			},
 
 			tocToggle: function(){
-				app.$tocToggle.toggle();
-				app.$toc.toggle();
+				this.$tocToggle.toggle();
+				this.$toc.toggle();
 			},
 
 			tocSize: function(){
@@ -205,6 +205,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 			go: function(){
 				var app = this;
 				$win.resize();
+
+				// hack because functions are getting added to the resize stack by the time we "go"
+				app.tocSize.call(app);
 
 				app.$whiteout.fadeOut(500, function(){
 					app.$whiteout.remove();
@@ -327,6 +330,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 							app.$scroll.detach();
 
 							// resize binding
+							resizeHandler.addFunc('appWrap', app.appWrapSize, app, 1);
 							resizeHandler.addFunc('viewportScale', app.viewportScale, app, 5);
 							resizeHandler.addFunc('centerVertically', app.centerVertically, app, 10);
 
@@ -350,6 +354,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 							// scale and center it
 							app.centerVertically.call(app);
+							app.appWrapSize.call(app);
 
 							//hash stuff
 							app.$book.on('turned', function(event, page, view){
@@ -371,6 +376,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 							app.$bookwrap.detach();
 
 							// kill resize binding
+							resizeHandler.removeFunc('appWrap');
 							resizeHandler.removeFunc('viewportScale');
 							resizeHandler.removeFunc('centerVertically');
 
@@ -420,6 +426,12 @@ acaBookApp = (function($, window, appConfig, undefined){
 								});
 							});
 
+							// relax wrapper size
+							app.$app.css({
+								width: 'auto',
+								height: 'auto'
+							});
+
 							
 
 						}
@@ -440,9 +452,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 				if(app.curViewer == 'book'){
 					app.$book.turn('page', app.targetLookup[req]);
 				}else{
-					//alert($('.p'+app.targetLookup[req]).position().top);
-					app.$app.animate({
-						scrollTop: '+=' + $('.p'+app.targetLookup[req]).position().top
+					console.log($('.p'+app.targetLookup[req]).position().top);
+					$('html, body').animate({
+						scrollTop: $('.p'+app.targetLookup[req]).position().top
 					}, 500);
 				}
 			},
@@ -520,7 +532,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 	};
 
 
-	app.util = {
+	acaApp.util = {
 		romanize: function(num) {
 			if (!+num)
 				return false;
@@ -537,9 +549,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 	};
 
 
-	app.init(appConfig);
+	acaApp.init(appConfig);
 
-	return app;
+	return acaApp;
 
 
 
