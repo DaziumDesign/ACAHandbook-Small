@@ -10,7 +10,7 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
     <title>ACA Handbook | Blue KC</title>
     <meta content='' name='description'>
-    <meta content='' name='viewport'>
+    <meta content='width=device-width, initial-scale=.6, maximum-scale=.9' name='viewport'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link href='css/screen.css' rel='stylesheet'>
     <script src='js/vendor/modernizr-2.6.2.min.js'></script>
@@ -27,10 +27,16 @@
       <span class='close'>close</span>
       <div class='wrap'>
         <ul>
-          <li class='title'>
+          <li class='title blue' data-target=''>
             <h2>Essential Information</h2>
           </li>
-          <li data-target='.pg-a'>
+          <li class='title orange' data-target=''>
+            <h2>ACA Overview</h2>
+          </li>
+          <li class='title yellow' data-target=''>
+            <h2>Key Terms and Definitions</h2>
+          </li>
+          <li class='blue' data-target='.pg-a'>
             <span>How to Use this Guide</span>
           </li>
           <li data-target='.pg-b'>
@@ -1416,7 +1422,7 @@
     <script>
       window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')
     </script>
-    <script src='js/vendor/jgestures.min.js'></script>
+    <!-- %script{:src => "js/vendor/jgestures.min.js"} -->
     <script src='js/plugins.js'></script>
     <script src='js/main.js'></script>
     <script src='js/vendor/hash.min.js'></script>

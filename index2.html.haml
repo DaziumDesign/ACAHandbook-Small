@@ -10,7 +10,7 @@
 		%meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
 		%title ACA Handbook | Blue KC
 		%meta{:content => "", :name => "description"}/
-		%meta{:content => "", :name => "viewport"}/
+		%meta{:content => "width=device-width, initial-scale=.6, maximum-scale=.9", :name => "viewport"}/
 		/ Place favicon.ico and apple-touch-icon.png in the root directory
 		%link{:href => "css/screen.css", :rel => "stylesheet"}/
 		%script{:src => "js/vendor/modernizr-2.6.2.min.js"}
@@ -24,9 +24,13 @@
 			%span.close close
 			.wrap
 				%ul
-					%li.title
+					%li.title.blue{"data-target" => ""}
 						%h2 Essential Information
-					%li{"data-target" => ".pg-a"}
+					%li.title.orange{"data-target" => ""}
+						%h2 ACA Overview
+					%li.title.yellow{"data-target" => ""}
+						%h2 Key Terms and Definitions
+					%li.blue{"data-target" => ".pg-a"}
 						%span How to Use this Guide
 					%li{"data-target" => ".pg-b"}
 						%span Essential Information for Blue KC Brokers and Large Groups
@@ -1110,7 +1114,7 @@
 		%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
 		:javascript
 			window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')
-		%script{:src => "js/vendor/jgestures.min.js"}
+		/ %script{:src => "js/vendor/jgestures.min.js"}
 		%script{:src => "js/plugins.js"}
 		%script{:src => "js/main.js"}
 		%script{:src => "js/vendor/hash.min.js"}
