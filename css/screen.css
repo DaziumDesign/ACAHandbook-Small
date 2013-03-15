@@ -59,9 +59,9 @@ body {
     overflow: auto !important;
     position: relative; }
   #app-wrap.scroll {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    position: relative; }
+    position: relative;
+    top: auto;
+    left: auto; }
     #app-wrap.scroll #side-tabs {
       display: none !important; }
     #app-wrap.scroll .page {
@@ -83,7 +83,8 @@ body {
   height: 36px;
   line-height: 36px;
   text-align: center;
-  background: #dddddd;
+  background: #0093d0;
+  color: white;
   -webkit-border-bottom-right-radius: 9px;
   -moz-border-radius-bottomright: 9px;
   border-bottom-right-radius: 9px;
@@ -109,36 +110,48 @@ body {
     background: #eeeeee;
     font-size: 10px;
     text-transform: uppercase;
-    z-index: 2; }
+    z-index: 2;
+    display: block; }
   #toc .wrap {
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 0;
     width: 100%;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     z-index: 1;
     background: white; }
     #toc .wrap span {
       padding: 2px 3px;
-      display: block; }
+      display: block;
+      color: #444444; }
+      #toc .wrap span.blue {
+        color: #0093d0; }
       #toc .wrap span:hover {
         background: #dedede; }
     #toc .wrap > ul {
       padding: 16px 14px; }
       #toc .wrap > ul li {
-        border-bottom: 1px solid #c45e25;
-        font-size: 12px;
+        border-bottom: 1px solid #dddddd;
+        font-size: 13px;
         font-weight: bold;
-        line-height: 18px;
+        line-height: 16px;
         cursor: pointer;
         padding: 8px 0; }
         #toc .wrap > ul li.title {
           border: none;
-          padding-bottom: 0; }
+          padding: 7px; }
+          #toc .wrap > ul li.title.blue {
+            background: #0093d0; }
+          #toc .wrap > ul li.title.orange {
+            background: #d45f29; }
+          #toc .wrap > ul li.title.yellow {
+            background: #fbb017;
+            margin-bottom: 20px; }
         #toc .wrap > ul li h2 {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: bold;
-          padding: 0; }
+          color: white !important; }
         #toc .wrap > ul li ul {
           list-style: disc;
           margin-left: 15px;
@@ -146,7 +159,8 @@ body {
         #toc .wrap > ul li li {
           font-weight: normal;
           border: 0;
-          padding: 0 0 4px; }
+          padding: 0 0 4px;
+          margin-left: 5px; }
 
 #side-tabs {
   position: absolute;
@@ -298,6 +312,8 @@ div.page {
     margin: -9px 0 13px; }
   div.page strong {
     font-weight: bold; }
+  div.page.sect-0.cover h3 {
+    padding-top: 0; }
   div.page.sect-0 p, div.page.sect-0 li {
     margin-bottom: 13px;
     font-size: 13px;

@@ -24,9 +24,9 @@ body
 		position: relative
 
 	&.scroll
-		overflow: scroll
-		-webkit-overflow-scrolling: touch
 		position: relative
+		top: auto
+		left: auto
 
 		#side-tabs
 			display: none !important
@@ -51,7 +51,8 @@ body
 	height: 36px
 	line-height: 36px
 	text-align: center
-	background: #ddd
+	background: #0093d0
+	color: #fff
 
 	-webkit-border-bottom-right-radius: 9px
 	-moz-border-radius-bottomright: 9px
@@ -82,19 +83,25 @@ body
 		font-size: 10px
 		text-transform: uppercase
 		z-index: 2
+		display: block
 
 	.wrap 
 		position: absolute
-		top: 0
+		top: 30px
 		left: 0
 		width: 100%
 		overflow: scroll
+		-webkit-overflow-scrolling: touch
 		z-index: 1
 		background: #fff
 
 		span
 			padding: 2px 3px
 			display: block
+			color: #444
+
+			&.blue
+				color: #0093d0
 
 			&:hover
 				background: #dedede
@@ -103,21 +110,32 @@ body
 			padding: 16px 14px
 
 			li
-				border-bottom: 1px solid #c45e25
-				font-size: 12px
+				border-bottom: 1px solid #ddd
+				font-size: 13px
 				font-weight: bold
-				line-height: 18px
+				line-height: 16px
 				cursor: pointer
 				padding: 8px 0
 
 				&.title
 					border: none
-					padding-bottom: 0
+					padding: 7px
+
+					&.blue
+						background: #0093d0
+
+					&.orange
+						background: #d45f29
+
+					&.yellow
+						background: #fbb017
+						margin-bottom: 20px
+
 
 				h2
-					font-size: 18px
+					font-size: 16px
 					font-weight: bold
-					padding: 0
+					color: #fff !important
 
 				ul
 					list-style: disc
@@ -128,6 +146,7 @@ body
 					font-weight: normal
 					border: 0
 					padding: 0 0 4px
+					margin-left: 5px
 
 #side-tabs
 	position: absolute
@@ -326,6 +345,9 @@ div.page
 		font-weight: bold
 
 	&.sect-0
+
+		&.cover h3
+			padding-top: 0
 
 		p, li
 			margin-bottom: 13px
