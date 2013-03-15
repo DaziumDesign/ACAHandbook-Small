@@ -210,7 +210,7 @@
         <div id='book'>
           <!-- NOTE: do not use any IDs inside of here; this content gets cloned. -->
           <!-- ESSENTIAL INFO -->
-          <div class='page sect-0 hard cover show-all-tabs title-0'>
+          <div class='page sect-0 cover hard show-all-tabs title-0'>
             <h2>The Affordable Care Act</h2>
             <h3>
               Essential Information for<br>Blue KC Brokers and Large Groups
@@ -488,7 +488,7 @@
           </div>
           <!-- ACA OVERVIEW -->
           <div class='page sect-1 show-all-tabs'></div>
-          <div class='page sect-1 hard cover title-1'>
+          <div class='page sect-1 cover hard title-1'>
             <h2>The Affordable Care Act</h2>
             <h3>
               Overview for KC Brokers<br>and Large Groups
@@ -1422,10 +1422,11 @@
     <script>
       window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')
     </script>
-    <!-- %script{:src => "js/vendor/jgestures.min.js"} -->
+    <script src='js/vendor/jgestures.min.js'></script>
+    <script src='js/vendor/signals.min.js'></script>
+    <script src='js/vendor/hasher.min.js'></script>
     <script src='js/plugins.js'></script>
     <script src='js/main.js'></script>
-    <script src='js/vendor/hash.min.js'></script>
     <script>
       Modernizr.load({
       		test : Modernizr.csstransforms,
