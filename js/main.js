@@ -1,7 +1,8 @@
 var appConfig = {};
 
 appConfig.turnJsSettings = {
-	acceleration: true
+	acceleration: true,
+	page: 2
 };
 
 appConfig.viewport = {
@@ -15,7 +16,7 @@ appConfig.viewport = {
 
 appConfig.dimensions = {
 	mattePadding: 29,
-	page: [500, 666],
+	page: [488, 670],
 	pageMargins: [32, 35],
 	pageMarginLeaniency: 1.7 // percentage that we will allow page contents to enter Y margin 
 };
