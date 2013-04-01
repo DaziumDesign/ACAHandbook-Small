@@ -1,4 +1,0 @@
-ACAHandbook
-===========
-
-ACA Handbook
