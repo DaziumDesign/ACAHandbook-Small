@@ -3,8 +3,9 @@
 @import compass/reset
 @import compass
 
-$dark-gray: #414042
-$blue-text: #0093d0
+$dark-gray: #818285
+$blue: #1594d0
+$burg: #9b544e
 
 
 body
@@ -33,6 +34,9 @@ body
 
 		.page
 			margin: 5px auto
+
+		nav
+			display: none
 	
 
 #whiteout
@@ -42,119 +46,41 @@ body
 	z-index: 99999
 	background: #e5e5e5
 
-#toc-toggle
-	position: fixed
-	top: 0
+nav
+	position:	absolute
+	bottom: 694px
 	left: 0
-	display: none
-	width: 215px
-	height: 36px
-	line-height: 36px
-	text-align: center
-	background: #0093d0
-	color: #fff
+	color: #000
+	font-size: 12px
+	padding: 29px
 
-	-webkit-border-bottom-right-radius: 9px
-	-moz-border-radius-bottomright: 9px
-	border-bottom-right-radius: 9px
+	a
+		color: #000
+		text-decoration: none
 
-	font-size: 16px
-	font-weight: bold
+	h4
+		font-size: 16px
+		font-weight: bold
+		display: inline
 
-	cursor: pointer
-	z-index: 50
+	ul
+		display: none
 
-#toc
-	display: none
-	width: 360px
-	position: fixed
-	top: 0
-	left: 0
-	z-index: 50
-	background: #fff
-
-	.close
-		position: absolute
-		top: 5px
-		right: 5px
-		cursor: pointer
-		padding: 5px 8px
-		background: #eee
-		font-size: 10px
-		text-transform: uppercase
-		z-index: 2
-		display: block
-
-	.wrap 
-		position: absolute
-		top: 30px
-		left: 0
-		width: 100%
-		overflow: scroll
-		-webkit-overflow-scrolling: touch
-		z-index: 1
-		background: #fff
-
-		span
-			padding: 2px 3px
-			display: block
-			color: #444
-
-			&.blue
-				color: #0093d0
-
-			&:hover
-				background: #dedede
-
-		> ul
-			padding: 16px 14px
-
-			li
-				border-bottom: 1px solid #ddd
-				font-size: 13px
-				font-weight: bold
-				line-height: 16px
-				cursor: pointer
-				padding: 8px 0
-
-				&.title
-					border: none
-					padding: 7px
-
-					&.blue
-						background: #0093d0
-
-					&.orange
-						background: #d45f29
-
-					&.yellow
-						background: #fbb017
-						margin-bottom: 20px
+	li
+		display: none
 
 
-				h2
-					font-size: 16px
-					font-weight: bold
-					color: #fff !important
 
-				ul
-					list-style: disc
-					margin-left: 15px
-					padding-top: 2px
 
-				li
-					font-weight: normal
-					border: 0
-					padding: 0 0 4px
-					margin-left: 5px
 
 #side-tabs
 	position: absolute
 	right: -16px
-	top: 42px
-	height: 520px
+	top: 30px
+	height: 670px
 	width: 45px
 	z-index: 2
+	background: url(../images/tabs.png) no-repeat
 
 	li
 		width: 45px
@@ -169,39 +95,28 @@ body
 
 		&.tab-0
 			background-position: 0 0
-			height: 188px
+			height: 179px
 			top: 0
 
 			&:hover
 				background-position: -46px 0
 
 		&.tab-1
-			background-position: 0 -188px
-			height: 114px
-			top: 188px
+			background-position: 0 -179px
+			height: 101px
+			top: 179px
 
 			&:hover
-				background-position: -46px -188px
+				background-position: -46px -179px
 
 		&.tab-2
-			background-position: 0 -302px
-			height: 188px
-			top: 302px
+			background-position: 0 -280px
+			height: 128px
+			top: 280px
 
 			&:hover
-				background-position: -46px -302px
+				background-position: -46px -280px
 
-	&.show-all li
-		display: block
-
-	&.sect-0 li.tab-0
-		display: block
-
-	&.sect-1 li.tab-1
-		display: block
-
-	&.sect-2 li.tab-2
-		display: block
 
 
 
@@ -228,62 +143,90 @@ body
 
 
 
-#app-wrap.double div.page
-	&.even
-		background: #fff url(../images/page-middle-left.png) top right repeat-y
+//#app-wrap.double div.page
+//	&.even
+//		background: #fff url(../images/page-middle-left.png) top right repeat-y
 
-	&.odd
-		background: #fff url(../images/page-middle-right.png) top left repeat-y
+//	&.odd
+//		background: #fff url(../images/page-middle-right.png) top left repeat-y
 
 
-a.blue-button-link
-	text-decoration: none
-
-.blue-button
-	border: 2px solid #48b6e2
-	-webkit-border-radius: 12px
-	-moz-border-radius: 12px
-	border-radius: 12px
-	background: #008fce url(../images/blue-button-bg.png) center center repeat-x
-	padding: 5px 0 !important
-	width: 245px
+.arrow-button
+	background: url(../images/arrow-button.png) no-repeat
+	width: 144px
+	height: 45px
 	display: block
 	cursor: pointer
-
-	color: #fff
-	font-size: 15px !important
-	line-height: 16.4px !important
-	text-align: center
-
-	margin: 12px auto 0 !important
-
-	&.big
-		font-size: 17px !important
-
-	&.one-line
-		line-height: 35px !important
-		height: 35px !important
-		padding: 0 !important
+	padding: 0 0 0 68px
+	line-height: 45px
+	color: #444444 !important
+	font-size: 15px
+	position: absolute
+	bottom: 35px
+	left: 35px
 
 	&:hover
-		background-image: none
+		background-position: 0 -45px
+
+ul.big-buttons
+	width: 254px !important
+	margin: 0 auto !important
+	padding-top: 114px !important
+	list-style: none !important
+
+	li
+		display: block
+		width: 197px
+		height: 57px
+		font-size: 15px !important
+		padding: 0 0 0 57px !important
+		background: url(../images/buttons.png)
+		cursor: pointer
+		line-height: 52px !important
+		margin: 0 0 13px !important
+
+		&.multiline
+			line-height: 16.5px !important
+			padding: 9px 0 9px 57px !important
+			height: 39px !important
+
+		&:hover,
+		&.on
+			background-position: 0 -57px
 
 
+ul.small-buttons
+	width: 192px !important
+	list-style: none !important
+	padding: 0 !important
+	margin: 0 !important
+	position: absolute
+	bottom: 25px
+	left: 35px
+
+	li
+		display: block
+		width: 146px
+		height: 39px
+		font-size: 13px !important
+		padding: 0 0 0 48px !important
+		background: url(../images/small-button.png)
+		cursor: pointer
+		line-height: 39px !important
+		margin: 0 0 11px !important
+
+		&:hover,
+		&.on
+			background-position: 0 -39px
 
 
 div.page
-	width: 500px
+	width: 488px
 	height: 660px
 	background: #fff
 	color: #444
 	position: relative
 
-
-	&.cover
-		width: 500px
-		height: 666px
-		border: 0
-		background: url(../images/cover-bg.jpg) !important
 
 	&.gray-bg
 		background: $dark-gray !important
@@ -292,49 +235,26 @@ div.page
 		h3
 			color: #fff
 
-	&.cover img
-		margin: 0 auto
-		display: block
-
-	&.intro,
-	&.cover
-		h2
-			font-family: "Arial Black", Arial, Helvetica, sans-serif
-			text-align: center
-			color: $blue-text
-			text-transform: uppercase
-			font-size: 13px
-			margin: 0 0 15px
-			padding-top: 34px
-
-		h3
-			font-weight: bold
-			font-size: 23px
-			color: #fff
-			line-height: 26.4px
-			text-align: center
-			margin-bottom: 40px
-
-		p 
-			color: #fff
-			text-align: center
-			margin: 0 auto 15px
-			font-size: 15px
-			line-height: 22.4px
 
 
 	h3
 		font-weight: bold
 		font-size: 19px
 		line-height: 22.4px
-		color: #000
 		margin: 0 0 15px
 		padding: 32px 35px 0
 
-	footer
-		padding: 0 35px 50px
-		font-size: 11px
-		line-height: 12.4px
+	h4
+		font-weight: bold
+		font-size: 14px
+		line-height: 19px
+		padding-top: 0
+		padding: 0 35px 13px
+
+	p.disclaimer
+		padding: 0 35px 30px !important
+		font-size: 10px !important
+		line-height: 11.4px !important
 		position: absolute
 		bottom: 0
 		left: 0
@@ -344,13 +264,32 @@ div.page
 		padding: 0 35px
 		margin: -9px 0 13px
 
+		&.lined-border
+			list-style: none
+			border-top: 1px solid #dddddf
+			padding: 0
+			width: 404px
+			margin: -9px auto 20px !important
+
+			li
+				padding: 10px 12px 6px
+				border-bottom: 1px solid #dddddf
+				margin: 0
+	ol
+		list-style: decimal
+		padding: 0 35px
+		margin: -9px 0 13px
+
 	strong
 		font-weight: bold
 
+	a
+		text-decoration: none
+		color: #828282
+
+
 	&.sect-0
 
-		&.cover h3
-			padding-top: 0
 
 		p, li
 			margin-bottom: 13px
@@ -362,13 +301,33 @@ div.page
 			padding: 0
 			margin: 0 0 3px 14px
 
+		h2,
+		h3,
+		h4
+			color: $burg !important
+
 
 
 	&.sect-1,
 	&.sect-2
 
+
+		h2,
+		h3
+			color: $burg !important
+
+		h2
+			font-weight: bold
+			font-size: 26px
+			line-height: 32px
+			margin: 0 0 15px
+			padding: 32px 35px 0
+
 		h3
 			padding-top: 0
+
+		h4
+			color: $blue
 
 		ul
 			margin: 0 0 20px
@@ -394,154 +353,21 @@ div.page
 			padding: 0 35px
 			line-height: 19px
 
-		div.box
-			background: #e5f4fa
-			float: right
-			width: 363px
-			padding: 20px 22px
-			margin-bottom: 20px
-			margin-right: 32px
+	&.burgundy-bg
+		background: $burg url(../images/burgundy-page-bg.png) repeat-y
 
-			p
-				padding: 0
-
-
+	&.blue-bg
+		background: $burg url(../images/blue-page-bg.png) repeat-y
 
 
 //////////////////////
 //  SPECIFIC PAGES  //
 //////////////////////
 div.page
-	&.pg-c
-		background: url(../images/sect-0-feat-photo.jpg) no-repeat !important
 
-	&.pg-d
-		.blue-button
-			margin-top: 200px !important
+	&.title-0.sect-0
+		background: url(../images/cover-bg.png)
 
-	&.pg-e
-		background: #3e3e3e url(../images/table.png) no-repeat !important
-
-		h3
-			text-align: left
-			color: #fff
-
-	&.pg-f
-		ol
-			margin-top: 22px
-			padding: 22px 32px 50px
-			background: #fff
-
-			li
-				background: url(../images/number-bullets.png) no-repeat
-				font-size: 11px
-				line-height: 12px
-				color: #444 !important
-				padding-left: 28px
-				min-height: 17px
-				margin-bottom: 13px
-
-				&.one
-					background-position: 0 0
-
-				&.two
-					background-position: 0 -87px
-
-				&.three
-					background-position: 0 -122px
-
-				&.four
-					background-position: 0 -182px
-
-				&.five
-					background-position: 0 -228px
-
-				&.six
-					background-position: 0 -288px
-
-				&.seven
-					background-position: 0 -335px
-
-				&.eight
-					background-position: 0 -371px
-
-	&.pg-h
-		background: #0093d0 url(../images/pg-h-bg.png) top right repeat-y !important
-
-		div.top-left
-			width: 272px
-			height: 152px
-			color: #fff !important
-			float: left
-			background: url(../images/pg-h-arrow-bottom.png) bottom center no-repeat
-
-			p
-				padding: 23px 31px 20px
-				margin-bottom: 0
-
-			strong
-				text-transform: uppercase
-				font-size: 19px
-				line-height: 24px
-				font-weight: bold
-				display: block
-
-			ul
-				list-style-position: inside
-				padding-left: 31px
-
-				li
-					padding-bottom: 3px
-					margin-bottom: 0
-
-		div.top-right
-			width: 228px
-			height: 152px
-			color: #0093d0 !important
-			float: right
-
-			p
-				padding: 23px 0 20px 17px
-				margin-bottom: 0
-
-			strong
-				text-transform: uppercase
-				font-size: 19px
-				line-height: 24px
-				font-weight: bold
-
-			.blue-button
-				width: 184px
-				font-size: 15px
-				line-height: 16.4px
-				margin: 0 auto
-
-
-		div.white-part
-			clear: both
-			width: 100%
-			padding: 21px 0
-			background: #fff
-
-			p
-				color: #000
-				font-size: 15px
-				font-weight: bold
-				line-height: 16.4px
-				padding: 0 31px 5px
-				margin-bottom: 0
-
-			ul
-				padding: 0 31px 5px
-				margin: 0 0 13px
-
-				li
-					color: #444
-					font-weight: normal
-					font-size: 13px
-					line-height: 13px
-					padding: 0 0 3px 0
-					margin: 0 0 0 14px
 
 	//Timelines
 	&.pg-l,
@@ -561,17 +387,21 @@ div.page
 
 			color: #000
 
+			background: #f3f3f4
+
 			h4
 				width: 43px
 				height: 100%
 				float: left
 				overflow: hidden
 				text-indent: -9999px
+				padding: 0 !important
 
 			h5
 				font-weight: bold
 				font-size: 15px
 				padding: 16px 15px 5px 58px 
+				color: $burg
 
 			ul
 				padding: 0 15px 0 43px
@@ -583,40 +413,127 @@ div.page
 				padding-bottom: 2px
 				margin-left: 29px
 
-			&.blue
+			&.b10
 				height: 348px
-				background: #6cbfe6
 
 				h4
-					background: #0093d0 url(../images/2010.png) 14px 17px no-repeat
+					background: $burg url(../images/2010.png) 14px 17px no-repeat
 
-			&.green
-				background: #adcc95
+			&.b11-12
 				height: 142px
 
 				h4
-					background: #62a740 url(../images/11-12.png) 14px 17px no-repeat
+					background: $burg url(../images/11-12.png) 14px 17px no-repeat
 
-			&.light-green
-				background: #d0dea6
+			&.b11-12b
 				height: 160px
 
 				h4
-					background: #a6c254 url(../images/13.png) 14px 17px no-repeat
+					background: $burg url(../images/11-12.png) 14px 17px no-repeat
 
-			&.orange
-				background: #e0a57e
+			&.b14
 				height: 332px
 
 				h4
-					background: #c45e25 url(../images/14.png) 14px 17px no-repeat
+					background: $burg url(../images/14.png) 14px 17px no-repeat
 
-			&.yellow
-				background: #f6d398
+			&.b15-18
 				height: 97px
 
 				h4
-					background: #ebac3a url(../images/15-18.png) 14px 8px no-repeat
+					background: $burg url(../images/15-18.png) 14px 8px no-repeat
+
+	&.pg-m
+
+		span
+			font-size: 12px
+			padding: 3px 0 10px 21px
+			display: block
+			float: left
+			margin-left: 35px
+
+			&.red
+				background: url(../images/check-red.png) left top no-repeat
+
+			&.blue
+				background: url(../images/check-blue.png) left top no-repeat
+				color: $blue
+
+		table
+			border-bottom: 1px solid #000
+			margin: 0 35px
+
+		.thead
+			background: #f3f3f4
+			border-top: 1px solid #000
+
+		th
+			color: $burg
+			font-size: 14px
+			padding: 5px
+			font-weight: bold
+
+			&.small
+				padding-top: 8px
+				font-size: 10px
+				color: #444444
+
+		tr
+			border-top: 1px solid #dddddf
+
+			&.alpha
+				border-top: none
+
+		td
+			padding: 3px 10px
+			font-size: 12px
+			line-height: 13px
+
+			&.year
+				vertical-align: middle
+				font-size: 10px
+
+			&.check.red
+				background: url(../images/check-red.png) center center no-repeat
+				padding: 1px 17px
+
+			&.check.blue
+				background: url(../images/check-blue.png) center center no-repeat
+				padding: 1px 4px 1px 27px
+				font-size: 10px
+				vertical-align: middle
+				text-align: right
+				font-weight: bold
+
+		footer
+			font-size: 10px
+			line-height: 12px
+			font-style: italic
+			padding: 9px 35px 0 35px
+
+	&.pg-m,
+	&.pg-n
+		h3
+			margin-top: -15px
+
+	&.pg-n
+		ol
+			list-style: decimal
+			padding: 0 35px
+
+		strong
+			display: block
+
+		li
+			padding-bottom: 12px
+			font-size: 12px
+			line-height: 14px
+
+
+
+	&.title-1.sect-1
+		background: url(../images/overview-bg.png)
+
 
 
 
