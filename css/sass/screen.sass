@@ -4,7 +4,7 @@
 @import compass
 
 $dark-gray: #818285
-$blue-text: #0093d0
+$blue: #1594d0
 $burg: #9b544e
 
 
@@ -34,6 +34,9 @@ body
 
 		.page
 			margin: 5px auto
+
+		nav
+			display: none
 	
 
 #whiteout
@@ -43,27 +46,30 @@ body
 	z-index: 99999
 	background: #e5e5e5
 
-#toc-toggle
-	position: fixed
-	top: 0
+nav
+	position:	absolute
+	bottom: 694px
 	left: 0
-	display: none
-	width: 215px
-	height: 36px
-	line-height: 36px
-	text-align: center
-	background: #0093d0
-	color: #fff
+	color: #000
+	font-size: 12px
+	padding: 29px
 
-	-webkit-border-bottom-right-radius: 9px
-	-moz-border-radius-bottomright: 9px
-	border-bottom-right-radius: 9px
+	a
+		color: #000
+		text-decoration: none
 
-	font-size: 16px
-	font-weight: bold
+	h4
+		font-size: 16px
+		font-weight: bold
+		display: inline
 
-	cursor: pointer
-	z-index: 50
+	ul
+		display: none
+
+	li
+		display: none
+
+
 
 
 
@@ -189,6 +195,29 @@ ul.big-buttons
 			background-position: 0 -57px
 
 
+ul.small-buttons
+	width: 192px !important
+	list-style: none !important
+	padding: 0 !important
+	margin: 0 !important
+	position: absolute
+	bottom: 25px
+	left: 35px
+
+	li
+		display: block
+		width: 146px
+		height: 39px
+		font-size: 13px !important
+		padding: 0 0 0 48px !important
+		background: url(../images/small-button.png)
+		cursor: pointer
+		line-height: 39px !important
+		margin: 0 0 11px !important
+
+		&:hover,
+		&.on
+			background-position: 0 -39px
 
 
 div.page
@@ -237,9 +266,19 @@ div.page
 
 		&.lined-border
 			list-style: none
+			border-top: 1px solid #dddddf
+			padding: 0
+			width: 404px
+			margin: -9px auto 20px !important
 
 			li
 				padding: 10px 12px 6px
+				border-bottom: 1px solid #dddddf
+				margin: 0
+	ol
+		list-style: decimal
+		padding: 0 35px
+		margin: -9px 0 13px
 
 	strong
 		font-weight: bold
@@ -272,8 +311,23 @@ div.page
 	&.sect-1,
 	&.sect-2
 
+
+		h2,
+		h3
+			color: $burg !important
+
+		h2
+			font-weight: bold
+			font-size: 26px
+			line-height: 32px
+			margin: 0 0 15px
+			padding: 32px 35px 0
+
 		h3
 			padding-top: 0
+
+		h4
+			color: $blue
 
 		ul
 			margin: 0 0 20px
@@ -341,6 +395,7 @@ div.page
 				float: left
 				overflow: hidden
 				text-indent: -9999px
+				padding: 0 !important
 
 			h5
 				font-weight: bold
@@ -370,11 +425,11 @@ div.page
 				h4
 					background: $burg url(../images/11-12.png) 14px 17px no-repeat
 
-			&.b13
+			&.b11-12b
 				height: 160px
 
 				h4
-					background: $burg url(../images/13.png) 14px 17px no-repeat
+					background: $burg url(../images/11-12.png) 14px 17px no-repeat
 
 			&.b14
 				height: 332px
@@ -387,6 +442,98 @@ div.page
 
 				h4
 					background: $burg url(../images/15-18.png) 14px 8px no-repeat
+
+	&.pg-m
+
+		span
+			font-size: 12px
+			padding: 3px 0 10px 21px
+			display: block
+			float: left
+			margin-left: 35px
+
+			&.red
+				background: url(../images/check-red.png) left top no-repeat
+
+			&.blue
+				background: url(../images/check-blue.png) left top no-repeat
+				color: $blue
+
+		table
+			border-bottom: 1px solid #000
+			margin: 0 35px
+
+		.thead
+			background: #f3f3f4
+			border-top: 1px solid #000
+
+		th
+			color: $burg
+			font-size: 14px
+			padding: 5px
+			font-weight: bold
+
+			&.small
+				padding-top: 8px
+				font-size: 10px
+				color: #444444
+
+		tr
+			border-top: 1px solid #dddddf
+
+			&.alpha
+				border-top: none
+
+		td
+			padding: 3px 10px
+			font-size: 12px
+			line-height: 13px
+
+			&.year
+				vertical-align: middle
+				font-size: 10px
+
+			&.check.red
+				background: url(../images/check-red.png) center center no-repeat
+				padding: 1px 17px
+
+			&.check.blue
+				background: url(../images/check-blue.png) center center no-repeat
+				padding: 1px 4px 1px 27px
+				font-size: 10px
+				vertical-align: middle
+				text-align: right
+				font-weight: bold
+
+		footer
+			font-size: 10px
+			line-height: 12px
+			font-style: italic
+			padding: 9px 35px 0 35px
+
+	&.pg-m,
+	&.pg-n
+		h3
+			margin-top: -15px
+
+	&.pg-n
+		ol
+			list-style: decimal
+			padding: 0 35px
+
+		strong
+			display: block
+
+		li
+			padding-bottom: 12px
+			font-size: 12px
+			line-height: 14px
+
+
+
+	&.title-1.sect-1
+		background: url(../images/overview-bg.png)
+
 
 
 

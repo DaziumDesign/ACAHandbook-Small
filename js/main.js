@@ -99,9 +99,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 			$bookwrap: $('#book-wrap'),
 			$bookmatte: $('#book-matte'),
 			$book: $('#book'),
-			$toc: $('#toc'),
-			$tocWrap: $('#toc .wrap'),
-			$tocToggle: $('#toc-toggle'),
+			$nav: $('nav'),
 			$tabs: $('#side-tabs'),
 			$scroll: false,
 
@@ -124,19 +122,6 @@ acaBookApp = (function($, window, appConfig, undefined){
 				});
 				app.$bookwrap.show();
 
-
-				// TOC bindings
-				app.$toc.prependTo(app.$app);
-				app.$tocToggle.prependTo(app.$app).show();
-
-				app.$tocToggle.on('click', function(e){
-					e.stopPropagation();
-					app.tocToggle.call(app);
-				});
-
-				app.$toc.find('span').on('click', function(e){
-					app.tocToggle.call(app);
-				});
 
 				app.config = config;
 
@@ -189,7 +174,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 				// add to resizeFuncs
 				resizeHandler.addFunc('viewportScale', app.viewportScale, app, 2);
 				resizeHandler.addFunc('appSetMode', app.setMode, app, 3);
-				resizeHandler.addFunc('tocSize', app.tocSize, app, 4);
+				resizeHandler.addFunc('navSize', app.navSize, app, 4);
 
 				// initialize more dimensions
 				app.config.dimensions.book = [0, app.config.dimensions.page[1]];
@@ -198,14 +183,17 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 			},
 
-			tocToggle: function(){
-				this.$tocToggle.toggle();
-				this.$toc.toggle();
-			},
+			navSize: function(){
+				return;
 
-			tocSize: function(){
-				this.$toc.height(winD.h);
-				this.$tocWrap.height(winD.h - 30);
+				if(this.curMode.id=='scroll')
+					return;
+
+				this.$nav.css({
+					width: this.$book.width(),
+					bottom: Math.round((winD.h/2) - (this.$book.height()/2) - 10),
+					left: Math.round((winD.w/2) - (this.$book.width()/2))
+				});
 			},
 
 			go: function(){
@@ -213,7 +201,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 				$win.resize();
 
 				// hack because functions are getting added to the resize stack by the time we "go"
-				app.tocSize.call(app);
+				app.navSize.call(app);
 
 				app.$whiteout.fadeOut(500, function(){
 					app.$whiteout.remove();
@@ -297,6 +285,31 @@ acaBookApp = (function($, window, appConfig, undefined){
 				hasher.changed.active = true; //re-enable signal
 			},
 
+			setNav: function(page){
+				var app = this,
+					$p = app.$app.find('.p'+page),
+					classes = $p.attr('class'),
+					sectSearch = classes.match(/ sect-[0-9]/g),
+					subSectSearch = classes.match(/sub-sect-[0-9]/g),
+					curSect,
+					curSubSect;
+
+
+				if(sectSearch===null || subSectSearch===null)
+					return app.$nav.find('ul').hide();
+
+				curSect = sectSearch[0].substring(1);
+				curSubSect = subSectSearch[0];
+
+				app.$nav.find('ul').hide()
+					.end().find('ul.'+curSect).show()
+					.find('li').hide()
+					.end().find('li.'+curSubSect).show();
+
+
+
+			},
+
 			setMode: function(modeID){
 				var	app = this,
 					newMode = app.modes[0],
@@ -375,6 +388,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 							//hash stuff
 							app.$book.on('turned.hash', function(event, page, view){
 								app.setHashSilently('page=' + page);
+								app.setNav.call(app, page);
 							});
 
 
