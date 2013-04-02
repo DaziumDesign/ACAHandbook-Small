@@ -16,7 +16,7 @@ appConfig.viewport = {
 
 appConfig.dimensions = {
 	mattePadding: 29,
-	page: [488, 670],
+	page: [488, 660],
 	pageMargins: [32, 35],
 	pageMarginLeaniency: 1.7 // percentage that we will allow page contents to enter Y margin 
 };
