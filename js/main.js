@@ -371,6 +371,15 @@ acaBookApp = (function($, window, appConfig, undefined){
 									else if (e.keyCode==39)
 										app.$book.turn('next');
 							});
+							app.$book.on("start", function(event, pageObject, corner) {
+							  if (pageObject.page==2) {
+							    event.preventDefault();
+							  }
+							});
+							app.$book.on("end", function(event, pageObject, corner) {
+							  if(pageObject.next===1)
+							  	app.$book.turn('page', 2);
+							});
 
 							app.$app.addClass('book').removeClass('scroll');
 
