@@ -280,6 +280,10 @@ div.page {
   div.page.sect-1 h3, div.page.sect-2 h2,
   div.page.sect-2 h3 {
     color: #9b544e !important; }
+    div.page.sect-1 h2.padded,
+    div.page.sect-1 h3.padded, div.page.sect-2 h2.padded,
+    div.page.sect-2 h3.padded {
+      padding-top: 32px; }
   div.page.sect-1 h2, div.page.sect-2 h2 {
     font-weight: bold;
     font-size: 26px;
