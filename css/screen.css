@@ -200,7 +200,7 @@ ul.small-buttons {
   left: 35px; }
   ul.small-buttons li {
     display: block;
-    width: 146px;
+    width: 144px;
     height: 39px;
     font-size: 13px !important;
     padding: 0 0 0 48px !important;
@@ -330,7 +330,7 @@ div.page.pg-l div.bubble, div.page.pg-k div.bubble {
   border-bottom-left-radius: 11px;
   overflow: hidden;
   margin: 0 auto 12px;
-  width: 400px;
+  width: 440px;
   color: black;
   background: #f3f3f4; }
   div.page.pg-l div.bubble h4, div.page.pg-k div.bubble h4 {
@@ -343,7 +343,7 @@ div.page.pg-l div.bubble, div.page.pg-k div.bubble {
   div.page.pg-l div.bubble h5, div.page.pg-k div.bubble h5 {
     font-weight: bold;
     font-size: 15px;
-    padding: 16px 15px 5px 58px;
+    padding: 8px 15px 5px 58px;
     color: #9b544e; }
   div.page.pg-l div.bubble ul, div.page.pg-k div.bubble ul {
     padding: 0 15px 0 43px;
@@ -351,20 +351,20 @@ div.page.pg-l div.bubble, div.page.pg-k div.bubble {
   div.page.pg-l div.bubble li, div.page.pg-k div.bubble li {
     font-size: 11px;
     line-height: 12px;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     margin-left: 29px; }
   div.page.pg-l div.bubble.b10, div.page.pg-k div.bubble.b10 {
-    height: 348px; }
+    height: 338px; }
     div.page.pg-l div.bubble.b10 h4, div.page.pg-k div.bubble.b10 h4 {
       background: #9b544e url(../images/2010.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.b11-12, div.page.pg-k div.bubble.b11-12 {
     height: 142px; }
     div.page.pg-l div.bubble.b11-12 h4, div.page.pg-k div.bubble.b11-12 h4 {
       background: #9b544e url(../images/11-12.png) 14px 17px no-repeat; }
-  div.page.pg-l div.bubble.b11-12b, div.page.pg-k div.bubble.b11-12b {
+  div.page.pg-l div.bubble.b13, div.page.pg-k div.bubble.b13 {
     height: 160px; }
-    div.page.pg-l div.bubble.b11-12b h4, div.page.pg-k div.bubble.b11-12b h4 {
-      background: #9b544e url(../images/11-12.png) 14px 17px no-repeat; }
+    div.page.pg-l div.bubble.b13 h4, div.page.pg-k div.bubble.b13 h4 {
+      background: #9b544e url(../images/13.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.b14, div.page.pg-k div.bubble.b14 {
     height: 332px; }
     div.page.pg-l div.bubble.b14 h4, div.page.pg-k div.bubble.b14 h4 {
