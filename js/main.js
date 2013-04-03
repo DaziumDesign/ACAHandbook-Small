@@ -614,6 +614,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 
 	acaApp.init(appConfig);
+	$('#book a[rel=tooltip]').tipTip();
 
 	return acaApp;
 
