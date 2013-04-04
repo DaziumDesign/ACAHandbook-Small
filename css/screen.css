@@ -264,6 +264,8 @@ div.page {
   div.page a {
     text-decoration: none;
     color: #828282; }
+    div.page a[rel=tooltip] {
+      cursor: pointer; }
   div.page.sect-0 p, div.page.sect-0 li {
     margin-bottom: 13px;
     font-size: 13px;
