@@ -130,6 +130,20 @@ nav {
       #side-tabs li.tab-2:hover {
         background-position: -46px -280px; }
 
+#book-left {
+  position: absolute;
+  left: 17px;
+  top: 30px;
+  height: 670px;
+  width: 12px;
+  z-index: 2;
+  background: url(../images/book-left_bg.png) no-repeat 0 0 transparent; }
+
+#book-bottom {
+  width: 976px;
+  height: 11px;
+  background: url(../images/book-bottom_bg.png) no-repeat 0 0 transparent; }
+
 #book-wrap {
   margin: 0 auto;
   z-index: 5;
@@ -144,7 +158,6 @@ nav {
   z-index: 1; }
 
 #book {
-  box-shadow: 5px 5px 5px #666666;
   position: relative;
   z-index: 1;
   background: #777777; }
