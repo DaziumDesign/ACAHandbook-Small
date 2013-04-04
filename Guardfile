@@ -5,7 +5,6 @@ guard :haml do
   watch('index2.html.haml')
 end
 
-
 guard 'sass', :input => 'css/sass', :output => 'css', :compass => {
   :images_dir => 'images',
   :images_path => 'images',
@@ -17,6 +16,6 @@ guard 'sass', :input => 'css/sass', :output => 'css', :compass => {
 
 guard 'livereload' do
   watch('css/screen.css')
-  watch('index2.html')
+  watch('index.html')
 end
 
