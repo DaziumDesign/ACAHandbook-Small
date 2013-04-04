@@ -65,7 +65,8 @@ body {
     #app-wrap.scroll #side-tabs {
       display: none !important; }
     #app-wrap.scroll .page {
-      margin: 5px auto; }
+      margin: 5px auto;
+      height: 680px; }
       #app-wrap.scroll .page.p1, #app-wrap.scroll .page.p2 {
         display: none; }
     #app-wrap.scroll nav {
