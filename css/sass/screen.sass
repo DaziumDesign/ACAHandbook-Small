@@ -25,10 +25,17 @@ body
 		overflow: auto !important
 		position: relative
 
+	&.single
+		#book-bottom
+			width: (976px / 2)
+
 	&.scroll
 		position: relative
 		top: auto
 		left: auto
+		
+		#headerbar
+			display: none
 
 		#side-tabs
 			display: none !important
@@ -73,6 +80,20 @@ body
 
 	li
 		display: none
+
+#headerbar
+	height: 36px
+	background-color: #9C544D
+	width: 100%
+	position: absolute
+	top: 0
+	left: 0
+	color: white
+	font-size: 0.85em
+
+	> .section
+		padding: 10px 0 0 230px
+
 
 #toc-toggle
 	position: fixed

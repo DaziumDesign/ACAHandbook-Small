@@ -58,10 +58,14 @@ body {
   #app-wrap.iOS {
     overflow: auto !important;
     position: relative; }
+  #app-wrap.single #book-bottom {
+    width: 488px; }
   #app-wrap.scroll {
     position: relative;
     top: auto;
     left: auto; }
+    #app-wrap.scroll #headerbar {
+      display: none; }
     #app-wrap.scroll #side-tabs {
       display: none !important; }
     #app-wrap.scroll .page {
@@ -97,6 +101,18 @@ body {
     display: none; }
   #context li {
     display: none; }
+
+#headerbar {
+  height: 36px;
+  background-color: #9c544d;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 0.85em; }
+  #headerbar > .section {
+    padding: 10px 0 0 230px; }
 
 #toc-toggle {
   position: fixed;
