@@ -87,12 +87,14 @@ body {
   position: absolute;
   bottom: 694px;
   left: 0;
+  top: 710px;
   color: black;
   font-size: 12px;
   padding: 29px; }
   #context a {
     color: black;
-    text-decoration: none; }
+    text-decoration: none;
+    cursor: pointer; }
   #context h4 {
     font-size: 16px;
     font-weight: bold;
