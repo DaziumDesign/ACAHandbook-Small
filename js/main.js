@@ -289,6 +289,9 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 					});
 
+					if($newPage.children().length>0)
+						$newPage.appendTo($pgAuto);
+					
 					$pgAuto.children().unwrap();
 
 				});
