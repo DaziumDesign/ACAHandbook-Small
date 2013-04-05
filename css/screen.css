@@ -107,6 +107,8 @@ body {
 
 #nav-disclaimer {
   margin-top: 1em; }
+  #nav-disclaimer p {
+    line-height: 1.2em; }
 
 #headerbar {
   height: 36px;
