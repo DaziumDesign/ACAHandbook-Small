@@ -25,17 +25,23 @@ appConfig.dimensions = {
 appConfig.modes = { 
 	full: {
 		maxW: (appConfig.dimensions.page[0]*2) +appConfig.dimensions.mattePadding,
+		minW: 1035,
+		minH: 900
 	},
 	single: {
 		bookDouble: false,
-		maxW: (appConfig.dimensions.page[0]*2) + (appConfig.dimensions.mattePadding*2)
+		maxW: (appConfig.dimensions.page[0]*2) + (appConfig.dimensions.mattePadding*2),
+		minW: 600,
+		minH: 900
 	},
 	scroll: {
 		showBook: false,
 		maxH: appConfig.dimensions.page[1],
 		maxW: appConfig.dimensions.page[0] + (appConfig.dimensions.mattePadding*2),
+		minW: 0,
+		minH: 0,
 		forcePhone: true,
-		forcePortraitPad: true
+		forcePortraitPad: false
 	}
 };
 
@@ -337,8 +343,10 @@ acaBookApp = (function($, window, appConfig, undefined){
 
 				if(typeof(modeID)=='undefined'){
 					$.each(app.modes, function(i, mode){
-						if(mode.isShowable())
+						if(mode.isShowable()) {
 							newMode = mode;
+							return false;
+						}
 					});
 				}else
 					newMode = app.modes[modeID];
@@ -535,14 +543,15 @@ acaBookApp = (function($, window, appConfig, undefined){
 			},
 
 			centerVertically: function(){
-				var adjuster;
+				var adjuster,
+					offset = 30;
 
 				if(this.config.viewport.content['width'] == 'device-width')
 					adjuster = this.config.viewport.content['initial-scale'];
 				else
 					adjuster = (winD.w/this.config.viewport.content['width']);
 
-				this.$bookwrap.css('padding-top', Math.floor((((winD.h/2) - this.config.dimensions.wrap[1]/2))/ adjuster ));
+				this.$bookwrap.css('padding-top', Math.floor((((winD.h/2) - this.config.dimensions.wrap[1]/2))/ adjuster ) - offset);
 			},
 
 			viewportScale: function(){
@@ -600,17 +609,7 @@ acaBookApp = (function($, window, appConfig, undefined){
 		};
 
 	Mode.prototype.isShowable = function(){
-		var isPortrait = winD.h > winD.w,
-			wellIsIt = (this.settings.forcePortraitPad && isPortrait)
-				|| (this.settings.forcePhone && this.app.isPhone)
-				|| (
-					(this.settings.maxW!==false && this.settings.maxW > winD.w) ||
-					(this.settings.maxH!==false && this.settings.maxH > winD.h)
-				);
-
-		//alert(this.id + ' ' + wellIsIt);
-
-		return	wellIsIt;
+		return (winD.w >= this.settings.minW && winD.h >= this.settings.minH);
 	};
 
 
