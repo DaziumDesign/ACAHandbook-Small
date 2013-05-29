@@ -11,7 +11,7 @@ $burg: #9b544e
 
 body
 	font-family: Arial, Helvetica, sans-serif
-	background: #e5e5e5
+	background: url(../images/body_bg.gif) repeat 0 0 #e5e5e5
 
 #app-wrap
 	position: fixed
@@ -66,16 +66,27 @@ body
 	color: #000
 	font-size: 12px
 	padding: 29px
+	text-align: center
+	font-size: 1em
+	line-height: 1.2em
+
+	p.disclaimer
+		font-size: 0.75em
+		line-height: 1em
+		text-align: left
 
 	a
 		color: #000
 		text-decoration: none
 		cursor: pointer
 
+		&:hover
+			text-decoration: underline
+
 	h4
 		font-size: 16px
 		font-weight: bold
-	
+
 	p
 		margin: 0.5em 0
 
@@ -87,7 +98,7 @@ body
 
 #nav-disclaimer
 	margin-top: 1em
-	
+
 	p
 		line-height: 1.2em
 
@@ -102,7 +113,10 @@ body
 	font-size: 0.85em
 
 	> .section
-		padding: 10px 0 0 230px
+		padding: 0 0 0 230px
+		display: table-cell
+		height: 36px
+		vertical-align: middle
 
 
 #toc-toggle
@@ -529,7 +543,7 @@ div.page
 div.page
 
 	&.title-0.sect-0
-		background: url(../images/cover-bg.png)
+		background: url(../images/cover-bg.png) no-repeat 0 0 transparent
 
 
 	//Timelines

@@ -47,7 +47,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #e5e5e5; }
+  background: url(../images/body_bg.gif) repeat 0 0 #e5e5e5; }
 
 #app-wrap {
   position: fixed;
@@ -90,11 +90,20 @@ body {
   top: 710px;
   color: black;
   font-size: 12px;
-  padding: 29px; }
+  padding: 29px;
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.2em; }
+  #context p.disclaimer {
+    font-size: 0.75em;
+    line-height: 1em;
+    text-align: left; }
   #context a {
     color: black;
     text-decoration: none;
     cursor: pointer; }
+    #context a:hover {
+      text-decoration: underline; }
   #context h4 {
     font-size: 16px;
     font-weight: bold; }
@@ -120,7 +129,10 @@ body {
   color: white;
   font-size: 0.85em; }
   #headerbar > .section {
-    padding: 10px 0 0 230px; }
+    padding: 0 0 0 230px;
+    display: table-cell;
+    height: 36px;
+    vertical-align: middle; }
 
 #toc-toggle {
   position: fixed;
@@ -452,7 +464,7 @@ div.page {
     background: #9b544e url(../images/blue-page-bg.png) repeat-y; }
 
 div.page.title-0.sect-0 {
-  background: url(../images/cover-bg.png); }
+  background: url(../images/cover-bg.png) no-repeat 0 0 transparent; }
 div.page.pg-l div.bubble, div.page.pg-k div.bubble {
   -webkit-border-top-left-radius: 11px;
   -webkit-border-bottom-left-radius: 11px;
