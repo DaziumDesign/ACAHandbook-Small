@@ -96,8 +96,10 @@ body {
   line-height: 1.2em; }
   #context p.disclaimer {
     font-size: 0.75em;
-    line-height: 1em;
-    text-align: left; }
+    line-height: 1.5em;
+    text-align: center;
+    color: #444444 !important;
+    margin-left: 2.5em; }
   #context a {
     color: black;
     text-decoration: none;
@@ -204,7 +206,7 @@ body {
           #toc .wrap > ul li.title.blue {
             background: #1594d0; }
           #toc .wrap > ul li.title.burg {
-            background: #9b544e; }
+            background: #952e25; }
           #toc .wrap > ul li.title.gray {
             background: #818285;
             margin-bottom: 20px; }
@@ -366,16 +368,17 @@ div.page {
       color: white; }
   div.page h3 {
     font-weight: bold;
-    font-size: 19px;
+    font-size: 18px;
+    text-transform: uppercase;
     line-height: 22.4px;
     margin: 0 0 15px;
     padding: 32px 35px 0; }
   div.page h4 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 19px;
     padding-top: 0;
-    padding: 0 35px 13px; }
+    padding: 0 35px 6px; }
   div.page p.disclaimer {
     padding: 0 35px 30px !important;
     font-size: 10px !important;
@@ -383,6 +386,13 @@ div.page {
     position: absolute;
     bottom: 0;
     left: 0; }
+  div.page p.bolditalic {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: bold;
+    font-style: italic; }
+  div.page p.indent {
+    margin-left: 30px; }
   div.page ul {
     list-style: disc;
     padding: 0 35px;
@@ -394,13 +404,21 @@ div.page {
       width: 404px;
       margin: -9px auto 20px !important; }
       div.page ul.lined-border li {
-        padding: 10px 12px 6px;
+        padding: 3px 17px 1px;
         border-bottom: 1px solid #dddddf;
         margin: 0; }
+  div.page ul.toc {
+    list-style: none;
+    padding: 0 35px;
+    margin: 19px 0 13px; }
   div.page ol {
     list-style: decimal;
     padding: 0 35px;
     margin: -9px 0 13px; }
+    div.page ol.indent {
+      margin-left: 50px; }
+    div.page ol.indent-small {
+      margin-left: 20px; }
   div.page strong {
     font-weight: bold; }
   div.page a {
@@ -415,15 +433,15 @@ div.page {
     padding: 0 35px; }
   div.page.sect-0 li {
     padding: 0;
-    margin: 0 0 3px 14px; }
+    margin: 0 0 13px 14px; }
   div.page.sect-0 h2,
   div.page.sect-0 h3,
   div.page.sect-0 h4 {
-    color: #9b544e !important; }
+    color: #952e25 !important; }
   div.page.sect-1 h2,
   div.page.sect-1 h3, div.page.sect-2 h2,
   div.page.sect-2 h3 {
-    color: #9b544e !important; }
+    color: #952e25 !important; }
     div.page.sect-1 h2.padded,
     div.page.sect-1 h3.padded, div.page.sect-2 h2.padded,
     div.page.sect-2 h3.padded {
@@ -433,7 +451,7 @@ div.page {
     font-size: 26px;
     line-height: 32px;
     margin: 0 0 15px;
-    padding: 32px 35px 0; }
+    padding: 2px 35px 0; }
   div.page.sect-1 h3, div.page.sect-2 h3 {
     padding-top: 0; }
   div.page.sect-1 h4, div.page.sect-2 h4 {
@@ -444,8 +462,8 @@ div.page {
       margin-top: -16px; }
   div.page.sect-1 p, div.page.sect-1 li, div.page.sect-2 p, div.page.sect-2 li {
     margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 20px;
     padding: 0 35px;
     clear: both; }
   div.page.sect-1 li, div.page.sect-2 li {
@@ -459,12 +477,14 @@ div.page {
     padding: 0 35px;
     line-height: 19px; }
   div.page.burgundy-bg {
-    background: #9b544e url(../images/burgundy-page-bg.png) repeat-y; }
+    background: #952e25 url(../images/burgundy-page-bg.png) repeat-y; }
   div.page.blue-bg {
-    background: #9b544e url(../images/blue-page-bg.png) repeat-y; }
+    background: #952e25 url(../images/blue-page-bg.png) repeat-y; }
 
 div.page.title-0.sect-0 {
   background: url(../images/cover-bg.png) no-repeat 0 0 transparent; }
+div.page.inside-0.sect-0 {
+  background: url(../images/insidefront_cover.png) no-repeat 0 0 transparent; }
 div.page.pg-l div.bubble, div.page.pg-k div.bubble {
   -webkit-border-top-left-radius: 11px;
   -webkit-border-bottom-left-radius: 11px;
@@ -488,7 +508,7 @@ div.page.pg-l div.bubble, div.page.pg-k div.bubble {
     font-weight: bold;
     font-size: 15px;
     padding: 8px 15px 5px 58px;
-    color: #9b544e; }
+    color: #952e25; }
   div.page.pg-l div.bubble ul, div.page.pg-k div.bubble ul {
     padding: 0 15px 0 43px;
     margin: 0; }
@@ -500,23 +520,23 @@ div.page.pg-l div.bubble, div.page.pg-k div.bubble {
   div.page.pg-l div.bubble.b10, div.page.pg-k div.bubble.b10 {
     height: 338px; }
     div.page.pg-l div.bubble.b10 h4, div.page.pg-k div.bubble.b10 h4 {
-      background: #9b544e url(../images/2010.png) 14px 17px no-repeat; }
+      background: #952e25 url(../images/2010.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.b11-12, div.page.pg-k div.bubble.b11-12 {
     height: 142px; }
     div.page.pg-l div.bubble.b11-12 h4, div.page.pg-k div.bubble.b11-12 h4 {
-      background: #9b544e url(../images/11-12.png) 14px 17px no-repeat; }
+      background: #952e25 url(../images/11-12.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.b13, div.page.pg-k div.bubble.b13 {
     height: 160px; }
     div.page.pg-l div.bubble.b13 h4, div.page.pg-k div.bubble.b13 h4 {
-      background: #9b544e url(../images/13.png) 14px 17px no-repeat; }
+      background: #952e25 url(../images/13.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.b14, div.page.pg-k div.bubble.b14 {
     height: 332px; }
     div.page.pg-l div.bubble.b14 h4, div.page.pg-k div.bubble.b14 h4 {
-      background: #9b544e url(../images/14.png) 14px 17px no-repeat; }
+      background: #952e25 url(../images/14.png) 14px 17px no-repeat; }
   div.page.pg-l div.bubble.b15-18, div.page.pg-k div.bubble.b15-18 {
     height: 97px; }
     div.page.pg-l div.bubble.b15-18 h4, div.page.pg-k div.bubble.b15-18 h4 {
-      background: #9b544e url(../images/15-18.png) 14px 8px no-repeat; }
+      background: #952e25 url(../images/15-18.png) 14px 8px no-repeat; }
 div.page.pg-m span {
   font-size: 12px;
   padding: 3px 0 10px 21px;
@@ -535,7 +555,7 @@ div.page.pg-m .thead {
   background: #f3f3f4;
   border-top: 1px solid black; }
 div.page.pg-m th {
-  color: #9b544e;
+  color: #952e25;
   font-size: 14px;
   padding: 5px;
   font-weight: bold; }

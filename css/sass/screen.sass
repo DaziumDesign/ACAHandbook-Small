@@ -6,7 +6,7 @@
 
 $dark-gray: #818285
 $blue: #1594d0
-$burg: #9b544e
+$burg: #952e25
 
 
 body
@@ -72,8 +72,10 @@ body
 
 	p.disclaimer
 		font-size: 0.75em
-		line-height: 1em
-		text-align: left
+		line-height: 1.5em
+		text-align: center
+		color: #444 !important
+		margin-left: 2.5em
 
 	a
 		color: #000
@@ -411,17 +413,18 @@ div.page
 
 	h3
 		font-weight: bold
-		font-size: 19px
+		font-size: 18px
+		text-transform: uppercase
 		line-height: 22.4px
 		margin: 0 0 15px
 		padding: 32px 35px 0
 
 	h4
 		font-weight: bold
-		font-size: 14px
+		font-size: 15px
 		line-height: 19px
 		padding-top: 0
-		padding: 0 35px 13px
+		padding: 0 35px 6px
 
 	p.disclaimer
 		padding: 0 35px 30px !important
@@ -430,6 +433,15 @@ div.page
 		position: absolute
 		bottom: 0
 		left: 0
+
+	p.bolditalic
+		font-size: 15px
+		line-height: 19px
+		font-weight: bold
+		font-style: italic
+	
+	p.indent
+		margin-left: 30px
 
 	ul
 		list-style: disc
@@ -444,13 +456,25 @@ div.page
 			margin: -9px auto 20px !important
 
 			li
-				padding: 10px 12px 6px
+				padding: 3px 17px 1px
 				border-bottom: 1px solid #dddddf
 				margin: 0
+
+	ul.toc
+		list-style: none
+		padding: 0 35px
+		margin: 19px 0 13px
+
 	ol
 		list-style: decimal
 		padding: 0 35px
 		margin: -9px 0 13px
+		
+		&.indent
+			margin-left: 50px
+
+		&.indent-small
+			margin-left: 20px
 
 	strong
 		font-weight: bold
@@ -474,7 +498,7 @@ div.page
 
 		li
 			padding: 0
-			margin: 0 0 3px 14px
+			margin: 0 0 13px 14px
 
 		h2,
 		h3,
@@ -498,7 +522,7 @@ div.page
 			font-size: 26px
 			line-height: 32px
 			margin: 0 0 15px
-			padding: 32px 35px 0
+			padding: 2px 35px 0
 
 		h3
 			padding-top: 0
@@ -513,8 +537,8 @@ div.page
 
 		p, li
 			margin-bottom: 20px
-			font-size: 15px
-			line-height: 19px
+			font-size: 14px
+			line-height: 20px
 			padding: 0 35px
 			clear: both
 
@@ -545,6 +569,8 @@ div.page
 	&.title-0.sect-0
 		background: url(../images/cover-bg.png) no-repeat 0 0 transparent
 
+	&.inside-0.sect-0
+		background: url(../images/insidefront_cover.png) no-repeat 0 0 transparent
 
 	//Timelines
 	&.pg-l,
