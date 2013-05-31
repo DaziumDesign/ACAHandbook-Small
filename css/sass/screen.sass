@@ -106,7 +106,7 @@ body
 
 #headerbar
 	height: 36px
-	background-color: #9C544D
+	background-color: $burg
 	width: 100%
 	position: absolute
 	top: 0
@@ -439,7 +439,7 @@ div.page
 		line-height: 19px
 		font-weight: bold
 		font-style: italic
-	
+
 	p.indent
 		margin-left: 30px
 
@@ -469,11 +469,17 @@ div.page
 		padding: 0 35px
 		margin: 19px 0 13px
 
+		li
+			span
+				cursor: pointer
+				&:hover
+					color: $burg
+
 	ol
 		list-style: decimal
 		padding: 0 35px
 		margin: -9px 0 13px
-		
+
 		&.indent
 			margin-left: 50px
 
