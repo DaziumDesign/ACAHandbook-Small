@@ -244,22 +244,22 @@ body {
     background: url(../images/tabs.png) no-repeat; }
     #side-tabs li.tab-0 {
       background-position: 0 0;
-      height: 179px;
+      height: 160px;
       top: 0; }
       #side-tabs li.tab-0:hover {
         background-position: -46px 0; }
     #side-tabs li.tab-1 {
-      background-position: 0 -179px;
-      height: 101px;
-      top: 179px; }
+      background-position: 0 -160px;
+      height: 170px;
+      top: 160px; }
       #side-tabs li.tab-1:hover {
-        background-position: -46px -179px; }
+        background-position: -46px -160px; }
     #side-tabs li.tab-2 {
-      background-position: 0 -280px;
-      height: 128px;
-      top: 280px; }
+      background-position: 0 -330px;
+      height: 89px;
+      top: 330px; }
       #side-tabs li.tab-2:hover {
-        background-position: -46px -280px; }
+        background-position: -46px -330px; }
 
 #book-left {
   position: absolute;
@@ -393,6 +393,9 @@ div.page {
     font-style: italic; }
   div.page p.indent {
     margin-left: 30px; }
+  div.page .section-chapter {
+    margin: 0 0 10px 0;
+    display: block; }
   div.page ul {
     list-style: disc;
     padding: 0 35px;
