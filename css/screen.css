@@ -408,6 +408,8 @@ div.page {
     font-style: italic; }
   div.page .italic {
     font-style: italic; }
+  div.page .burg {
+    color: #952e25; }
   div.page p.indent {
     margin-left: 30px; }
   div.page .section-chapter {
